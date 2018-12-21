@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from wavefront_api_client.models.integration_alert import IntegrationAlert  # noqa: F401,E501
 from wavefront_api_client.models.integration_alias import IntegrationAlias  # noqa: F401,E501
 from wavefront_api_client.models.integration_dashboard import IntegrationDashboard  # noqa: F401,E501
 from wavefront_api_client.models.integration_metrics import IntegrationMetrics  # noqa: F401,E501
@@ -36,14 +37,16 @@ class Integration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'icon': 'str',
         'version': 'str',
+        'icon': 'str',
+        'description': 'str',
+        'metrics': 'IntegrationMetrics',
         'name': 'str',
         'id': 'str',
-        'metrics': 'IntegrationMetrics',
-        'description': 'str',
         'base_url': 'str',
         'status': 'IntegrationStatus',
+        'deleted': 'bool',
+        'alerts': 'list[IntegrationAlert]',
         'creator_id': 'str',
         'updater_id': 'str',
         'created_epoch_millis': 'int',
@@ -51,20 +54,21 @@ class Integration(object):
         'dashboards': 'list[IntegrationDashboard]',
         'alias_of': 'str',
         'alias_integrations': 'list[IntegrationAlias]',
-        'deleted': 'bool',
         'overview': 'str',
         'setup': 'str'
     }
 
     attribute_map = {
-        'icon': 'icon',
         'version': 'version',
+        'icon': 'icon',
+        'description': 'description',
+        'metrics': 'metrics',
         'name': 'name',
         'id': 'id',
-        'metrics': 'metrics',
-        'description': 'description',
         'base_url': 'baseUrl',
         'status': 'status',
+        'deleted': 'deleted',
+        'alerts': 'alerts',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
@@ -72,22 +76,23 @@ class Integration(object):
         'dashboards': 'dashboards',
         'alias_of': 'aliasOf',
         'alias_integrations': 'aliasIntegrations',
-        'deleted': 'deleted',
         'overview': 'overview',
         'setup': 'setup'
     }
 
-    def __init__(self, icon=None, version=None, name=None, id=None, metrics=None, description=None, base_url=None, status=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, dashboards=None, alias_of=None, alias_integrations=None, deleted=None, overview=None, setup=None):  # noqa: E501
+    def __init__(self, version=None, icon=None, description=None, metrics=None, name=None, id=None, base_url=None, status=None, deleted=None, alerts=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, dashboards=None, alias_of=None, alias_integrations=None, overview=None, setup=None):  # noqa: E501
         """Integration - a model defined in Swagger"""  # noqa: E501
 
-        self._icon = None
         self._version = None
+        self._icon = None
+        self._description = None
+        self._metrics = None
         self._name = None
         self._id = None
-        self._metrics = None
-        self._description = None
         self._base_url = None
         self._status = None
+        self._deleted = None
+        self._alerts = None
         self._creator_id = None
         self._updater_id = None
         self._created_epoch_millis = None
@@ -95,23 +100,26 @@ class Integration(object):
         self._dashboards = None
         self._alias_of = None
         self._alias_integrations = None
-        self._deleted = None
         self._overview = None
         self._setup = None
         self.discriminator = None
 
-        self.icon = icon
         self.version = version
+        self.icon = icon
+        self.description = description
+        if metrics is not None:
+            self.metrics = metrics
         self.name = name
         if id is not None:
             self.id = id
-        if metrics is not None:
-            self.metrics = metrics
-        self.description = description
         if base_url is not None:
             self.base_url = base_url
         if status is not None:
             self.status = status
+        if deleted is not None:
+            self.deleted = deleted
+        if alerts is not None:
+            self.alerts = alerts
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
@@ -126,12 +134,35 @@ class Integration(object):
             self.alias_of = alias_of
         if alias_integrations is not None:
             self.alias_integrations = alias_integrations
-        if deleted is not None:
-            self.deleted = deleted
         if overview is not None:
             self.overview = overview
         if setup is not None:
             self.setup = setup
+
+    @property
+    def version(self):
+        """Gets the version of this Integration.  # noqa: E501
+
+        Integration version string  # noqa: E501
+
+        :return: The version of this Integration.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this Integration.
+
+        Integration version string  # noqa: E501
+
+        :param version: The version of this Integration.  # noqa: E501
+        :type: str
+        """
+        if version is None:
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+
+        self._version = version
 
     @property
     def icon(self):
@@ -159,29 +190,50 @@ class Integration(object):
         self._icon = icon
 
     @property
-    def version(self):
-        """Gets the version of this Integration.  # noqa: E501
+    def description(self):
+        """Gets the description of this Integration.  # noqa: E501
 
-        Integration version string  # noqa: E501
+        Integration description  # noqa: E501
 
-        :return: The version of this Integration.  # noqa: E501
+        :return: The description of this Integration.  # noqa: E501
         :rtype: str
         """
-        return self._version
+        return self._description
 
-    @version.setter
-    def version(self, version):
-        """Sets the version of this Integration.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Integration.
 
-        Integration version string  # noqa: E501
+        Integration description  # noqa: E501
 
-        :param version: The version of this Integration.  # noqa: E501
+        :param description: The description of this Integration.  # noqa: E501
         :type: str
         """
-        if version is None:
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+        if description is None:
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
-        self._version = version
+        self._description = description
+
+    @property
+    def metrics(self):
+        """Gets the metrics of this Integration.  # noqa: E501
+
+
+        :return: The metrics of this Integration.  # noqa: E501
+        :rtype: IntegrationMetrics
+        """
+        return self._metrics
+
+    @metrics.setter
+    def metrics(self, metrics):
+        """Sets the metrics of this Integration.
+
+
+        :param metrics: The metrics of this Integration.  # noqa: E501
+        :type: IntegrationMetrics
+        """
+
+        self._metrics = metrics
 
     @property
     def name(self):
@@ -230,52 +282,6 @@ class Integration(object):
         self._id = id
 
     @property
-    def metrics(self):
-        """Gets the metrics of this Integration.  # noqa: E501
-
-
-        :return: The metrics of this Integration.  # noqa: E501
-        :rtype: IntegrationMetrics
-        """
-        return self._metrics
-
-    @metrics.setter
-    def metrics(self, metrics):
-        """Sets the metrics of this Integration.
-
-
-        :param metrics: The metrics of this Integration.  # noqa: E501
-        :type: IntegrationMetrics
-        """
-
-        self._metrics = metrics
-
-    @property
-    def description(self):
-        """Gets the description of this Integration.  # noqa: E501
-
-        Integration description  # noqa: E501
-
-        :return: The description of this Integration.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Integration.
-
-        Integration description  # noqa: E501
-
-        :param description: The description of this Integration.  # noqa: E501
-        :type: str
-        """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
-
-        self._description = description
-
-    @property
     def base_url(self):
         """Gets the base_url of this Integration.  # noqa: E501
 
@@ -318,6 +324,50 @@ class Integration(object):
         """
 
         self._status = status
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this Integration.  # noqa: E501
+
+
+        :return: The deleted of this Integration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this Integration.
+
+
+        :param deleted: The deleted of this Integration.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
+
+    @property
+    def alerts(self):
+        """Gets the alerts of this Integration.  # noqa: E501
+
+        A list of alerts belonging to this integration  # noqa: E501
+
+        :return: The alerts of this Integration.  # noqa: E501
+        :rtype: list[IntegrationAlert]
+        """
+        return self._alerts
+
+    @alerts.setter
+    def alerts(self, alerts):
+        """Sets the alerts of this Integration.
+
+        A list of alerts belonging to this integration  # noqa: E501
+
+        :param alerts: The alerts of this Integration.  # noqa: E501
+        :type: list[IntegrationAlert]
+        """
+
+        self._alerts = alerts
 
     @property
     def creator_id(self):
@@ -473,27 +523,6 @@ class Integration(object):
         self._alias_integrations = alias_integrations
 
     @property
-    def deleted(self):
-        """Gets the deleted of this Integration.  # noqa: E501
-
-
-        :return: The deleted of this Integration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this Integration.
-
-
-        :param deleted: The deleted of this Integration.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
-
-    @property
     def overview(self):
         """Gets the overview of this Integration.  # noqa: E501
 
@@ -560,6 +589,9 @@ class Integration(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(Integration, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

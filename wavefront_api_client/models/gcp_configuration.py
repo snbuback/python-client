@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -153,7 +153,7 @@ class GCPConfiguration(object):
         :param categories_to_fetch: The categories_to_fetch of this GCPConfiguration.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["APPENGINE", "BIGQUERY", "BIGTABLE", "CLOUDFUNCTIONS", "CLOUDIOT", "CLOUDSQL", "CLOUDTASKS", "COMPUTE", "CONTAINER", "DATAFLOW", "DATAPROC", "DATASTORE", "FIREBASEDATABASE", "FIREBASEHOSTING", "INTERCONNECT", "LOADBALANCING", "LOGGING", "ML", "MONITORING", "PUBSUB", "ROUTER", "SERVICERUNTIME", "SPANNER", "STORAGE", "TPU", "VPN"]  # noqa: E501
+        allowed_values = ["APPENGINE", "BIGQUERY", "BIGTABLE", "CLOUDFUNCTIONS", "CLOUDIOT", "CLOUDSQL", "CLOUDTASKS", "COMPUTE", "CONTAINER", "DATAFLOW", "DATAPROC", "DATASTORE", "FIREBASEDATABASE", "FIREBASEHOSTING", "INTERCONNECT", "LOADBALANCING", "LOGGING", "ML", "MONITORING", "PUBSUB", "REDIS", "ROUTER", "SERVICERUNTIME", "SPANNER", "STORAGE", "TPU", "VPN"]  # noqa: E501
         if not set(categories_to_fetch).issubset(set(allowed_values)):
             raise ValueError(
                 "Invalid values for `categories_to_fetch` [{0}], must be a subset of [{1}]"  # noqa: E501
@@ -184,6 +184,9 @@ class GCPConfiguration(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(GCPConfiguration, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

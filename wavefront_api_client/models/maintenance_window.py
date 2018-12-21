@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -33,6 +33,7 @@ class MaintenanceWindow(object):
     swagger_types = {
         'reason': 'str',
         'id': 'str',
+        'sort_attr': 'int',
         'customer_id': 'str',
         'relevant_customer_tags': 'list[str]',
         'title': 'str',
@@ -47,13 +48,13 @@ class MaintenanceWindow(object):
         'relevant_host_tags_anded': 'bool',
         'host_tag_group_host_names_group_anded': 'bool',
         'event_name': 'str',
-        'sort_attr': 'int',
         'running_state': 'str'
     }
 
     attribute_map = {
         'reason': 'reason',
         'id': 'id',
+        'sort_attr': 'sortAttr',
         'customer_id': 'customerId',
         'relevant_customer_tags': 'relevantCustomerTags',
         'title': 'title',
@@ -68,15 +69,15 @@ class MaintenanceWindow(object):
         'relevant_host_tags_anded': 'relevantHostTagsAnded',
         'host_tag_group_host_names_group_anded': 'hostTagGroupHostNamesGroupAnded',
         'event_name': 'eventName',
-        'sort_attr': 'sortAttr',
         'running_state': 'runningState'
     }
 
-    def __init__(self, reason=None, id=None, customer_id=None, relevant_customer_tags=None, title=None, start_time_in_seconds=None, end_time_in_seconds=None, relevant_host_tags=None, relevant_host_names=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, relevant_host_tags_anded=None, host_tag_group_host_names_group_anded=None, event_name=None, sort_attr=None, running_state=None):  # noqa: E501
+    def __init__(self, reason=None, id=None, sort_attr=None, customer_id=None, relevant_customer_tags=None, title=None, start_time_in_seconds=None, end_time_in_seconds=None, relevant_host_tags=None, relevant_host_names=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, relevant_host_tags_anded=None, host_tag_group_host_names_group_anded=None, event_name=None, running_state=None):  # noqa: E501
         """MaintenanceWindow - a model defined in Swagger"""  # noqa: E501
 
         self._reason = None
         self._id = None
+        self._sort_attr = None
         self._customer_id = None
         self._relevant_customer_tags = None
         self._title = None
@@ -91,13 +92,14 @@ class MaintenanceWindow(object):
         self._relevant_host_tags_anded = None
         self._host_tag_group_host_names_group_anded = None
         self._event_name = None
-        self._sort_attr = None
         self._running_state = None
         self.discriminator = None
 
         self.reason = reason
         if id is not None:
             self.id = id
+        if sort_attr is not None:
+            self.sort_attr = sort_attr
         if customer_id is not None:
             self.customer_id = customer_id
         self.relevant_customer_tags = relevant_customer_tags
@@ -122,8 +124,6 @@ class MaintenanceWindow(object):
             self.host_tag_group_host_names_group_anded = host_tag_group_host_names_group_anded
         if event_name is not None:
             self.event_name = event_name
-        if sort_attr is not None:
-            self.sort_attr = sort_attr
         if running_state is not None:
             self.running_state = running_state
 
@@ -172,6 +172,29 @@ class MaintenanceWindow(object):
         """
 
         self._id = id
+
+    @property
+    def sort_attr(self):
+        """Gets the sort_attr of this MaintenanceWindow.  # noqa: E501
+
+        Numeric value used in default sorting  # noqa: E501
+
+        :return: The sort_attr of this MaintenanceWindow.  # noqa: E501
+        :rtype: int
+        """
+        return self._sort_attr
+
+    @sort_attr.setter
+    def sort_attr(self, sort_attr):
+        """Sets the sort_attr of this MaintenanceWindow.
+
+        Numeric value used in default sorting  # noqa: E501
+
+        :param sort_attr: The sort_attr of this MaintenanceWindow.  # noqa: E501
+        :type: int
+        """
+
+        self._sort_attr = sort_attr
 
     @property
     def customer_id(self):
@@ -494,29 +517,6 @@ class MaintenanceWindow(object):
         self._event_name = event_name
 
     @property
-    def sort_attr(self):
-        """Gets the sort_attr of this MaintenanceWindow.  # noqa: E501
-
-        Numeric value used in default sorting  # noqa: E501
-
-        :return: The sort_attr of this MaintenanceWindow.  # noqa: E501
-        :rtype: int
-        """
-        return self._sort_attr
-
-    @sort_attr.setter
-    def sort_attr(self, sort_attr):
-        """Sets the sort_attr of this MaintenanceWindow.
-
-        Numeric value used in default sorting  # noqa: E501
-
-        :param sort_attr: The sort_attr of this MaintenanceWindow.  # noqa: E501
-        :type: int
-        """
-
-        self._sort_attr = sort_attr
-
-    @property
     def running_state(self):
         """Gets the running_state of this MaintenanceWindow.  # noqa: E501
 
@@ -564,6 +564,9 @@ class MaintenanceWindow(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(MaintenanceWindow, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

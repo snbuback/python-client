@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -31,53 +31,53 @@ class ExternalLink(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'description': 'str',
         'name': 'str',
         'id': 'str',
-        'description': 'str',
         'creator_id': 'str',
         'updater_id': 'str',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'template': 'str',
-        'metric_filter_regex': 'str',
         'source_filter_regex': 'str',
-        'point_tag_filter_regexes': 'dict(str, str)'
+        'point_tag_filter_regexes': 'dict(str, str)',
+        'template': 'str',
+        'metric_filter_regex': 'str'
     }
 
     attribute_map = {
+        'description': 'description',
         'name': 'name',
         'id': 'id',
-        'description': 'description',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'template': 'template',
-        'metric_filter_regex': 'metricFilterRegex',
         'source_filter_regex': 'sourceFilterRegex',
-        'point_tag_filter_regexes': 'pointTagFilterRegexes'
+        'point_tag_filter_regexes': 'pointTagFilterRegexes',
+        'template': 'template',
+        'metric_filter_regex': 'metricFilterRegex'
     }
 
-    def __init__(self, name=None, id=None, description=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, metric_filter_regex=None, source_filter_regex=None, point_tag_filter_regexes=None):  # noqa: E501
+    def __init__(self, description=None, name=None, id=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, source_filter_regex=None, point_tag_filter_regexes=None, template=None, metric_filter_regex=None):  # noqa: E501
         """ExternalLink - a model defined in Swagger"""  # noqa: E501
 
+        self._description = None
         self._name = None
         self._id = None
-        self._description = None
         self._creator_id = None
         self._updater_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
-        self._template = None
-        self._metric_filter_regex = None
         self._source_filter_regex = None
         self._point_tag_filter_regexes = None
+        self._template = None
+        self._metric_filter_regex = None
         self.discriminator = None
 
+        self.description = description
         self.name = name
         if id is not None:
             self.id = id
-        self.description = description
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
@@ -86,13 +86,38 @@ class ExternalLink(object):
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
-        self.template = template
-        if metric_filter_regex is not None:
-            self.metric_filter_regex = metric_filter_regex
         if source_filter_regex is not None:
             self.source_filter_regex = source_filter_regex
         if point_tag_filter_regexes is not None:
             self.point_tag_filter_regexes = point_tag_filter_regexes
+        self.template = template
+        if metric_filter_regex is not None:
+            self.metric_filter_regex = metric_filter_regex
+
+    @property
+    def description(self):
+        """Gets the description of this ExternalLink.  # noqa: E501
+
+        Human-readable description for this external link  # noqa: E501
+
+        :return: The description of this ExternalLink.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ExternalLink.
+
+        Human-readable description for this external link  # noqa: E501
+
+        :param description: The description of this ExternalLink.  # noqa: E501
+        :type: str
+        """
+        if description is None:
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+
+        self._description = description
 
     @property
     def name(self):
@@ -139,31 +164,6 @@ class ExternalLink(object):
         """
 
         self._id = id
-
-    @property
-    def description(self):
-        """Gets the description of this ExternalLink.  # noqa: E501
-
-        Human-readable description for this external link  # noqa: E501
-
-        :return: The description of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this ExternalLink.
-
-        Human-readable description for this external link  # noqa: E501
-
-        :param description: The description of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
-
-        self._description = description
 
     @property
     def creator_id(self):
@@ -250,6 +250,52 @@ class ExternalLink(object):
         self._updated_epoch_millis = updated_epoch_millis
 
     @property
+    def source_filter_regex(self):
+        """Gets the source_filter_regex of this ExternalLink.  # noqa: E501
+
+        Controls whether a link displayed in the context menu of a highlighted series.  If present, the source name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
+
+        :return: The source_filter_regex of this ExternalLink.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_filter_regex
+
+    @source_filter_regex.setter
+    def source_filter_regex(self, source_filter_regex):
+        """Sets the source_filter_regex of this ExternalLink.
+
+        Controls whether a link displayed in the context menu of a highlighted series.  If present, the source name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
+
+        :param source_filter_regex: The source_filter_regex of this ExternalLink.  # noqa: E501
+        :type: str
+        """
+
+        self._source_filter_regex = source_filter_regex
+
+    @property
+    def point_tag_filter_regexes(self):
+        """Gets the point_tag_filter_regexes of this ExternalLink.  # noqa: E501
+
+        Controls whether a link displayed in the context menu of a highlighted series.  This is a map from string to regular expression. The highlighted series must contain point tags whose keys are present in the keys of this map and whose values match the regular expressions associated with those keys in order for the link to be displayed  # noqa: E501
+
+        :return: The point_tag_filter_regexes of this ExternalLink.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._point_tag_filter_regexes
+
+    @point_tag_filter_regexes.setter
+    def point_tag_filter_regexes(self, point_tag_filter_regexes):
+        """Sets the point_tag_filter_regexes of this ExternalLink.
+
+        Controls whether a link displayed in the context menu of a highlighted series.  This is a map from string to regular expression. The highlighted series must contain point tags whose keys are present in the keys of this map and whose values match the regular expressions associated with those keys in order for the link to be displayed  # noqa: E501
+
+        :param point_tag_filter_regexes: The point_tag_filter_regexes of this ExternalLink.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._point_tag_filter_regexes = point_tag_filter_regexes
+
+    @property
     def template(self):
         """Gets the template of this ExternalLink.  # noqa: E501
 
@@ -297,52 +343,6 @@ class ExternalLink(object):
 
         self._metric_filter_regex = metric_filter_regex
 
-    @property
-    def source_filter_regex(self):
-        """Gets the source_filter_regex of this ExternalLink.  # noqa: E501
-
-        Controls whether a link displayed in the context menu of a highlighted series.  If present, the source name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
-
-        :return: The source_filter_regex of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_filter_regex
-
-    @source_filter_regex.setter
-    def source_filter_regex(self, source_filter_regex):
-        """Sets the source_filter_regex of this ExternalLink.
-
-        Controls whether a link displayed in the context menu of a highlighted series.  If present, the source name of the highlighted series must match this regular expression in order for the link to be displayed  # noqa: E501
-
-        :param source_filter_regex: The source_filter_regex of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-
-        self._source_filter_regex = source_filter_regex
-
-    @property
-    def point_tag_filter_regexes(self):
-        """Gets the point_tag_filter_regexes of this ExternalLink.  # noqa: E501
-
-        Controls whether a link displayed in the context menu of a highlighted series.  This is a map from string to regular expression. The highlighted series must contain point tags whose keys are present in the keys of this map and whose values match the regular expressions associated with those keys in order for the link to be displayed  # noqa: E501
-
-        :return: The point_tag_filter_regexes of this ExternalLink.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._point_tag_filter_regexes
-
-    @point_tag_filter_regexes.setter
-    def point_tag_filter_regexes(self, point_tag_filter_regexes):
-        """Sets the point_tag_filter_regexes of this ExternalLink.
-
-        Controls whether a link displayed in the context menu of a highlighted series.  This is a map from string to regular expression. The highlighted series must contain point tags whose keys are present in the keys of this map and whose values match the regular expressions associated with those keys in order for the link to be displayed  # noqa: E501
-
-        :param point_tag_filter_regexes: The point_tag_filter_regexes of this ExternalLink.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._point_tag_filter_regexes = point_tag_filter_regexes
-
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -364,6 +364,9 @@ class ExternalLink(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ExternalLink, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

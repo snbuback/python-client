@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -32,35 +32,37 @@ class AvroBackedStandardizedDTO(object):
     """
     swagger_types = {
         'id': 'str',
+        'deleted': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
         'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
-        'deleted': 'bool'
+        'updated_epoch_millis': 'int'
     }
 
     attribute_map = {
         'id': 'id',
+        'deleted': 'deleted',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
-        'deleted': 'deleted'
+        'updated_epoch_millis': 'updatedEpochMillis'
     }
 
-    def __init__(self, id=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None):  # noqa: E501
+    def __init__(self, id=None, deleted=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None):  # noqa: E501
         """AvroBackedStandardizedDTO - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
+        self._deleted = None
         self._creator_id = None
         self._updater_id = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
-        self._deleted = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
+        if deleted is not None:
+            self.deleted = deleted
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
@@ -69,8 +71,6 @@ class AvroBackedStandardizedDTO(object):
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
-        if deleted is not None:
-            self.deleted = deleted
 
     @property
     def id(self):
@@ -92,6 +92,27 @@ class AvroBackedStandardizedDTO(object):
         """
 
         self._id = id
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this AvroBackedStandardizedDTO.  # noqa: E501
+
+
+        :return: The deleted of this AvroBackedStandardizedDTO.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this AvroBackedStandardizedDTO.
+
+
+        :param deleted: The deleted of this AvroBackedStandardizedDTO.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     @property
     def creator_id(self):
@@ -177,27 +198,6 @@ class AvroBackedStandardizedDTO(object):
 
         self._updated_epoch_millis = updated_epoch_millis
 
-    @property
-    def deleted(self):
-        """Gets the deleted of this AvroBackedStandardizedDTO.  # noqa: E501
-
-
-        :return: The deleted of this AvroBackedStandardizedDTO.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this AvroBackedStandardizedDTO.
-
-
-        :param deleted: The deleted of this AvroBackedStandardizedDTO.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
-
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -219,6 +219,9 @@ class AvroBackedStandardizedDTO(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(AvroBackedStandardizedDTO, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

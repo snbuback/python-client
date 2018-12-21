@@ -13,10 +13,12 @@ Method | HTTP request | Description
 [**get_alert_version**](AlertApi.md#get_alert_version) | **GET** /api/v2/alert/{id}/history/{version} | Get a specific historical version of a specific alert
 [**get_alerts_summary**](AlertApi.md#get_alerts_summary) | **GET** /api/v2/alert/summary | Count alerts of various statuses for a customer
 [**get_all_alert**](AlertApi.md#get_all_alert) | **GET** /api/v2/alert | Get all alerts for a customer
+[**hide_alert**](AlertApi.md#hide_alert) | **POST** /api/v2/alert/{id}/uninstall | Hide a specific integration alert 
 [**remove_alert_tag**](AlertApi.md#remove_alert_tag) | **DELETE** /api/v2/alert/{id}/tag/{tagValue} | Remove a tag from a specific alert
 [**set_alert_tags**](AlertApi.md#set_alert_tags) | **POST** /api/v2/alert/{id}/tag | Set all tags associated with a specific alert
 [**snooze_alert**](AlertApi.md#snooze_alert) | **POST** /api/v2/alert/{id}/snooze | Snooze a specific alert for some number of seconds
 [**undelete_alert**](AlertApi.md#undelete_alert) | **POST** /api/v2/alert/{id}/undelete | Undelete a specific alert
+[**unhide_alert**](AlertApi.md#unhide_alert) | **POST** /api/v2/alert/{id}/install | Unhide a specific integration alert
 [**unsnooze_alert**](AlertApi.md#unsnooze_alert) | **POST** /api/v2/alert/{id}/unsnooze | Unsnooze a specific alert
 [**update_alert**](AlertApi.md#update_alert) | **PUT** /api/v2/alert/{id} | Update a specific alert
 
@@ -513,6 +515,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **hide_alert**
+> ResponseContainerAlert hide_alert(id)
+
+Hide a specific integration alert 
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
+id = 789 # int | 
+
+try:
+    # Hide a specific integration alert 
+    api_response = api_instance.hide_alert(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AlertApi->hide_alert: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+
+### Return type
+
+[**ResponseContainerAlert**](ResponseContainerAlert.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **remove_alert_tag**
 > ResponseContainer remove_alert_tag(id, tag_value)
 
@@ -719,6 +775,60 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+
+### Return type
+
+[**ResponseContainerAlert**](ResponseContainerAlert.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **unhide_alert**
+> ResponseContainerAlert unhide_alert(id)
+
+Unhide a specific integration alert
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import wavefront_api_client
+from wavefront_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = wavefront_api_client.Configuration()
+configuration.api_key['X-AUTH-TOKEN'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-AUTH-TOKEN'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = wavefront_api_client.AlertApi(wavefront_api_client.ApiClient(configuration))
+id = 789 # int | 
+
+try:
+    # Unhide a specific integration alert
+    api_response = api_instance.unhide_alert(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AlertApi->unhide_alert: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
 
 ### Return type
 

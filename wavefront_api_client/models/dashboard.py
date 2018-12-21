@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from wavefront_api_client.models.access_control_list_simple import AccessControlListSimple  # noqa: F401,E501
 from wavefront_api_client.models.dashboard_parameter_value import DashboardParameterValue  # noqa: F401,E501
 from wavefront_api_client.models.dashboard_section import DashboardSection  # noqa: F401,E501
 from wavefront_api_client.models.wf_tags import WFTags  # noqa: F401,E501
@@ -35,14 +36,17 @@ class Dashboard(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'can_user_modify': 'bool',
+        'description': 'str',
         'hidden': 'bool',
         'name': 'str',
         'id': 'str',
         'parameters': 'dict(str, str)',
-        'description': 'str',
         'tags': 'WFTags',
         'customer': 'str',
+        'deleted': 'bool',
         'url': 'str',
+        'system_owned': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
         'event_filter_type': 'str',
@@ -61,24 +65,27 @@ class Dashboard(object):
         'views_last_day': 'int',
         'views_last_week': 'int',
         'views_last_month': 'int',
+        'acl': 'AccessControlListSimple',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'deleted': 'bool',
-        'system_owned': 'bool',
         'num_charts': 'int',
+        'num_favorites': 'int',
         'favorite': 'bool',
-        'num_favorites': 'int'
+        'orphan': 'bool'
     }
 
     attribute_map = {
+        'can_user_modify': 'canUserModify',
+        'description': 'description',
         'hidden': 'hidden',
         'name': 'name',
         'id': 'id',
         'parameters': 'parameters',
-        'description': 'description',
         'tags': 'tags',
         'customer': 'customer',
+        'deleted': 'deleted',
         'url': 'url',
+        'system_owned': 'systemOwned',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'event_filter_type': 'eventFilterType',
@@ -97,26 +104,29 @@ class Dashboard(object):
         'views_last_day': 'viewsLastDay',
         'views_last_week': 'viewsLastWeek',
         'views_last_month': 'viewsLastMonth',
+        'acl': 'acl',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'deleted': 'deleted',
-        'system_owned': 'systemOwned',
         'num_charts': 'numCharts',
+        'num_favorites': 'numFavorites',
         'favorite': 'favorite',
-        'num_favorites': 'numFavorites'
+        'orphan': 'orphan'
     }
 
-    def __init__(self, hidden=None, name=None, id=None, parameters=None, description=None, tags=None, customer=None, url=None, creator_id=None, updater_id=None, event_filter_type=None, sections=None, parameter_details=None, display_description=None, display_section_table_of_contents=None, display_query_parameters=None, chart_title_scalar=None, event_query=None, default_time_window=None, default_start_time=None, default_end_time=None, chart_title_color=None, chart_title_bg_color=None, views_last_day=None, views_last_week=None, views_last_month=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None, system_owned=None, num_charts=None, favorite=None, num_favorites=None):  # noqa: E501
+    def __init__(self, can_user_modify=None, description=None, hidden=None, name=None, id=None, parameters=None, tags=None, customer=None, deleted=None, url=None, system_owned=None, creator_id=None, updater_id=None, event_filter_type=None, sections=None, parameter_details=None, display_description=None, display_section_table_of_contents=None, display_query_parameters=None, chart_title_scalar=None, event_query=None, default_time_window=None, default_start_time=None, default_end_time=None, chart_title_color=None, chart_title_bg_color=None, views_last_day=None, views_last_week=None, views_last_month=None, acl=None, created_epoch_millis=None, updated_epoch_millis=None, num_charts=None, num_favorites=None, favorite=None, orphan=None):  # noqa: E501
         """Dashboard - a model defined in Swagger"""  # noqa: E501
 
+        self._can_user_modify = None
+        self._description = None
         self._hidden = None
         self._name = None
         self._id = None
         self._parameters = None
-        self._description = None
         self._tags = None
         self._customer = None
+        self._deleted = None
         self._url = None
+        self._system_owned = None
         self._creator_id = None
         self._updater_id = None
         self._event_filter_type = None
@@ -135,28 +145,34 @@ class Dashboard(object):
         self._views_last_day = None
         self._views_last_week = None
         self._views_last_month = None
+        self._acl = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
-        self._deleted = None
-        self._system_owned = None
         self._num_charts = None
-        self._favorite = None
         self._num_favorites = None
+        self._favorite = None
+        self._orphan = None
         self.discriminator = None
 
+        if can_user_modify is not None:
+            self.can_user_modify = can_user_modify
+        if description is not None:
+            self.description = description
         if hidden is not None:
             self.hidden = hidden
         self.name = name
         self.id = id
         if parameters is not None:
             self.parameters = parameters
-        if description is not None:
-            self.description = description
         if tags is not None:
             self.tags = tags
         if customer is not None:
             self.customer = customer
+        if deleted is not None:
+            self.deleted = deleted
         self.url = url
+        if system_owned is not None:
+            self.system_owned = system_owned
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
@@ -192,20 +208,64 @@ class Dashboard(object):
             self.views_last_week = views_last_week
         if views_last_month is not None:
             self.views_last_month = views_last_month
+        if acl is not None:
+            self.acl = acl
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
-        if deleted is not None:
-            self.deleted = deleted
-        if system_owned is not None:
-            self.system_owned = system_owned
         if num_charts is not None:
             self.num_charts = num_charts
-        if favorite is not None:
-            self.favorite = favorite
         if num_favorites is not None:
             self.num_favorites = num_favorites
+        if favorite is not None:
+            self.favorite = favorite
+        if orphan is not None:
+            self.orphan = orphan
+
+    @property
+    def can_user_modify(self):
+        """Gets the can_user_modify of this Dashboard.  # noqa: E501
+
+
+        :return: The can_user_modify of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._can_user_modify
+
+    @can_user_modify.setter
+    def can_user_modify(self, can_user_modify):
+        """Sets the can_user_modify of this Dashboard.
+
+
+        :param can_user_modify: The can_user_modify of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._can_user_modify = can_user_modify
+
+    @property
+    def description(self):
+        """Gets the description of this Dashboard.  # noqa: E501
+
+        Human-readable description of the dashboard  # noqa: E501
+
+        :return: The description of this Dashboard.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Dashboard.
+
+        Human-readable description of the dashboard  # noqa: E501
+
+        :param description: The description of this Dashboard.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def hidden(self):
@@ -302,29 +362,6 @@ class Dashboard(object):
         self._parameters = parameters
 
     @property
-    def description(self):
-        """Gets the description of this Dashboard.  # noqa: E501
-
-        Human-readable description of the dashboard  # noqa: E501
-
-        :return: The description of this Dashboard.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Dashboard.
-
-        Human-readable description of the dashboard  # noqa: E501
-
-        :param description: The description of this Dashboard.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
-
-    @property
     def tags(self):
         """Gets the tags of this Dashboard.  # noqa: E501
 
@@ -369,6 +406,27 @@ class Dashboard(object):
         self._customer = customer
 
     @property
+    def deleted(self):
+        """Gets the deleted of this Dashboard.  # noqa: E501
+
+
+        :return: The deleted of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this Dashboard.
+
+
+        :param deleted: The deleted of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
+
+    @property
     def url(self):
         """Gets the url of this Dashboard.  # noqa: E501
 
@@ -392,6 +450,29 @@ class Dashboard(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def system_owned(self):
+        """Gets the system_owned of this Dashboard.  # noqa: E501
+
+        Whether this dashboard is system-owned and not writeable  # noqa: E501
+
+        :return: The system_owned of this Dashboard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._system_owned
+
+    @system_owned.setter
+    def system_owned(self, system_owned):
+        """Sets the system_owned of this Dashboard.
+
+        Whether this dashboard is system-owned and not writeable  # noqa: E501
+
+        :param system_owned: The system_owned of this Dashboard.  # noqa: E501
+        :type: bool
+        """
+
+        self._system_owned = system_owned
 
     @property
     def creator_id(self):
@@ -806,6 +887,27 @@ class Dashboard(object):
         self._views_last_month = views_last_month
 
     @property
+    def acl(self):
+        """Gets the acl of this Dashboard.  # noqa: E501
+
+
+        :return: The acl of this Dashboard.  # noqa: E501
+        :rtype: AccessControlListSimple
+        """
+        return self._acl
+
+    @acl.setter
+    def acl(self, acl):
+        """Sets the acl of this Dashboard.
+
+
+        :param acl: The acl of this Dashboard.  # noqa: E501
+        :type: AccessControlListSimple
+        """
+
+        self._acl = acl
+
+    @property
     def created_epoch_millis(self):
         """Gets the created_epoch_millis of this Dashboard.  # noqa: E501
 
@@ -848,50 +950,6 @@ class Dashboard(object):
         self._updated_epoch_millis = updated_epoch_millis
 
     @property
-    def deleted(self):
-        """Gets the deleted of this Dashboard.  # noqa: E501
-
-
-        :return: The deleted of this Dashboard.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this Dashboard.
-
-
-        :param deleted: The deleted of this Dashboard.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
-
-    @property
-    def system_owned(self):
-        """Gets the system_owned of this Dashboard.  # noqa: E501
-
-        Whether this dashboard is system-owned and not writeable  # noqa: E501
-
-        :return: The system_owned of this Dashboard.  # noqa: E501
-        :rtype: bool
-        """
-        return self._system_owned
-
-    @system_owned.setter
-    def system_owned(self, system_owned):
-        """Sets the system_owned of this Dashboard.
-
-        Whether this dashboard is system-owned and not writeable  # noqa: E501
-
-        :param system_owned: The system_owned of this Dashboard.  # noqa: E501
-        :type: bool
-        """
-
-        self._system_owned = system_owned
-
-    @property
     def num_charts(self):
         """Gets the num_charts of this Dashboard.  # noqa: E501
 
@@ -911,6 +969,27 @@ class Dashboard(object):
         """
 
         self._num_charts = num_charts
+
+    @property
+    def num_favorites(self):
+        """Gets the num_favorites of this Dashboard.  # noqa: E501
+
+
+        :return: The num_favorites of this Dashboard.  # noqa: E501
+        :rtype: int
+        """
+        return self._num_favorites
+
+    @num_favorites.setter
+    def num_favorites(self, num_favorites):
+        """Sets the num_favorites of this Dashboard.
+
+
+        :param num_favorites: The num_favorites of this Dashboard.  # noqa: E501
+        :type: int
+        """
+
+        self._num_favorites = num_favorites
 
     @property
     def favorite(self):
@@ -934,25 +1013,25 @@ class Dashboard(object):
         self._favorite = favorite
 
     @property
-    def num_favorites(self):
-        """Gets the num_favorites of this Dashboard.  # noqa: E501
+    def orphan(self):
+        """Gets the orphan of this Dashboard.  # noqa: E501
 
 
-        :return: The num_favorites of this Dashboard.  # noqa: E501
-        :rtype: int
+        :return: The orphan of this Dashboard.  # noqa: E501
+        :rtype: bool
         """
-        return self._num_favorites
+        return self._orphan
 
-    @num_favorites.setter
-    def num_favorites(self, num_favorites):
-        """Sets the num_favorites of this Dashboard.
+    @orphan.setter
+    def orphan(self, orphan):
+        """Sets the orphan of this Dashboard.
 
 
-        :param num_favorites: The num_favorites of this Dashboard.  # noqa: E501
-        :type: int
+        :param orphan: The orphan of this Dashboard.  # noqa: E501
+        :type: bool
         """
 
-        self._num_favorites = num_favorites
+        self._orphan = orphan
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -975,6 +1054,9 @@ class Dashboard(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(Dashboard, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

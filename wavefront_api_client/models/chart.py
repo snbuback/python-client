@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -35,54 +35,56 @@ class Chart(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'units': 'str',
-        'name': 'str',
+        'base': 'int',
         'description': 'str',
+        'name': 'str',
+        'units': 'str',
         'sources': 'list[ChartSourceQuery]',
         'include_obsolete_metrics': 'bool',
         'no_default_events': 'bool',
         'chart_attributes': 'JsonNode',
         'summarization': 'str',
-        'base': 'int',
         'chart_settings': 'ChartSettings',
         'interpolate_points': 'bool'
     }
 
     attribute_map = {
-        'units': 'units',
-        'name': 'name',
+        'base': 'base',
         'description': 'description',
+        'name': 'name',
+        'units': 'units',
         'sources': 'sources',
         'include_obsolete_metrics': 'includeObsoleteMetrics',
         'no_default_events': 'noDefaultEvents',
         'chart_attributes': 'chartAttributes',
         'summarization': 'summarization',
-        'base': 'base',
         'chart_settings': 'chartSettings',
         'interpolate_points': 'interpolatePoints'
     }
 
-    def __init__(self, units=None, name=None, description=None, sources=None, include_obsolete_metrics=None, no_default_events=None, chart_attributes=None, summarization=None, base=None, chart_settings=None, interpolate_points=None):  # noqa: E501
+    def __init__(self, base=None, description=None, name=None, units=None, sources=None, include_obsolete_metrics=None, no_default_events=None, chart_attributes=None, summarization=None, chart_settings=None, interpolate_points=None):  # noqa: E501
         """Chart - a model defined in Swagger"""  # noqa: E501
 
-        self._units = None
-        self._name = None
+        self._base = None
         self._description = None
+        self._name = None
+        self._units = None
         self._sources = None
         self._include_obsolete_metrics = None
         self._no_default_events = None
         self._chart_attributes = None
         self._summarization = None
-        self._base = None
         self._chart_settings = None
         self._interpolate_points = None
         self.discriminator = None
 
-        if units is not None:
-            self.units = units
-        self.name = name
+        if base is not None:
+            self.base = base
         if description is not None:
             self.description = description
+        self.name = name
+        if units is not None:
+            self.units = units
         self.sources = sources
         if include_obsolete_metrics is not None:
             self.include_obsolete_metrics = include_obsolete_metrics
@@ -92,35 +94,56 @@ class Chart(object):
             self.chart_attributes = chart_attributes
         if summarization is not None:
             self.summarization = summarization
-        if base is not None:
-            self.base = base
         if chart_settings is not None:
             self.chart_settings = chart_settings
         if interpolate_points is not None:
             self.interpolate_points = interpolate_points
 
     @property
-    def units(self):
-        """Gets the units of this Chart.  # noqa: E501
+    def base(self):
+        """Gets the base of this Chart.  # noqa: E501
 
-        String to label the units of the chart on the Y-axis  # noqa: E501
+        If the chart has a log-scale Y-axis, the base for the logarithms  # noqa: E501
 
-        :return: The units of this Chart.  # noqa: E501
+        :return: The base of this Chart.  # noqa: E501
+        :rtype: int
+        """
+        return self._base
+
+    @base.setter
+    def base(self, base):
+        """Sets the base of this Chart.
+
+        If the chart has a log-scale Y-axis, the base for the logarithms  # noqa: E501
+
+        :param base: The base of this Chart.  # noqa: E501
+        :type: int
+        """
+
+        self._base = base
+
+    @property
+    def description(self):
+        """Gets the description of this Chart.  # noqa: E501
+
+        Description of the chart  # noqa: E501
+
+        :return: The description of this Chart.  # noqa: E501
         :rtype: str
         """
-        return self._units
+        return self._description
 
-    @units.setter
-    def units(self, units):
-        """Sets the units of this Chart.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Chart.
 
-        String to label the units of the chart on the Y-axis  # noqa: E501
+        Description of the chart  # noqa: E501
 
-        :param units: The units of this Chart.  # noqa: E501
+        :param description: The description of this Chart.  # noqa: E501
         :type: str
         """
 
-        self._units = units
+        self._description = description
 
     @property
     def name(self):
@@ -148,27 +171,27 @@ class Chart(object):
         self._name = name
 
     @property
-    def description(self):
-        """Gets the description of this Chart.  # noqa: E501
+    def units(self):
+        """Gets the units of this Chart.  # noqa: E501
 
-        Description of the chart  # noqa: E501
+        String to label the units of the chart on the Y-axis  # noqa: E501
 
-        :return: The description of this Chart.  # noqa: E501
+        :return: The units of this Chart.  # noqa: E501
         :rtype: str
         """
-        return self._description
+        return self._units
 
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Chart.
+    @units.setter
+    def units(self, units):
+        """Sets the units of this Chart.
 
-        Description of the chart  # noqa: E501
+        String to label the units of the chart on the Y-axis  # noqa: E501
 
-        :param description: The description of this Chart.  # noqa: E501
+        :param units: The units of this Chart.  # noqa: E501
         :type: str
         """
 
-        self._description = description
+        self._units = units
 
     @property
     def sources(self):
@@ -294,29 +317,6 @@ class Chart(object):
         self._summarization = summarization
 
     @property
-    def base(self):
-        """Gets the base of this Chart.  # noqa: E501
-
-        If the chart has a log-scale Y-axis, the base for the logarithms  # noqa: E501
-
-        :return: The base of this Chart.  # noqa: E501
-        :rtype: int
-        """
-        return self._base
-
-    @base.setter
-    def base(self, base):
-        """Sets the base of this Chart.
-
-        If the chart has a log-scale Y-axis, the base for the logarithms  # noqa: E501
-
-        :param base: The base of this Chart.  # noqa: E501
-        :type: int
-        """
-
-        self._base = base
-
-    @property
     def chart_settings(self):
         """Gets the chart_settings of this Chart.  # noqa: E501
 
@@ -381,6 +381,9 @@ class Chart(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(Chart, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

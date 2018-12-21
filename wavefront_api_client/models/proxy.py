@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -38,8 +38,10 @@ class Proxy(object):
         'id': 'str',
         'status': 'str',
         'customer_id': 'str',
+        'deleted': 'bool',
         'in_trash': 'bool',
         'hostname': 'str',
+        'last_check_in_time': 'int',
         'last_known_error': 'str',
         'last_error_time': 'int',
         'last_error_event': 'Event',
@@ -49,8 +51,6 @@ class Proxy(object):
         'local_queue_size': 'int',
         'ssh_agent': 'bool',
         'ephemeral': 'bool',
-        'last_check_in_time': 'int',
-        'deleted': 'bool',
         'status_cause': 'str'
     }
 
@@ -60,8 +60,10 @@ class Proxy(object):
         'id': 'id',
         'status': 'status',
         'customer_id': 'customerId',
+        'deleted': 'deleted',
         'in_trash': 'inTrash',
         'hostname': 'hostname',
+        'last_check_in_time': 'lastCheckInTime',
         'last_known_error': 'lastKnownError',
         'last_error_time': 'lastErrorTime',
         'last_error_event': 'lastErrorEvent',
@@ -71,12 +73,10 @@ class Proxy(object):
         'local_queue_size': 'localQueueSize',
         'ssh_agent': 'sshAgent',
         'ephemeral': 'ephemeral',
-        'last_check_in_time': 'lastCheckInTime',
-        'deleted': 'deleted',
         'status_cause': 'statusCause'
     }
 
-    def __init__(self, version=None, name=None, id=None, status=None, customer_id=None, in_trash=None, hostname=None, last_known_error=None, last_error_time=None, last_error_event=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, ssh_agent=None, ephemeral=None, last_check_in_time=None, deleted=None, status_cause=None):  # noqa: E501
+    def __init__(self, version=None, name=None, id=None, status=None, customer_id=None, deleted=None, in_trash=None, hostname=None, last_check_in_time=None, last_known_error=None, last_error_time=None, last_error_event=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, ssh_agent=None, ephemeral=None, status_cause=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
 
         self._version = None
@@ -84,8 +84,10 @@ class Proxy(object):
         self._id = None
         self._status = None
         self._customer_id = None
+        self._deleted = None
         self._in_trash = None
         self._hostname = None
+        self._last_check_in_time = None
         self._last_known_error = None
         self._last_error_time = None
         self._last_error_event = None
@@ -95,8 +97,6 @@ class Proxy(object):
         self._local_queue_size = None
         self._ssh_agent = None
         self._ephemeral = None
-        self._last_check_in_time = None
-        self._deleted = None
         self._status_cause = None
         self.discriminator = None
 
@@ -109,10 +109,14 @@ class Proxy(object):
             self.status = status
         if customer_id is not None:
             self.customer_id = customer_id
+        if deleted is not None:
+            self.deleted = deleted
         if in_trash is not None:
             self.in_trash = in_trash
         if hostname is not None:
             self.hostname = hostname
+        if last_check_in_time is not None:
+            self.last_check_in_time = last_check_in_time
         if last_known_error is not None:
             self.last_known_error = last_known_error
         if last_error_time is not None:
@@ -131,10 +135,6 @@ class Proxy(object):
             self.ssh_agent = ssh_agent
         if ephemeral is not None:
             self.ephemeral = ephemeral
-        if last_check_in_time is not None:
-            self.last_check_in_time = last_check_in_time
-        if deleted is not None:
-            self.deleted = deleted
         if status_cause is not None:
             self.status_cause = status_cause
 
@@ -256,6 +256,27 @@ class Proxy(object):
         self._customer_id = customer_id
 
     @property
+    def deleted(self):
+        """Gets the deleted of this Proxy.  # noqa: E501
+
+
+        :return: The deleted of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this Proxy.
+
+
+        :param deleted: The deleted of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
+
+    @property
     def in_trash(self):
         """Gets the in_trash of this Proxy.  # noqa: E501
 
@@ -298,6 +319,29 @@ class Proxy(object):
         """
 
         self._hostname = hostname
+
+    @property
+    def last_check_in_time(self):
+        """Gets the last_check_in_time of this Proxy.  # noqa: E501
+
+        Last time when this proxy checked in (in milliseconds since the unix epoch)  # noqa: E501
+
+        :return: The last_check_in_time of this Proxy.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_check_in_time
+
+    @last_check_in_time.setter
+    def last_check_in_time(self, last_check_in_time):
+        """Sets the last_check_in_time of this Proxy.
+
+        Last time when this proxy checked in (in milliseconds since the unix epoch)  # noqa: E501
+
+        :param last_check_in_time: The last_check_in_time of this Proxy.  # noqa: E501
+        :type: int
+        """
+
+        self._last_check_in_time = last_check_in_time
 
     @property
     def last_known_error(self):
@@ -505,50 +549,6 @@ class Proxy(object):
         self._ephemeral = ephemeral
 
     @property
-    def last_check_in_time(self):
-        """Gets the last_check_in_time of this Proxy.  # noqa: E501
-
-        Last time when this proxy checked in (in milliseconds since the unix epoch)  # noqa: E501
-
-        :return: The last_check_in_time of this Proxy.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_check_in_time
-
-    @last_check_in_time.setter
-    def last_check_in_time(self, last_check_in_time):
-        """Sets the last_check_in_time of this Proxy.
-
-        Last time when this proxy checked in (in milliseconds since the unix epoch)  # noqa: E501
-
-        :param last_check_in_time: The last_check_in_time of this Proxy.  # noqa: E501
-        :type: int
-        """
-
-        self._last_check_in_time = last_check_in_time
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this Proxy.  # noqa: E501
-
-
-        :return: The deleted of this Proxy.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this Proxy.
-
-
-        :param deleted: The deleted of this Proxy.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
-
-    @property
     def status_cause(self):
         """Gets the status_cause of this Proxy.  # noqa: E501
 
@@ -592,6 +592,9 @@ class Proxy(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(Proxy, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

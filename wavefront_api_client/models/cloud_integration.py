@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -24,6 +24,7 @@ from wavefront_api_client.models.ec2_configuration import EC2Configuration  # no
 from wavefront_api_client.models.event import Event  # noqa: F401,E501
 from wavefront_api_client.models.gcp_billing_configuration import GCPBillingConfiguration  # noqa: F401,E501
 from wavefront_api_client.models.gcp_configuration import GCPConfiguration  # noqa: F401,E501
+from wavefront_api_client.models.new_relic_configuration import NewRelicConfiguration  # noqa: F401,E501
 from wavefront_api_client.models.tesla_configuration import TeslaConfiguration  # noqa: F401,E501
 
 
@@ -45,6 +46,7 @@ class CloudIntegration(object):
         'name': 'str',
         'id': 'str',
         'service': 'str',
+        'deleted': 'bool',
         'in_trash': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
@@ -57,6 +59,7 @@ class CloudIntegration(object):
         'ec2': 'EC2Configuration',
         'gcp': 'GCPConfiguration',
         'gcp_billing': 'GCPBillingConfiguration',
+        'new_relic': 'NewRelicConfiguration',
         'tesla': 'TeslaConfiguration',
         'azure': 'AzureConfiguration',
         'azure_activity_log': 'AzureActivityLogConfiguration',
@@ -67,8 +70,7 @@ class CloudIntegration(object):
         'last_processing_timestamp': 'int',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'service_refresh_rate_in_mins': 'int',
-        'deleted': 'bool'
+        'service_refresh_rate_in_mins': 'int'
     }
 
     attribute_map = {
@@ -76,6 +78,7 @@ class CloudIntegration(object):
         'name': 'name',
         'id': 'id',
         'service': 'service',
+        'deleted': 'deleted',
         'in_trash': 'inTrash',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
@@ -88,6 +91,7 @@ class CloudIntegration(object):
         'ec2': 'ec2',
         'gcp': 'gcp',
         'gcp_billing': 'gcpBilling',
+        'new_relic': 'newRelic',
         'tesla': 'tesla',
         'azure': 'azure',
         'azure_activity_log': 'azureActivityLog',
@@ -98,17 +102,17 @@ class CloudIntegration(object):
         'last_processing_timestamp': 'lastProcessingTimestamp',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
-        'deleted': 'deleted'
+        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins'
     }
 
-    def __init__(self, force_save=None, name=None, id=None, service=None, in_trash=None, creator_id=None, updater_id=None, last_error_event=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None, deleted=None):  # noqa: E501
+    def __init__(self, force_save=None, name=None, id=None, service=None, deleted=None, in_trash=None, creator_id=None, updater_id=None, last_error_event=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, new_relic=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._force_save = None
         self._name = None
         self._id = None
         self._service = None
+        self._deleted = None
         self._in_trash = None
         self._creator_id = None
         self._updater_id = None
@@ -121,6 +125,7 @@ class CloudIntegration(object):
         self._ec2 = None
         self._gcp = None
         self._gcp_billing = None
+        self._new_relic = None
         self._tesla = None
         self._azure = None
         self._azure_activity_log = None
@@ -132,7 +137,6 @@ class CloudIntegration(object):
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._service_refresh_rate_in_mins = None
-        self._deleted = None
         self.discriminator = None
 
         if force_save is not None:
@@ -141,6 +145,8 @@ class CloudIntegration(object):
         if id is not None:
             self.id = id
         self.service = service
+        if deleted is not None:
+            self.deleted = deleted
         if in_trash is not None:
             self.in_trash = in_trash
         if creator_id is not None:
@@ -165,6 +171,8 @@ class CloudIntegration(object):
             self.gcp = gcp
         if gcp_billing is not None:
             self.gcp_billing = gcp_billing
+        if new_relic is not None:
+            self.new_relic = new_relic
         if tesla is not None:
             self.tesla = tesla
         if azure is not None:
@@ -187,8 +195,6 @@ class CloudIntegration(object):
             self.updated_epoch_millis = updated_epoch_millis
         if service_refresh_rate_in_mins is not None:
             self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
-        if deleted is not None:
-            self.deleted = deleted
 
     @property
     def force_save(self):
@@ -287,6 +293,27 @@ class CloudIntegration(object):
             )
 
         self._service = service
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this CloudIntegration.  # noqa: E501
+
+
+        :return: The deleted of this CloudIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this CloudIntegration.
+
+
+        :param deleted: The deleted of this CloudIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     @property
     def in_trash(self):
@@ -547,6 +574,27 @@ class CloudIntegration(object):
         self._gcp_billing = gcp_billing
 
     @property
+    def new_relic(self):
+        """Gets the new_relic of this CloudIntegration.  # noqa: E501
+
+
+        :return: The new_relic of this CloudIntegration.  # noqa: E501
+        :rtype: NewRelicConfiguration
+        """
+        return self._new_relic
+
+    @new_relic.setter
+    def new_relic(self, new_relic):
+        """Sets the new_relic of this CloudIntegration.
+
+
+        :param new_relic: The new_relic of this CloudIntegration.  # noqa: E501
+        :type: NewRelicConfiguration
+        """
+
+        self._new_relic = new_relic
+
+    @property
     def tesla(self):
         """Gets the tesla of this CloudIntegration.  # noqa: E501
 
@@ -789,27 +837,6 @@ class CloudIntegration(object):
 
         self._service_refresh_rate_in_mins = service_refresh_rate_in_mins
 
-    @property
-    def deleted(self):
-        """Gets the deleted of this CloudIntegration.  # noqa: E501
-
-
-        :return: The deleted of this CloudIntegration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this CloudIntegration.
-
-
-        :param deleted: The deleted of this CloudIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
-
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -831,6 +858,9 @@ class CloudIntegration(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CloudIntegration, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

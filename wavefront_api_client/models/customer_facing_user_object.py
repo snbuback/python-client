@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -31,40 +31,45 @@ class CustomerFacingUserObject(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'user_groups': 'list[str]',
         'identifier': 'str',
         'id': 'str',
         'groups': 'list[str]',
         'customer': 'str',
         'last_successful_login': 'int',
-        '_self': 'bool',
         'escaped_identifier': 'str',
-        'gravatar_url': 'str'
+        'gravatar_url': 'str',
+        '_self': 'bool'
     }
 
     attribute_map = {
+        'user_groups': 'userGroups',
         'identifier': 'identifier',
         'id': 'id',
         'groups': 'groups',
         'customer': 'customer',
         'last_successful_login': 'lastSuccessfulLogin',
-        '_self': 'self',
         'escaped_identifier': 'escapedIdentifier',
-        'gravatar_url': 'gravatarUrl'
+        'gravatar_url': 'gravatarUrl',
+        '_self': 'self'
     }
 
-    def __init__(self, identifier=None, id=None, groups=None, customer=None, last_successful_login=None, _self=None, escaped_identifier=None, gravatar_url=None):  # noqa: E501
+    def __init__(self, user_groups=None, identifier=None, id=None, groups=None, customer=None, last_successful_login=None, escaped_identifier=None, gravatar_url=None, _self=None):  # noqa: E501
         """CustomerFacingUserObject - a model defined in Swagger"""  # noqa: E501
 
+        self._user_groups = None
         self._identifier = None
         self._id = None
         self._groups = None
         self._customer = None
         self._last_successful_login = None
-        self.__self = None
         self._escaped_identifier = None
         self._gravatar_url = None
+        self.__self = None
         self.discriminator = None
 
+        if user_groups is not None:
+            self.user_groups = user_groups
         self.identifier = identifier
         self.id = id
         if groups is not None:
@@ -72,11 +77,34 @@ class CustomerFacingUserObject(object):
         self.customer = customer
         if last_successful_login is not None:
             self.last_successful_login = last_successful_login
-        self._self = _self
         if escaped_identifier is not None:
             self.escaped_identifier = escaped_identifier
         if gravatar_url is not None:
             self.gravatar_url = gravatar_url
+        self._self = _self
+
+    @property
+    def user_groups(self):
+        """Gets the user_groups of this CustomerFacingUserObject.  # noqa: E501
+
+        List of user group identifiers this user belongs to  # noqa: E501
+
+        :return: The user_groups of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user_groups
+
+    @user_groups.setter
+    def user_groups(self, user_groups):
+        """Sets the user_groups of this CustomerFacingUserObject.
+
+        List of user group identifiers this user belongs to  # noqa: E501
+
+        :param user_groups: The user_groups of this CustomerFacingUserObject.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user_groups = user_groups
 
     @property
     def identifier(self):
@@ -200,31 +228,6 @@ class CustomerFacingUserObject(object):
         self._last_successful_login = last_successful_login
 
     @property
-    def _self(self):
-        """Gets the _self of this CustomerFacingUserObject.  # noqa: E501
-
-        Whether this user is the one calling the API  # noqa: E501
-
-        :return: The _self of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: bool
-        """
-        return self.__self
-
-    @_self.setter
-    def _self(self, _self):
-        """Sets the _self of this CustomerFacingUserObject.
-
-        Whether this user is the one calling the API  # noqa: E501
-
-        :param _self: The _self of this CustomerFacingUserObject.  # noqa: E501
-        :type: bool
-        """
-        if _self is None:
-            raise ValueError("Invalid value for `_self`, must not be `None`")  # noqa: E501
-
-        self.__self = _self
-
-    @property
     def escaped_identifier(self):
         """Gets the escaped_identifier of this CustomerFacingUserObject.  # noqa: E501
 
@@ -270,6 +273,31 @@ class CustomerFacingUserObject(object):
 
         self._gravatar_url = gravatar_url
 
+    @property
+    def _self(self):
+        """Gets the _self of this CustomerFacingUserObject.  # noqa: E501
+
+        Whether this user is the one calling the API  # noqa: E501
+
+        :return: The _self of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: bool
+        """
+        return self.__self
+
+    @_self.setter
+    def _self(self, _self):
+        """Sets the _self of this CustomerFacingUserObject.
+
+        Whether this user is the one calling the API  # noqa: E501
+
+        :param _self: The _self of this CustomerFacingUserObject.  # noqa: E501
+        :type: bool
+        """
+        if _self is None:
+            raise ValueError("Invalid value for `_self`, must not be `None`")  # noqa: E501
+
+        self.__self = _self
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -291,6 +319,9 @@ class CustomerFacingUserObject(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(CustomerFacingUserObject, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

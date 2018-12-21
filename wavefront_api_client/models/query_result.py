@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -35,9 +35,9 @@ class QueryResult(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'warnings': 'str',
         'name': 'str',
         'query': 'str',
+        'warnings': 'str',
         'stats': 'StatsModel',
         'events': 'list[QueryEvent]',
         'timeseries': 'list[Timeseries]',
@@ -45,33 +45,33 @@ class QueryResult(object):
     }
 
     attribute_map = {
-        'warnings': 'warnings',
         'name': 'name',
         'query': 'query',
+        'warnings': 'warnings',
         'stats': 'stats',
         'events': 'events',
         'timeseries': 'timeseries',
         'granularity': 'granularity'
     }
 
-    def __init__(self, warnings=None, name=None, query=None, stats=None, events=None, timeseries=None, granularity=None):  # noqa: E501
+    def __init__(self, name=None, query=None, warnings=None, stats=None, events=None, timeseries=None, granularity=None):  # noqa: E501
         """QueryResult - a model defined in Swagger"""  # noqa: E501
 
-        self._warnings = None
         self._name = None
         self._query = None
+        self._warnings = None
         self._stats = None
         self._events = None
         self._timeseries = None
         self._granularity = None
         self.discriminator = None
 
-        if warnings is not None:
-            self.warnings = warnings
         if name is not None:
             self.name = name
         if query is not None:
             self.query = query
+        if warnings is not None:
+            self.warnings = warnings
         if stats is not None:
             self.stats = stats
         if events is not None:
@@ -80,29 +80,6 @@ class QueryResult(object):
             self.timeseries = timeseries
         if granularity is not None:
             self.granularity = granularity
-
-    @property
-    def warnings(self):
-        """Gets the warnings of this QueryResult.  # noqa: E501
-
-        The warnings incurred by this query  # noqa: E501
-
-        :return: The warnings of this QueryResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._warnings
-
-    @warnings.setter
-    def warnings(self, warnings):
-        """Sets the warnings of this QueryResult.
-
-        The warnings incurred by this query  # noqa: E501
-
-        :param warnings: The warnings of this QueryResult.  # noqa: E501
-        :type: str
-        """
-
-        self._warnings = warnings
 
     @property
     def name(self):
@@ -149,6 +126,29 @@ class QueryResult(object):
         """
 
         self._query = query
+
+    @property
+    def warnings(self):
+        """Gets the warnings of this QueryResult.  # noqa: E501
+
+        The warnings incurred by this query  # noqa: E501
+
+        :return: The warnings of this QueryResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._warnings
+
+    @warnings.setter
+    def warnings(self, warnings):
+        """Sets the warnings of this QueryResult.
+
+        The warnings incurred by this query  # noqa: E501
+
+        :param warnings: The warnings of this QueryResult.  # noqa: E501
+        :type: str
+        """
+
+        self._warnings = warnings
 
     @property
     def stats(self):
@@ -257,6 +257,9 @@ class QueryResult(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(QueryResult, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

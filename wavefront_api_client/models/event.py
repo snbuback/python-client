@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Wavefront Public API
+    Wavefront REST API
 
-    <p>The Wavefront public API enables you to interact with Wavefront servers using standard web service API tools. You can use the API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make API calls outside the Wavefront API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p><p>For legacy versions of the Wavefront API, see the <a href=\"/api-docs/ui/deprecated\">legacy API documentation</a>.</p>  # noqa: E501
+    <p>The Wavefront REST API enables you to interact with Wavefront servers using standard REST API tools. You can use the REST API to automate commonly executed operations such as automatically tagging sources.</p><p>When you make REST API calls outside the Wavefront REST API documentation you must add the header \"Authorization: Bearer &lt;&lt;API-TOKEN&gt;&gt;\" to your HTTP requests.</p>  # noqa: E501
 
     OpenAPI spec version: v2
     
@@ -31,19 +31,19 @@ class Event(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'start_time': 'int',
         'end_time': 'int',
+        'start_time': 'int',
+        'table': 'str',
         'name': 'str',
         'annotations': 'dict(str, str)',
         'id': 'str',
-        'table': 'str',
         'tags': 'list[str]',
         'created_at': 'int',
         'is_user_event': 'bool',
-        'is_ephemeral': 'bool',
-        'creator_id': 'str',
         'hosts': 'list[str]',
         'summarized_events': 'int',
+        'is_ephemeral': 'bool',
+        'creator_id': 'str',
         'updater_id': 'str',
         'updated_at': 'int',
         'created_epoch_millis': 'int',
@@ -55,19 +55,19 @@ class Event(object):
     }
 
     attribute_map = {
-        'start_time': 'startTime',
         'end_time': 'endTime',
+        'start_time': 'startTime',
+        'table': 'table',
         'name': 'name',
         'annotations': 'annotations',
         'id': 'id',
-        'table': 'table',
         'tags': 'tags',
         'created_at': 'createdAt',
         'is_user_event': 'isUserEvent',
-        'is_ephemeral': 'isEphemeral',
-        'creator_id': 'creatorId',
         'hosts': 'hosts',
         'summarized_events': 'summarizedEvents',
+        'is_ephemeral': 'isEphemeral',
+        'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'updated_at': 'updatedAt',
         'created_epoch_millis': 'createdEpochMillis',
@@ -78,22 +78,22 @@ class Event(object):
         'creator_type': 'creatorType'
     }
 
-    def __init__(self, start_time=None, end_time=None, name=None, annotations=None, id=None, table=None, tags=None, created_at=None, is_user_event=None, is_ephemeral=None, creator_id=None, hosts=None, summarized_events=None, updater_id=None, updated_at=None, created_epoch_millis=None, updated_epoch_millis=None, running_state=None, can_delete=None, can_close=None, creator_type=None):  # noqa: E501
+    def __init__(self, end_time=None, start_time=None, table=None, name=None, annotations=None, id=None, tags=None, created_at=None, is_user_event=None, hosts=None, summarized_events=None, is_ephemeral=None, creator_id=None, updater_id=None, updated_at=None, created_epoch_millis=None, updated_epoch_millis=None, running_state=None, can_delete=None, can_close=None, creator_type=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
-        self._start_time = None
         self._end_time = None
+        self._start_time = None
+        self._table = None
         self._name = None
         self._annotations = None
         self._id = None
-        self._table = None
         self._tags = None
         self._created_at = None
         self._is_user_event = None
-        self._is_ephemeral = None
-        self._creator_id = None
         self._hosts = None
         self._summarized_events = None
+        self._is_ephemeral = None
+        self._creator_id = None
         self._updater_id = None
         self._updated_at = None
         self._created_epoch_millis = None
@@ -104,29 +104,29 @@ class Event(object):
         self._creator_type = None
         self.discriminator = None
 
-        self.start_time = start_time
         if end_time is not None:
             self.end_time = end_time
+        self.start_time = start_time
+        if table is not None:
+            self.table = table
         self.name = name
         self.annotations = annotations
         if id is not None:
             self.id = id
-        if table is not None:
-            self.table = table
         if tags is not None:
             self.tags = tags
         if created_at is not None:
             self.created_at = created_at
         if is_user_event is not None:
             self.is_user_event = is_user_event
-        if is_ephemeral is not None:
-            self.is_ephemeral = is_ephemeral
-        if creator_id is not None:
-            self.creator_id = creator_id
         if hosts is not None:
             self.hosts = hosts
         if summarized_events is not None:
             self.summarized_events = summarized_events
+        if is_ephemeral is not None:
+            self.is_ephemeral = is_ephemeral
+        if creator_id is not None:
+            self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
         if updated_at is not None:
@@ -143,6 +143,29 @@ class Event(object):
             self.can_close = can_close
         if creator_type is not None:
             self.creator_type = creator_type
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this Event.  # noqa: E501
+
+        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
+
+        :return: The end_time of this Event.  # noqa: E501
+        :rtype: int
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this Event.
+
+        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
+
+        :param end_time: The end_time of this Event.  # noqa: E501
+        :type: int
+        """
+
+        self._end_time = end_time
 
     @property
     def start_time(self):
@@ -170,27 +193,27 @@ class Event(object):
         self._start_time = start_time
 
     @property
-    def end_time(self):
-        """Gets the end_time of this Event.  # noqa: E501
+    def table(self):
+        """Gets the table of this Event.  # noqa: E501
 
-        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
+        The customer to which the event belongs  # noqa: E501
 
-        :return: The end_time of this Event.  # noqa: E501
-        :rtype: int
+        :return: The table of this Event.  # noqa: E501
+        :rtype: str
         """
-        return self._end_time
+        return self._table
 
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this Event.
+    @table.setter
+    def table(self, table):
+        """Sets the table of this Event.
 
-        End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event  # noqa: E501
+        The customer to which the event belongs  # noqa: E501
 
-        :param end_time: The end_time of this Event.  # noqa: E501
-        :type: int
+        :param table: The table of this Event.  # noqa: E501
+        :type: str
         """
 
-        self._end_time = end_time
+        self._table = table
 
     @property
     def name(self):
@@ -264,29 +287,6 @@ class Event(object):
         self._id = id
 
     @property
-    def table(self):
-        """Gets the table of this Event.  # noqa: E501
-
-        The customer to which the event belongs  # noqa: E501
-
-        :return: The table of this Event.  # noqa: E501
-        :rtype: str
-        """
-        return self._table
-
-    @table.setter
-    def table(self, table):
-        """Sets the table of this Event.
-
-        The customer to which the event belongs  # noqa: E501
-
-        :param table: The table of this Event.  # noqa: E501
-        :type: str
-        """
-
-        self._table = table
-
-    @property
     def tags(self):
         """Gets the tags of this Event.  # noqa: E501
 
@@ -354,50 +354,6 @@ class Event(object):
         self._is_user_event = is_user_event
 
     @property
-    def is_ephemeral(self):
-        """Gets the is_ephemeral of this Event.  # noqa: E501
-
-        Whether the event is an artificial event generated by a literal expression or alert backtesting, i.e. not stored in the Wavefront backend  # noqa: E501
-
-        :return: The is_ephemeral of this Event.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_ephemeral
-
-    @is_ephemeral.setter
-    def is_ephemeral(self, is_ephemeral):
-        """Sets the is_ephemeral of this Event.
-
-        Whether the event is an artificial event generated by a literal expression or alert backtesting, i.e. not stored in the Wavefront backend  # noqa: E501
-
-        :param is_ephemeral: The is_ephemeral of this Event.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_ephemeral = is_ephemeral
-
-    @property
-    def creator_id(self):
-        """Gets the creator_id of this Event.  # noqa: E501
-
-
-        :return: The creator_id of this Event.  # noqa: E501
-        :rtype: str
-        """
-        return self._creator_id
-
-    @creator_id.setter
-    def creator_id(self, creator_id):
-        """Sets the creator_id of this Event.
-
-
-        :param creator_id: The creator_id of this Event.  # noqa: E501
-        :type: str
-        """
-
-        self._creator_id = creator_id
-
-    @property
     def hosts(self):
         """Gets the hosts of this Event.  # noqa: E501
 
@@ -442,6 +398,50 @@ class Event(object):
         """
 
         self._summarized_events = summarized_events
+
+    @property
+    def is_ephemeral(self):
+        """Gets the is_ephemeral of this Event.  # noqa: E501
+
+        Whether the event is an artificial event generated by a literal expression or alert backtesting, i.e. not stored in the Wavefront backend  # noqa: E501
+
+        :return: The is_ephemeral of this Event.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_ephemeral
+
+    @is_ephemeral.setter
+    def is_ephemeral(self, is_ephemeral):
+        """Sets the is_ephemeral of this Event.
+
+        Whether the event is an artificial event generated by a literal expression or alert backtesting, i.e. not stored in the Wavefront backend  # noqa: E501
+
+        :param is_ephemeral: The is_ephemeral of this Event.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_ephemeral = is_ephemeral
+
+    @property
+    def creator_id(self):
+        """Gets the creator_id of this Event.  # noqa: E501
+
+
+        :return: The creator_id of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator_id
+
+    @creator_id.setter
+    def creator_id(self, creator_id):
+        """Sets the creator_id of this Event.
+
+
+        :param creator_id: The creator_id of this Event.  # noqa: E501
+        :type: str
+        """
+
+        self._creator_id = creator_id
 
     @property
     def updater_id(self):
@@ -645,6 +645,9 @@ class Event(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(Event, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 
