@@ -94,11 +94,6 @@ Class | Method | HTTP request | Description
 *AlertApi* | [**unhide_alert**](docs/AlertApi.md#unhide_alert) | **POST** /api/v2/alert/{id}/install | Unhide a specific integration alert
 *AlertApi* | [**unsnooze_alert**](docs/AlertApi.md#unsnooze_alert) | **POST** /api/v2/alert/{id}/unsnooze | Unsnooze a specific alert
 *AlertApi* | [**update_alert**](docs/AlertApi.md#update_alert) | **PUT** /api/v2/alert/{id} | Update a specific alert
-*AnomalyApi* | [**get_all_anomalies**](docs/AnomalyApi.md#get_all_anomalies) | **GET** /api/v2/anomaly | Get all anomalies for a customer during a time interval
-*AnomalyApi* | [**get_anomalies_for_chart_and_param_hash**](docs/AnomalyApi.md#get_anomalies_for_chart_and_param_hash) | **GET** /api/v2/anomaly/{dashboardId}/chart/{chartHash}/{paramHash} | Get all anomalies for a chart with a set of dashboard parameters during a time interval
-*AnomalyApi* | [**get_chart_anomalies**](docs/AnomalyApi.md#get_chart_anomalies) | **GET** /api/v2/anomaly/{dashboardId} | Get all anomalies for a dashboard that does not have any dashboard parameters during a time interval
-*AnomalyApi* | [**get_chart_anomalies_0**](docs/AnomalyApi.md#get_chart_anomalies_0) | **GET** /api/v2/anomaly/{dashboardId}/chart/{chartHash} | Get all anomalies for a chart during a time interval
-*AnomalyApi* | [**get_dashboard_anomalies**](docs/AnomalyApi.md#get_dashboard_anomalies) | **GET** /api/v2/anomaly/{dashboardId}/{paramHash} | Get all anomalies for a dashboard with a particular set of dashboard parameters as identified by paramHash, during a time interval
 *CloudIntegrationApi* | [**create_cloud_integration**](docs/CloudIntegrationApi.md#create_cloud_integration) | **POST** /api/v2/cloudintegration | Create a cloud integration
 *CloudIntegrationApi* | [**delete_cloud_integration**](docs/CloudIntegrationApi.md#delete_cloud_integration) | **DELETE** /api/v2/cloudintegration/{id} | Delete a specific cloud integration
 *CloudIntegrationApi* | [**disable_cloud_integration**](docs/CloudIntegrationApi.md#disable_cloud_integration) | **POST** /api/v2/cloudintegration/{id}/disable | Disable a specific cloud integration
@@ -295,7 +290,6 @@ Class | Method | HTTP request | Description
  - [AccessControlElement](docs/AccessControlElement.md)
  - [AccessControlListSimple](docs/AccessControlListSimple.md)
  - [Alert](docs/Alert.md)
- - [Anomaly](docs/Anomaly.md)
  - [AvroBackedStandardizedDTO](docs/AvroBackedStandardizedDTO.md)
  - [AzureActivityLogConfiguration](docs/AzureActivityLogConfiguration.md)
  - [AzureBaseCredentials](docs/AzureBaseCredentials.md)
@@ -352,7 +346,6 @@ Class | Method | HTTP request | Description
  - [Number](docs/Number.md)
  - [PagedAlert](docs/PagedAlert.md)
  - [PagedAlertWithStats](docs/PagedAlertWithStats.md)
- - [PagedAnomaly](docs/PagedAnomaly.md)
  - [PagedCloudIntegration](docs/PagedCloudIntegration.md)
  - [PagedCustomerFacingUserObject](docs/PagedCustomerFacingUserObject.md)
  - [PagedDashboard](docs/PagedDashboard.md)
@@ -397,7 +390,6 @@ Class | Method | HTTP request | Description
  - [ResponseContainerNotificant](docs/ResponseContainerNotificant.md)
  - [ResponseContainerPagedAlert](docs/ResponseContainerPagedAlert.md)
  - [ResponseContainerPagedAlertWithStats](docs/ResponseContainerPagedAlertWithStats.md)
- - [ResponseContainerPagedAnomaly](docs/ResponseContainerPagedAnomaly.md)
  - [ResponseContainerPagedCloudIntegration](docs/ResponseContainerPagedCloudIntegration.md)
  - [ResponseContainerPagedCustomerFacingUserObject](docs/ResponseContainerPagedCustomerFacingUserObject.md)
  - [ResponseContainerPagedDashboard](docs/ResponseContainerPagedDashboard.md)
@@ -427,7 +419,6 @@ Class | Method | HTTP request | Description
  - [SourceLabelPair](docs/SourceLabelPair.md)
  - [SourceSearchRequestContainer](docs/SourceSearchRequestContainer.md)
  - [StatsModel](docs/StatsModel.md)
- - [Stripe](docs/Stripe.md)
  - [TagsResponse](docs/TagsResponse.md)
  - [TargetInfo](docs/TargetInfo.md)
  - [TeslaConfiguration](docs/TeslaConfiguration.md)

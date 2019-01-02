@@ -31,8 +31,8 @@ class Source(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
         'hidden': 'bool',
+        'description': 'str',
         'id': 'str',
         'tags': 'dict(str, bool)',
         'creator_id': 'str',
@@ -44,8 +44,8 @@ class Source(object):
     }
 
     attribute_map = {
-        'description': 'description',
         'hidden': 'hidden',
+        'description': 'description',
         'id': 'id',
         'tags': 'tags',
         'creator_id': 'creatorId',
@@ -56,11 +56,11 @@ class Source(object):
         'source_name': 'sourceName'
     }
 
-    def __init__(self, description=None, hidden=None, id=None, tags=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, marked_new_epoch_millis=None, source_name=None):  # noqa: E501
+    def __init__(self, hidden=None, description=None, id=None, tags=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, marked_new_epoch_millis=None, source_name=None):  # noqa: E501
         """Source - a model defined in Swagger"""  # noqa: E501
 
-        self._description = None
         self._hidden = None
+        self._description = None
         self._id = None
         self._tags = None
         self._creator_id = None
@@ -71,10 +71,10 @@ class Source(object):
         self._source_name = None
         self.discriminator = None
 
-        if description is not None:
-            self.description = description
         if hidden is not None:
             self.hidden = hidden
+        if description is not None:
+            self.description = description
         self.id = id
         if tags is not None:
             self.tags = tags
@@ -89,29 +89,6 @@ class Source(object):
         if marked_new_epoch_millis is not None:
             self.marked_new_epoch_millis = marked_new_epoch_millis
         self.source_name = source_name
-
-    @property
-    def description(self):
-        """Gets the description of this Source.  # noqa: E501
-
-        Description of this source  # noqa: E501
-
-        :return: The description of this Source.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Source.
-
-        Description of this source  # noqa: E501
-
-        :param description: The description of this Source.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
 
     @property
     def hidden(self):
@@ -135,6 +112,29 @@ class Source(object):
         """
 
         self._hidden = hidden
+
+    @property
+    def description(self):
+        """Gets the description of this Source.  # noqa: E501
+
+        Description of this source  # noqa: E501
+
+        :return: The description of this Source.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Source.
+
+        Description of this source  # noqa: E501
+
+        :param description: The description of this Source.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def id(self):

@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **warnings** | **str** | The warnings incurred by this query | [optional] 
 **stats** | [**StatsModel**](StatsModel.md) |  | [optional] 
 **events** | [**list[QueryEvent]**](QueryEvent.md) |  | [optional] 
-**timeseries** | [**list[Timeseries]**](Timeseries.md) |  | [optional] 
 **granularity** | **int** | The granularity of the returned results, in seconds | [optional] 
+**timeseries** | [**list[Timeseries]**](Timeseries.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

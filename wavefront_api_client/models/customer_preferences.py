@@ -36,7 +36,6 @@ class CustomerPreferences(object):
         'default_user_groups': 'list[UserGroup]',
         'id': 'str',
         'customer_id': 'str',
-        'deleted': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
         'created_epoch_millis': 'int',
@@ -48,14 +47,14 @@ class CustomerPreferences(object):
         'hidden_metric_prefixes': 'dict(str, int)',
         'landing_dashboard_slug': 'str',
         'show_onboarding': 'bool',
-        'grant_modify_access_to_everyone': 'bool'
+        'grant_modify_access_to_everyone': 'bool',
+        'deleted': 'bool'
     }
 
     attribute_map = {
         'default_user_groups': 'defaultUserGroups',
         'id': 'id',
         'customer_id': 'customerId',
-        'deleted': 'deleted',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
@@ -67,16 +66,16 @@ class CustomerPreferences(object):
         'hidden_metric_prefixes': 'hiddenMetricPrefixes',
         'landing_dashboard_slug': 'landingDashboardSlug',
         'show_onboarding': 'showOnboarding',
-        'grant_modify_access_to_everyone': 'grantModifyAccessToEveryone'
+        'grant_modify_access_to_everyone': 'grantModifyAccessToEveryone',
+        'deleted': 'deleted'
     }
 
-    def __init__(self, default_user_groups=None, id=None, customer_id=None, deleted=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, invite_permissions=None, show_querybuilder_by_default=None, hide_ts_when_querybuilder_shown=None, blacklisted_emails=None, hidden_metric_prefixes=None, landing_dashboard_slug=None, show_onboarding=None, grant_modify_access_to_everyone=None):  # noqa: E501
+    def __init__(self, default_user_groups=None, id=None, customer_id=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, invite_permissions=None, show_querybuilder_by_default=None, hide_ts_when_querybuilder_shown=None, blacklisted_emails=None, hidden_metric_prefixes=None, landing_dashboard_slug=None, show_onboarding=None, grant_modify_access_to_everyone=None, deleted=None):  # noqa: E501
         """CustomerPreferences - a model defined in Swagger"""  # noqa: E501
 
         self._default_user_groups = None
         self._id = None
         self._customer_id = None
-        self._deleted = None
         self._creator_id = None
         self._updater_id = None
         self._created_epoch_millis = None
@@ -89,6 +88,7 @@ class CustomerPreferences(object):
         self._landing_dashboard_slug = None
         self._show_onboarding = None
         self._grant_modify_access_to_everyone = None
+        self._deleted = None
         self.discriminator = None
 
         if default_user_groups is not None:
@@ -96,8 +96,6 @@ class CustomerPreferences(object):
         if id is not None:
             self.id = id
         self.customer_id = customer_id
-        if deleted is not None:
-            self.deleted = deleted
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
@@ -118,6 +116,8 @@ class CustomerPreferences(object):
             self.landing_dashboard_slug = landing_dashboard_slug
         self.show_onboarding = show_onboarding
         self.grant_modify_access_to_everyone = grant_modify_access_to_everyone
+        if deleted is not None:
+            self.deleted = deleted
 
     @property
     def default_user_groups(self):
@@ -187,27 +187,6 @@ class CustomerPreferences(object):
             raise ValueError("Invalid value for `customer_id`, must not be `None`")  # noqa: E501
 
         self._customer_id = customer_id
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this CustomerPreferences.  # noqa: E501
-
-
-        :return: The deleted of this CustomerPreferences.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this CustomerPreferences.
-
-
-        :param deleted: The deleted of this CustomerPreferences.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
 
     @property
     def creator_id(self):
@@ -484,6 +463,27 @@ class CustomerPreferences(object):
             raise ValueError("Invalid value for `grant_modify_access_to_everyone`, must not be `None`")  # noqa: E501
 
         self._grant_modify_access_to_everyone = grant_modify_access_to_everyone
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this CustomerPreferences.  # noqa: E501
+
+
+        :return: The deleted of this CustomerPreferences.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this CustomerPreferences.
+
+
+        :param deleted: The deleted of this CustomerPreferences.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     def to_dict(self):
         """Returns the model properties as a dict"""

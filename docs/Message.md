@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **dict(str, str)** | A string-&gt;string map of additional properties associated with this message | [optional] 
-**severity** | **str** | Message severity | 
-**source** | **str** | Message source.  System messages will com from &#39;system@wavefront.com&#39; | 
 **scope** | **str** | The audience scope that this message should reach | 
+**source** | **str** | Message source.  System messages will com from &#39;system@wavefront.com&#39; | 
+**severity** | **str** | Message severity | 
+**attributes** | **dict(str, str)** | A string-&gt;string map of additional properties associated with this message | [optional] 
 **id** | **str** |  | [optional] 
 **target** | **str** | For scope&#x3D;CUSTOMER or scope&#x3D;USER, the individual customer or user id | [optional] 
 **content** | **str** | Message content | 

@@ -38,14 +38,13 @@ class Integration(object):
     """
     swagger_types = {
         'version': 'str',
+        'metrics': 'IntegrationMetrics',
         'icon': 'str',
         'description': 'str',
-        'metrics': 'IntegrationMetrics',
         'name': 'str',
         'id': 'str',
         'base_url': 'str',
         'status': 'IntegrationStatus',
-        'deleted': 'bool',
         'alerts': 'list[IntegrationAlert]',
         'creator_id': 'str',
         'updater_id': 'str',
@@ -54,20 +53,20 @@ class Integration(object):
         'dashboards': 'list[IntegrationDashboard]',
         'alias_of': 'str',
         'alias_integrations': 'list[IntegrationAlias]',
+        'deleted': 'bool',
         'overview': 'str',
         'setup': 'str'
     }
 
     attribute_map = {
         'version': 'version',
+        'metrics': 'metrics',
         'icon': 'icon',
         'description': 'description',
-        'metrics': 'metrics',
         'name': 'name',
         'id': 'id',
         'base_url': 'baseUrl',
         'status': 'status',
-        'deleted': 'deleted',
         'alerts': 'alerts',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
@@ -76,22 +75,22 @@ class Integration(object):
         'dashboards': 'dashboards',
         'alias_of': 'aliasOf',
         'alias_integrations': 'aliasIntegrations',
+        'deleted': 'deleted',
         'overview': 'overview',
         'setup': 'setup'
     }
 
-    def __init__(self, version=None, icon=None, description=None, metrics=None, name=None, id=None, base_url=None, status=None, deleted=None, alerts=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, dashboards=None, alias_of=None, alias_integrations=None, overview=None, setup=None):  # noqa: E501
+    def __init__(self, version=None, metrics=None, icon=None, description=None, name=None, id=None, base_url=None, status=None, alerts=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, dashboards=None, alias_of=None, alias_integrations=None, deleted=None, overview=None, setup=None):  # noqa: E501
         """Integration - a model defined in Swagger"""  # noqa: E501
 
         self._version = None
+        self._metrics = None
         self._icon = None
         self._description = None
-        self._metrics = None
         self._name = None
         self._id = None
         self._base_url = None
         self._status = None
-        self._deleted = None
         self._alerts = None
         self._creator_id = None
         self._updater_id = None
@@ -100,15 +99,16 @@ class Integration(object):
         self._dashboards = None
         self._alias_of = None
         self._alias_integrations = None
+        self._deleted = None
         self._overview = None
         self._setup = None
         self.discriminator = None
 
         self.version = version
-        self.icon = icon
-        self.description = description
         if metrics is not None:
             self.metrics = metrics
+        self.icon = icon
+        self.description = description
         self.name = name
         if id is not None:
             self.id = id
@@ -116,8 +116,6 @@ class Integration(object):
             self.base_url = base_url
         if status is not None:
             self.status = status
-        if deleted is not None:
-            self.deleted = deleted
         if alerts is not None:
             self.alerts = alerts
         if creator_id is not None:
@@ -134,6 +132,8 @@ class Integration(object):
             self.alias_of = alias_of
         if alias_integrations is not None:
             self.alias_integrations = alias_integrations
+        if deleted is not None:
+            self.deleted = deleted
         if overview is not None:
             self.overview = overview
         if setup is not None:
@@ -163,6 +163,27 @@ class Integration(object):
             raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
+
+    @property
+    def metrics(self):
+        """Gets the metrics of this Integration.  # noqa: E501
+
+
+        :return: The metrics of this Integration.  # noqa: E501
+        :rtype: IntegrationMetrics
+        """
+        return self._metrics
+
+    @metrics.setter
+    def metrics(self, metrics):
+        """Sets the metrics of this Integration.
+
+
+        :param metrics: The metrics of this Integration.  # noqa: E501
+        :type: IntegrationMetrics
+        """
+
+        self._metrics = metrics
 
     @property
     def icon(self):
@@ -213,27 +234,6 @@ class Integration(object):
             raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
-
-    @property
-    def metrics(self):
-        """Gets the metrics of this Integration.  # noqa: E501
-
-
-        :return: The metrics of this Integration.  # noqa: E501
-        :rtype: IntegrationMetrics
-        """
-        return self._metrics
-
-    @metrics.setter
-    def metrics(self, metrics):
-        """Sets the metrics of this Integration.
-
-
-        :param metrics: The metrics of this Integration.  # noqa: E501
-        :type: IntegrationMetrics
-        """
-
-        self._metrics = metrics
 
     @property
     def name(self):
@@ -324,27 +324,6 @@ class Integration(object):
         """
 
         self._status = status
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this Integration.  # noqa: E501
-
-
-        :return: The deleted of this Integration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this Integration.
-
-
-        :param deleted: The deleted of this Integration.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
 
     @property
     def alerts(self):
@@ -521,6 +500,27 @@ class Integration(object):
         """
 
         self._alias_integrations = alias_integrations
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this Integration.  # noqa: E501
+
+
+        :return: The deleted of this Integration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this Integration.
+
+
+        :param deleted: The deleted of this Integration.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     @property
     def overview(self):

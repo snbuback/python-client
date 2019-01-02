@@ -40,8 +40,8 @@ class QueryResult(object):
         'warnings': 'str',
         'stats': 'StatsModel',
         'events': 'list[QueryEvent]',
-        'timeseries': 'list[Timeseries]',
-        'granularity': 'int'
+        'granularity': 'int',
+        'timeseries': 'list[Timeseries]'
     }
 
     attribute_map = {
@@ -50,11 +50,11 @@ class QueryResult(object):
         'warnings': 'warnings',
         'stats': 'stats',
         'events': 'events',
-        'timeseries': 'timeseries',
-        'granularity': 'granularity'
+        'granularity': 'granularity',
+        'timeseries': 'timeseries'
     }
 
-    def __init__(self, name=None, query=None, warnings=None, stats=None, events=None, timeseries=None, granularity=None):  # noqa: E501
+    def __init__(self, name=None, query=None, warnings=None, stats=None, events=None, granularity=None, timeseries=None):  # noqa: E501
         """QueryResult - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
@@ -62,8 +62,8 @@ class QueryResult(object):
         self._warnings = None
         self._stats = None
         self._events = None
-        self._timeseries = None
         self._granularity = None
+        self._timeseries = None
         self.discriminator = None
 
         if name is not None:
@@ -76,10 +76,10 @@ class QueryResult(object):
             self.stats = stats
         if events is not None:
             self.events = events
-        if timeseries is not None:
-            self.timeseries = timeseries
         if granularity is not None:
             self.granularity = granularity
+        if timeseries is not None:
+            self.timeseries = timeseries
 
     @property
     def name(self):
@@ -193,27 +193,6 @@ class QueryResult(object):
         self._events = events
 
     @property
-    def timeseries(self):
-        """Gets the timeseries of this QueryResult.  # noqa: E501
-
-
-        :return: The timeseries of this QueryResult.  # noqa: E501
-        :rtype: list[Timeseries]
-        """
-        return self._timeseries
-
-    @timeseries.setter
-    def timeseries(self, timeseries):
-        """Sets the timeseries of this QueryResult.
-
-
-        :param timeseries: The timeseries of this QueryResult.  # noqa: E501
-        :type: list[Timeseries]
-        """
-
-        self._timeseries = timeseries
-
-    @property
     def granularity(self):
         """Gets the granularity of this QueryResult.  # noqa: E501
 
@@ -235,6 +214,27 @@ class QueryResult(object):
         """
 
         self._granularity = granularity
+
+    @property
+    def timeseries(self):
+        """Gets the timeseries of this QueryResult.  # noqa: E501
+
+
+        :return: The timeseries of this QueryResult.  # noqa: E501
+        :rtype: list[Timeseries]
+        """
+        return self._timeseries
+
+    @timeseries.setter
+    def timeseries(self, timeseries):
+        """Sets the timeseries of this QueryResult.
+
+
+        :param timeseries: The timeseries of this QueryResult.  # noqa: E501
+        :type: list[Timeseries]
+        """
+
+        self._timeseries = timeseries
 
     def to_dict(self):
         """Returns the model properties as a dict"""

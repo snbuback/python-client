@@ -38,35 +38,26 @@ class Alert(object):
     swagger_types = {
         'last_event_time': 'int',
         'severity': 'str',
+        'created': 'int',
         'hidden': 'bool',
         'name': 'str',
         'id': 'str',
         'target': 'str',
-        'created': 'int',
         'minutes': 'int',
-        'target_info': 'list[TargetInfo]',
-        'sort_attr': 'int',
         'tags': 'WFTags',
         'status': 'list[str]',
         'event': 'Event',
         'updated': 'int',
-        'deleted': 'bool',
         'targets': 'dict(str, str)',
         'process_rate_minutes': 'int',
         'last_processed_millis': 'int',
         'update_user_id': 'str',
-        'in_maintenance_host_label_pairs': 'list[SourceLabelPair]',
-        'failing_host_label_pairs': 'list[SourceLabelPair]',
-        'active_maintenance_windows': 'list[str]',
         'condition': 'str',
         'alert_type': 'str',
         'display_expression': 'str',
-        'condition_qb_enabled': 'bool',
-        'display_expression_qb_enabled': 'bool',
-        'condition_qb_serialization': 'str',
-        'display_expression_qb_serialization': 'str',
-        'conditions': 'dict(str, str)',
-        'include_obsolete_metrics': 'bool',
+        'failing_host_label_pairs': 'list[SourceLabelPair]',
+        'in_maintenance_host_label_pairs': 'list[SourceLabelPair]',
+        'active_maintenance_windows': 'list[str]',
         'prefiring_host_label_pairs': 'list[SourceLabelPair]',
         'no_data_event': 'Event',
         'snoozed': 'int',
@@ -87,47 +78,47 @@ class Alert(object):
         'hosts_used': 'list[str]',
         'system_owned': 'bool',
         'resolve_after_minutes': 'int',
+        'condition_qb_enabled': 'bool',
+        'display_expression_qb_enabled': 'bool',
+        'condition_qb_serialization': 'str',
+        'display_expression_qb_serialization': 'str',
+        'conditions': 'dict(str, str)',
+        'include_obsolete_metrics': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
         'last_error_message': 'str',
         'notification_resend_frequency_minutes': 'int',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
+        'deleted': 'bool',
+        'sort_attr': 'int',
+        'target_info': 'list[TargetInfo]',
         'severity_list': 'list[str]'
     }
 
     attribute_map = {
         'last_event_time': 'lastEventTime',
         'severity': 'severity',
+        'created': 'created',
         'hidden': 'hidden',
         'name': 'name',
         'id': 'id',
         'target': 'target',
-        'created': 'created',
         'minutes': 'minutes',
-        'target_info': 'targetInfo',
-        'sort_attr': 'sortAttr',
         'tags': 'tags',
         'status': 'status',
         'event': 'event',
         'updated': 'updated',
-        'deleted': 'deleted',
         'targets': 'targets',
         'process_rate_minutes': 'processRateMinutes',
         'last_processed_millis': 'lastProcessedMillis',
         'update_user_id': 'updateUserId',
-        'in_maintenance_host_label_pairs': 'inMaintenanceHostLabelPairs',
-        'failing_host_label_pairs': 'failingHostLabelPairs',
-        'active_maintenance_windows': 'activeMaintenanceWindows',
         'condition': 'condition',
         'alert_type': 'alertType',
         'display_expression': 'displayExpression',
-        'condition_qb_enabled': 'conditionQBEnabled',
-        'display_expression_qb_enabled': 'displayExpressionQBEnabled',
-        'condition_qb_serialization': 'conditionQBSerialization',
-        'display_expression_qb_serialization': 'displayExpressionQBSerialization',
-        'conditions': 'conditions',
-        'include_obsolete_metrics': 'includeObsoleteMetrics',
+        'failing_host_label_pairs': 'failingHostLabelPairs',
+        'in_maintenance_host_label_pairs': 'inMaintenanceHostLabelPairs',
+        'active_maintenance_windows': 'activeMaintenanceWindows',
         'prefiring_host_label_pairs': 'prefiringHostLabelPairs',
         'no_data_event': 'noDataEvent',
         'snoozed': 'snoozed',
@@ -148,49 +139,49 @@ class Alert(object):
         'hosts_used': 'hostsUsed',
         'system_owned': 'systemOwned',
         'resolve_after_minutes': 'resolveAfterMinutes',
+        'condition_qb_enabled': 'conditionQBEnabled',
+        'display_expression_qb_enabled': 'displayExpressionQBEnabled',
+        'condition_qb_serialization': 'conditionQBSerialization',
+        'display_expression_qb_serialization': 'displayExpressionQBSerialization',
+        'conditions': 'conditions',
+        'include_obsolete_metrics': 'includeObsoleteMetrics',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'last_error_message': 'lastErrorMessage',
         'notification_resend_frequency_minutes': 'notificationResendFrequencyMinutes',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
+        'deleted': 'deleted',
+        'sort_attr': 'sortAttr',
+        'target_info': 'targetInfo',
         'severity_list': 'severityList'
     }
 
-    def __init__(self, last_event_time=None, severity=None, hidden=None, name=None, id=None, target=None, created=None, minutes=None, target_info=None, sort_attr=None, tags=None, status=None, event=None, updated=None, deleted=None, targets=None, process_rate_minutes=None, last_processed_millis=None, update_user_id=None, in_maintenance_host_label_pairs=None, failing_host_label_pairs=None, active_maintenance_windows=None, condition=None, alert_type=None, display_expression=None, condition_qb_enabled=None, display_expression_qb_enabled=None, condition_qb_serialization=None, display_expression_qb_serialization=None, conditions=None, include_obsolete_metrics=None, prefiring_host_label_pairs=None, no_data_event=None, snoozed=None, notificants=None, additional_information=None, last_query_time=None, alerts_last_day=None, alerts_last_week=None, alerts_last_month=None, in_trash=None, query_failing=None, create_user_id=None, last_failed_time=None, last_notification_millis=None, points_scanned_at_last_query=None, num_points_in_failure_frame=None, metrics_used=None, hosts_used=None, system_owned=None, resolve_after_minutes=None, creator_id=None, updater_id=None, last_error_message=None, notification_resend_frequency_minutes=None, created_epoch_millis=None, updated_epoch_millis=None, severity_list=None):  # noqa: E501
+    def __init__(self, last_event_time=None, severity=None, created=None, hidden=None, name=None, id=None, target=None, minutes=None, tags=None, status=None, event=None, updated=None, targets=None, process_rate_minutes=None, last_processed_millis=None, update_user_id=None, condition=None, alert_type=None, display_expression=None, failing_host_label_pairs=None, in_maintenance_host_label_pairs=None, active_maintenance_windows=None, prefiring_host_label_pairs=None, no_data_event=None, snoozed=None, notificants=None, additional_information=None, last_query_time=None, alerts_last_day=None, alerts_last_week=None, alerts_last_month=None, in_trash=None, query_failing=None, create_user_id=None, last_failed_time=None, last_notification_millis=None, points_scanned_at_last_query=None, num_points_in_failure_frame=None, metrics_used=None, hosts_used=None, system_owned=None, resolve_after_minutes=None, condition_qb_enabled=None, display_expression_qb_enabled=None, condition_qb_serialization=None, display_expression_qb_serialization=None, conditions=None, include_obsolete_metrics=None, creator_id=None, updater_id=None, last_error_message=None, notification_resend_frequency_minutes=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None, sort_attr=None, target_info=None, severity_list=None):  # noqa: E501
         """Alert - a model defined in Swagger"""  # noqa: E501
 
         self._last_event_time = None
         self._severity = None
+        self._created = None
         self._hidden = None
         self._name = None
         self._id = None
         self._target = None
-        self._created = None
         self._minutes = None
-        self._target_info = None
-        self._sort_attr = None
         self._tags = None
         self._status = None
         self._event = None
         self._updated = None
-        self._deleted = None
         self._targets = None
         self._process_rate_minutes = None
         self._last_processed_millis = None
         self._update_user_id = None
-        self._in_maintenance_host_label_pairs = None
-        self._failing_host_label_pairs = None
-        self._active_maintenance_windows = None
         self._condition = None
         self._alert_type = None
         self._display_expression = None
-        self._condition_qb_enabled = None
-        self._display_expression_qb_enabled = None
-        self._condition_qb_serialization = None
-        self._display_expression_qb_serialization = None
-        self._conditions = None
-        self._include_obsolete_metrics = None
+        self._failing_host_label_pairs = None
+        self._in_maintenance_host_label_pairs = None
+        self._active_maintenance_windows = None
         self._prefiring_host_label_pairs = None
         self._no_data_event = None
         self._snoozed = None
@@ -211,18 +202,30 @@ class Alert(object):
         self._hosts_used = None
         self._system_owned = None
         self._resolve_after_minutes = None
+        self._condition_qb_enabled = None
+        self._display_expression_qb_enabled = None
+        self._condition_qb_serialization = None
+        self._display_expression_qb_serialization = None
+        self._conditions = None
+        self._include_obsolete_metrics = None
         self._creator_id = None
         self._updater_id = None
         self._last_error_message = None
         self._notification_resend_frequency_minutes = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
+        self._deleted = None
+        self._sort_attr = None
+        self._target_info = None
         self._severity_list = None
         self.discriminator = None
 
         if last_event_time is not None:
             self.last_event_time = last_event_time
-        self.severity = severity
+        if severity is not None:
+            self.severity = severity
+        if created is not None:
+            self.created = created
         if hidden is not None:
             self.hidden = hidden
         self.name = name
@@ -230,13 +233,7 @@ class Alert(object):
             self.id = id
         if target is not None:
             self.target = target
-        if created is not None:
-            self.created = created
         self.minutes = minutes
-        if target_info is not None:
-            self.target_info = target_info
-        if sort_attr is not None:
-            self.sort_attr = sort_attr
         if tags is not None:
             self.tags = tags
         if status is not None:
@@ -245,8 +242,6 @@ class Alert(object):
             self.event = event
         if updated is not None:
             self.updated = updated
-        if deleted is not None:
-            self.deleted = deleted
         if targets is not None:
             self.targets = targets
         if process_rate_minutes is not None:
@@ -255,29 +250,17 @@ class Alert(object):
             self.last_processed_millis = last_processed_millis
         if update_user_id is not None:
             self.update_user_id = update_user_id
-        if in_maintenance_host_label_pairs is not None:
-            self.in_maintenance_host_label_pairs = in_maintenance_host_label_pairs
-        if failing_host_label_pairs is not None:
-            self.failing_host_label_pairs = failing_host_label_pairs
-        if active_maintenance_windows is not None:
-            self.active_maintenance_windows = active_maintenance_windows
         self.condition = condition
         if alert_type is not None:
             self.alert_type = alert_type
         if display_expression is not None:
             self.display_expression = display_expression
-        if condition_qb_enabled is not None:
-            self.condition_qb_enabled = condition_qb_enabled
-        if display_expression_qb_enabled is not None:
-            self.display_expression_qb_enabled = display_expression_qb_enabled
-        if condition_qb_serialization is not None:
-            self.condition_qb_serialization = condition_qb_serialization
-        if display_expression_qb_serialization is not None:
-            self.display_expression_qb_serialization = display_expression_qb_serialization
-        if conditions is not None:
-            self.conditions = conditions
-        if include_obsolete_metrics is not None:
-            self.include_obsolete_metrics = include_obsolete_metrics
+        if failing_host_label_pairs is not None:
+            self.failing_host_label_pairs = failing_host_label_pairs
+        if in_maintenance_host_label_pairs is not None:
+            self.in_maintenance_host_label_pairs = in_maintenance_host_label_pairs
+        if active_maintenance_windows is not None:
+            self.active_maintenance_windows = active_maintenance_windows
         if prefiring_host_label_pairs is not None:
             self.prefiring_host_label_pairs = prefiring_host_label_pairs
         if no_data_event is not None:
@@ -318,6 +301,18 @@ class Alert(object):
             self.system_owned = system_owned
         if resolve_after_minutes is not None:
             self.resolve_after_minutes = resolve_after_minutes
+        if condition_qb_enabled is not None:
+            self.condition_qb_enabled = condition_qb_enabled
+        if display_expression_qb_enabled is not None:
+            self.display_expression_qb_enabled = display_expression_qb_enabled
+        if condition_qb_serialization is not None:
+            self.condition_qb_serialization = condition_qb_serialization
+        if display_expression_qb_serialization is not None:
+            self.display_expression_qb_serialization = display_expression_qb_serialization
+        if conditions is not None:
+            self.conditions = conditions
+        if include_obsolete_metrics is not None:
+            self.include_obsolete_metrics = include_obsolete_metrics
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
@@ -330,6 +325,12 @@ class Alert(object):
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
+        if deleted is not None:
+            self.deleted = deleted
+        if sort_attr is not None:
+            self.sort_attr = sort_attr
+        if target_info is not None:
+            self.target_info = target_info
         if severity_list is not None:
             self.severity_list = severity_list
 
@@ -376,8 +377,6 @@ class Alert(object):
         :param severity: The severity of this Alert.  # noqa: E501
         :type: str
         """
-        if severity is None:
-            raise ValueError("Invalid value for `severity`, must not be `None`")  # noqa: E501
         allowed_values = ["INFO", "SMOKE", "WARN", "SEVERE"]  # noqa: E501
         if severity not in allowed_values:
             raise ValueError(
@@ -386,6 +385,29 @@ class Alert(object):
             )
 
         self._severity = severity
+
+    @property
+    def created(self):
+        """Gets the created of this Alert.  # noqa: E501
+
+        When this alert was created, in epoch millis  # noqa: E501
+
+        :return: The created of this Alert.  # noqa: E501
+        :rtype: int
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this Alert.
+
+        When this alert was created, in epoch millis  # noqa: E501
+
+        :param created: The created of this Alert.  # noqa: E501
+        :type: int
+        """
+
+        self._created = created
 
     @property
     def hidden(self):
@@ -476,29 +498,6 @@ class Alert(object):
         self._target = target
 
     @property
-    def created(self):
-        """Gets the created of this Alert.  # noqa: E501
-
-        When this alert was created, in epoch millis  # noqa: E501
-
-        :return: The created of this Alert.  # noqa: E501
-        :rtype: int
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """Sets the created of this Alert.
-
-        When this alert was created, in epoch millis  # noqa: E501
-
-        :param created: The created of this Alert.  # noqa: E501
-        :type: int
-        """
-
-        self._created = created
-
-    @property
     def minutes(self):
         """Gets the minutes of this Alert.  # noqa: E501
 
@@ -522,52 +521,6 @@ class Alert(object):
             raise ValueError("Invalid value for `minutes`, must not be `None`")  # noqa: E501
 
         self._minutes = minutes
-
-    @property
-    def target_info(self):
-        """Gets the target_info of this Alert.  # noqa: E501
-
-        List of alert targets display information that includes name, id and type.  # noqa: E501
-
-        :return: The target_info of this Alert.  # noqa: E501
-        :rtype: list[TargetInfo]
-        """
-        return self._target_info
-
-    @target_info.setter
-    def target_info(self, target_info):
-        """Sets the target_info of this Alert.
-
-        List of alert targets display information that includes name, id and type.  # noqa: E501
-
-        :param target_info: The target_info of this Alert.  # noqa: E501
-        :type: list[TargetInfo]
-        """
-
-        self._target_info = target_info
-
-    @property
-    def sort_attr(self):
-        """Gets the sort_attr of this Alert.  # noqa: E501
-
-        Attribute used for default alert sort that is derived from state and severity  # noqa: E501
-
-        :return: The sort_attr of this Alert.  # noqa: E501
-        :rtype: int
-        """
-        return self._sort_attr
-
-    @sort_attr.setter
-    def sort_attr(self, sort_attr):
-        """Sets the sort_attr of this Alert.
-
-        Attribute used for default alert sort that is derived from state and severity  # noqa: E501
-
-        :param sort_attr: The sort_attr of this Alert.  # noqa: E501
-        :type: int
-        """
-
-        self._sort_attr = sort_attr
 
     @property
     def tags(self):
@@ -656,27 +609,6 @@ class Alert(object):
         """
 
         self._updated = updated
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this Alert.  # noqa: E501
-
-
-        :return: The deleted of this Alert.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this Alert.
-
-
-        :param deleted: The deleted of this Alert.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
 
     @property
     def targets(self):
@@ -771,75 +703,6 @@ class Alert(object):
         self._update_user_id = update_user_id
 
     @property
-    def in_maintenance_host_label_pairs(self):
-        """Gets the in_maintenance_host_label_pairs of this Alert.  # noqa: E501
-
-        Lists the sources that will not be checked for this alert, due to matching a maintenance window  # noqa: E501
-
-        :return: The in_maintenance_host_label_pairs of this Alert.  # noqa: E501
-        :rtype: list[SourceLabelPair]
-        """
-        return self._in_maintenance_host_label_pairs
-
-    @in_maintenance_host_label_pairs.setter
-    def in_maintenance_host_label_pairs(self, in_maintenance_host_label_pairs):
-        """Sets the in_maintenance_host_label_pairs of this Alert.
-
-        Lists the sources that will not be checked for this alert, due to matching a maintenance window  # noqa: E501
-
-        :param in_maintenance_host_label_pairs: The in_maintenance_host_label_pairs of this Alert.  # noqa: E501
-        :type: list[SourceLabelPair]
-        """
-
-        self._in_maintenance_host_label_pairs = in_maintenance_host_label_pairs
-
-    @property
-    def failing_host_label_pairs(self):
-        """Gets the failing_host_label_pairs of this Alert.  # noqa: E501
-
-        Failing host/metric pairs  # noqa: E501
-
-        :return: The failing_host_label_pairs of this Alert.  # noqa: E501
-        :rtype: list[SourceLabelPair]
-        """
-        return self._failing_host_label_pairs
-
-    @failing_host_label_pairs.setter
-    def failing_host_label_pairs(self, failing_host_label_pairs):
-        """Sets the failing_host_label_pairs of this Alert.
-
-        Failing host/metric pairs  # noqa: E501
-
-        :param failing_host_label_pairs: The failing_host_label_pairs of this Alert.  # noqa: E501
-        :type: list[SourceLabelPair]
-        """
-
-        self._failing_host_label_pairs = failing_host_label_pairs
-
-    @property
-    def active_maintenance_windows(self):
-        """Gets the active_maintenance_windows of this Alert.  # noqa: E501
-
-        The names of the active maintenance windows that are affecting this alert  # noqa: E501
-
-        :return: The active_maintenance_windows of this Alert.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._active_maintenance_windows
-
-    @active_maintenance_windows.setter
-    def active_maintenance_windows(self, active_maintenance_windows):
-        """Sets the active_maintenance_windows of this Alert.
-
-        The names of the active maintenance windows that are affecting this alert  # noqa: E501
-
-        :param active_maintenance_windows: The active_maintenance_windows of this Alert.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._active_maintenance_windows = active_maintenance_windows
-
-    @property
     def condition(self):
         """Gets the condition of this Alert.  # noqa: E501
 
@@ -917,142 +780,73 @@ class Alert(object):
         self._display_expression = display_expression
 
     @property
-    def condition_qb_enabled(self):
-        """Gets the condition_qb_enabled of this Alert.  # noqa: E501
+    def failing_host_label_pairs(self):
+        """Gets the failing_host_label_pairs of this Alert.  # noqa: E501
 
-        Whether the condition query was created using the Query Builder.  Default false  # noqa: E501
+        Failing host/metric pairs  # noqa: E501
 
-        :return: The condition_qb_enabled of this Alert.  # noqa: E501
-        :rtype: bool
+        :return: The failing_host_label_pairs of this Alert.  # noqa: E501
+        :rtype: list[SourceLabelPair]
         """
-        return self._condition_qb_enabled
+        return self._failing_host_label_pairs
 
-    @condition_qb_enabled.setter
-    def condition_qb_enabled(self, condition_qb_enabled):
-        """Sets the condition_qb_enabled of this Alert.
+    @failing_host_label_pairs.setter
+    def failing_host_label_pairs(self, failing_host_label_pairs):
+        """Sets the failing_host_label_pairs of this Alert.
 
-        Whether the condition query was created using the Query Builder.  Default false  # noqa: E501
+        Failing host/metric pairs  # noqa: E501
 
-        :param condition_qb_enabled: The condition_qb_enabled of this Alert.  # noqa: E501
-        :type: bool
+        :param failing_host_label_pairs: The failing_host_label_pairs of this Alert.  # noqa: E501
+        :type: list[SourceLabelPair]
         """
 
-        self._condition_qb_enabled = condition_qb_enabled
+        self._failing_host_label_pairs = failing_host_label_pairs
 
     @property
-    def display_expression_qb_enabled(self):
-        """Gets the display_expression_qb_enabled of this Alert.  # noqa: E501
+    def in_maintenance_host_label_pairs(self):
+        """Gets the in_maintenance_host_label_pairs of this Alert.  # noqa: E501
 
-        Whether the display expression query was created using the Query Builder. Default false  # noqa: E501
+        Lists the sources that will not be checked for this alert, due to matching a maintenance window  # noqa: E501
 
-        :return: The display_expression_qb_enabled of this Alert.  # noqa: E501
-        :rtype: bool
+        :return: The in_maintenance_host_label_pairs of this Alert.  # noqa: E501
+        :rtype: list[SourceLabelPair]
         """
-        return self._display_expression_qb_enabled
+        return self._in_maintenance_host_label_pairs
 
-    @display_expression_qb_enabled.setter
-    def display_expression_qb_enabled(self, display_expression_qb_enabled):
-        """Sets the display_expression_qb_enabled of this Alert.
+    @in_maintenance_host_label_pairs.setter
+    def in_maintenance_host_label_pairs(self, in_maintenance_host_label_pairs):
+        """Sets the in_maintenance_host_label_pairs of this Alert.
 
-        Whether the display expression query was created using the Query Builder. Default false  # noqa: E501
+        Lists the sources that will not be checked for this alert, due to matching a maintenance window  # noqa: E501
 
-        :param display_expression_qb_enabled: The display_expression_qb_enabled of this Alert.  # noqa: E501
-        :type: bool
+        :param in_maintenance_host_label_pairs: The in_maintenance_host_label_pairs of this Alert.  # noqa: E501
+        :type: list[SourceLabelPair]
         """
 
-        self._display_expression_qb_enabled = display_expression_qb_enabled
+        self._in_maintenance_host_label_pairs = in_maintenance_host_label_pairs
 
     @property
-    def condition_qb_serialization(self):
-        """Gets the condition_qb_serialization of this Alert.  # noqa: E501
+    def active_maintenance_windows(self):
+        """Gets the active_maintenance_windows of this Alert.  # noqa: E501
 
-        The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true  # noqa: E501
+        The names of the active maintenance windows that are affecting this alert  # noqa: E501
 
-        :return: The condition_qb_serialization of this Alert.  # noqa: E501
-        :rtype: str
+        :return: The active_maintenance_windows of this Alert.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._condition_qb_serialization
+        return self._active_maintenance_windows
 
-    @condition_qb_serialization.setter
-    def condition_qb_serialization(self, condition_qb_serialization):
-        """Sets the condition_qb_serialization of this Alert.
+    @active_maintenance_windows.setter
+    def active_maintenance_windows(self, active_maintenance_windows):
+        """Sets the active_maintenance_windows of this Alert.
 
-        The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true  # noqa: E501
+        The names of the active maintenance windows that are affecting this alert  # noqa: E501
 
-        :param condition_qb_serialization: The condition_qb_serialization of this Alert.  # noqa: E501
-        :type: str
-        """
-
-        self._condition_qb_serialization = condition_qb_serialization
-
-    @property
-    def display_expression_qb_serialization(self):
-        """Gets the display_expression_qb_serialization of this Alert.  # noqa: E501
-
-        The special serialization of the Query Builder that corresponds to the display expression query.  Applicable only when displayExpressionQBEnabled is true  # noqa: E501
-
-        :return: The display_expression_qb_serialization of this Alert.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_expression_qb_serialization
-
-    @display_expression_qb_serialization.setter
-    def display_expression_qb_serialization(self, display_expression_qb_serialization):
-        """Sets the display_expression_qb_serialization of this Alert.
-
-        The special serialization of the Query Builder that corresponds to the display expression query.  Applicable only when displayExpressionQBEnabled is true  # noqa: E501
-
-        :param display_expression_qb_serialization: The display_expression_qb_serialization of this Alert.  # noqa: E501
-        :type: str
+        :param active_maintenance_windows: The active_maintenance_windows of this Alert.  # noqa: E501
+        :type: list[str]
         """
 
-        self._display_expression_qb_serialization = display_expression_qb_serialization
-
-    @property
-    def conditions(self):
-        """Gets the conditions of this Alert.  # noqa: E501
-
-        Multi - alert conditions.  # noqa: E501
-
-        :return: The conditions of this Alert.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._conditions
-
-    @conditions.setter
-    def conditions(self, conditions):
-        """Sets the conditions of this Alert.
-
-        Multi - alert conditions.  # noqa: E501
-
-        :param conditions: The conditions of this Alert.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._conditions = conditions
-
-    @property
-    def include_obsolete_metrics(self):
-        """Gets the include_obsolete_metrics of this Alert.  # noqa: E501
-
-        Whether to include obsolete metrics in alert query  # noqa: E501
-
-        :return: The include_obsolete_metrics of this Alert.  # noqa: E501
-        :rtype: bool
-        """
-        return self._include_obsolete_metrics
-
-    @include_obsolete_metrics.setter
-    def include_obsolete_metrics(self, include_obsolete_metrics):
-        """Sets the include_obsolete_metrics of this Alert.
-
-        Whether to include obsolete metrics in alert query  # noqa: E501
-
-        :param include_obsolete_metrics: The include_obsolete_metrics of this Alert.  # noqa: E501
-        :type: bool
-        """
-
-        self._include_obsolete_metrics = include_obsolete_metrics
+        self._active_maintenance_windows = active_maintenance_windows
 
     @property
     def prefiring_host_label_pairs(self):
@@ -1505,6 +1299,144 @@ class Alert(object):
         self._resolve_after_minutes = resolve_after_minutes
 
     @property
+    def condition_qb_enabled(self):
+        """Gets the condition_qb_enabled of this Alert.  # noqa: E501
+
+        Whether the condition query was created using the Query Builder.  Default false  # noqa: E501
+
+        :return: The condition_qb_enabled of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._condition_qb_enabled
+
+    @condition_qb_enabled.setter
+    def condition_qb_enabled(self, condition_qb_enabled):
+        """Sets the condition_qb_enabled of this Alert.
+
+        Whether the condition query was created using the Query Builder.  Default false  # noqa: E501
+
+        :param condition_qb_enabled: The condition_qb_enabled of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._condition_qb_enabled = condition_qb_enabled
+
+    @property
+    def display_expression_qb_enabled(self):
+        """Gets the display_expression_qb_enabled of this Alert.  # noqa: E501
+
+        Whether the display expression query was created using the Query Builder. Default false  # noqa: E501
+
+        :return: The display_expression_qb_enabled of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._display_expression_qb_enabled
+
+    @display_expression_qb_enabled.setter
+    def display_expression_qb_enabled(self, display_expression_qb_enabled):
+        """Sets the display_expression_qb_enabled of this Alert.
+
+        Whether the display expression query was created using the Query Builder. Default false  # noqa: E501
+
+        :param display_expression_qb_enabled: The display_expression_qb_enabled of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._display_expression_qb_enabled = display_expression_qb_enabled
+
+    @property
+    def condition_qb_serialization(self):
+        """Gets the condition_qb_serialization of this Alert.  # noqa: E501
+
+        The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true  # noqa: E501
+
+        :return: The condition_qb_serialization of this Alert.  # noqa: E501
+        :rtype: str
+        """
+        return self._condition_qb_serialization
+
+    @condition_qb_serialization.setter
+    def condition_qb_serialization(self, condition_qb_serialization):
+        """Sets the condition_qb_serialization of this Alert.
+
+        The special serialization of the Query Builder that corresponds to the condition query.  Applicable only when conditionQBEnabled is true  # noqa: E501
+
+        :param condition_qb_serialization: The condition_qb_serialization of this Alert.  # noqa: E501
+        :type: str
+        """
+
+        self._condition_qb_serialization = condition_qb_serialization
+
+    @property
+    def display_expression_qb_serialization(self):
+        """Gets the display_expression_qb_serialization of this Alert.  # noqa: E501
+
+        The special serialization of the Query Builder that corresponds to the display expression query.  Applicable only when displayExpressionQBEnabled is true  # noqa: E501
+
+        :return: The display_expression_qb_serialization of this Alert.  # noqa: E501
+        :rtype: str
+        """
+        return self._display_expression_qb_serialization
+
+    @display_expression_qb_serialization.setter
+    def display_expression_qb_serialization(self, display_expression_qb_serialization):
+        """Sets the display_expression_qb_serialization of this Alert.
+
+        The special serialization of the Query Builder that corresponds to the display expression query.  Applicable only when displayExpressionQBEnabled is true  # noqa: E501
+
+        :param display_expression_qb_serialization: The display_expression_qb_serialization of this Alert.  # noqa: E501
+        :type: str
+        """
+
+        self._display_expression_qb_serialization = display_expression_qb_serialization
+
+    @property
+    def conditions(self):
+        """Gets the conditions of this Alert.  # noqa: E501
+
+        Multi - alert conditions.  # noqa: E501
+
+        :return: The conditions of this Alert.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._conditions
+
+    @conditions.setter
+    def conditions(self, conditions):
+        """Sets the conditions of this Alert.
+
+        Multi - alert conditions.  # noqa: E501
+
+        :param conditions: The conditions of this Alert.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._conditions = conditions
+
+    @property
+    def include_obsolete_metrics(self):
+        """Gets the include_obsolete_metrics of this Alert.  # noqa: E501
+
+        Whether to include obsolete metrics in alert query  # noqa: E501
+
+        :return: The include_obsolete_metrics of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_obsolete_metrics
+
+    @include_obsolete_metrics.setter
+    def include_obsolete_metrics(self, include_obsolete_metrics):
+        """Sets the include_obsolete_metrics of this Alert.
+
+        Whether to include obsolete metrics in alert query  # noqa: E501
+
+        :param include_obsolete_metrics: The include_obsolete_metrics of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_obsolete_metrics = include_obsolete_metrics
+
+    @property
     def creator_id(self):
         """Gets the creator_id of this Alert.  # noqa: E501
 
@@ -1633,6 +1565,73 @@ class Alert(object):
         """
 
         self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this Alert.  # noqa: E501
+
+
+        :return: The deleted of this Alert.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this Alert.
+
+
+        :param deleted: The deleted of this Alert.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
+
+    @property
+    def sort_attr(self):
+        """Gets the sort_attr of this Alert.  # noqa: E501
+
+        Attribute used for default alert sort that is derived from state and severity  # noqa: E501
+
+        :return: The sort_attr of this Alert.  # noqa: E501
+        :rtype: int
+        """
+        return self._sort_attr
+
+    @sort_attr.setter
+    def sort_attr(self, sort_attr):
+        """Sets the sort_attr of this Alert.
+
+        Attribute used for default alert sort that is derived from state and severity  # noqa: E501
+
+        :param sort_attr: The sort_attr of this Alert.  # noqa: E501
+        :type: int
+        """
+
+        self._sort_attr = sort_attr
+
+    @property
+    def target_info(self):
+        """Gets the target_info of this Alert.  # noqa: E501
+
+        List of alert targets display information that includes name, id and type.  # noqa: E501
+
+        :return: The target_info of this Alert.  # noqa: E501
+        :rtype: list[TargetInfo]
+        """
+        return self._target_info
+
+    @target_info.setter
+    def target_info(self, target_info):
+        """Sets the target_info of this Alert.
+
+        List of alert targets display information that includes name, id and type.  # noqa: E501
+
+        :param target_info: The target_info of this Alert.  # noqa: E501
+        :type: list[TargetInfo]
+        """
+
+        self._target_info = target_info
 
     @property
     def severity_list(self):

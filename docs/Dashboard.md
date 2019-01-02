@@ -4,16 +4,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **can_user_modify** | **bool** |  | [optional] 
-**description** | **str** | Human-readable description of the dashboard | [optional] 
 **hidden** | **bool** |  | [optional] 
+**description** | **str** | Human-readable description of the dashboard | [optional] 
 **name** | **str** | Name of the dashboard | 
 **id** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **parameters** | **dict(str, str)** | Deprecated.  An obsolete representation of dashboard parameters | [optional] 
 **tags** | [**WFTags**](WFTags.md) |  | [optional] 
 **customer** | **str** | id of the customer to which this dashboard belongs | [optional] 
-**deleted** | **bool** |  | [optional] 
-**url** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **system_owned** | **bool** | Whether this dashboard is system-owned and not writeable | [optional] 
+**url** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **creator_id** | **str** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
 **event_filter_type** | **str** | How charts belonging to this dashboard should display events.  BYCHART is default if unspecified | [optional] 
@@ -35,9 +34,10 @@ Name | Type | Description | Notes
 **acl** | [**AccessControlListSimple**](AccessControlListSimple.md) |  | [optional] 
 **created_epoch_millis** | **int** |  | [optional] 
 **updated_epoch_millis** | **int** |  | [optional] 
+**deleted** | **bool** |  | [optional] 
 **num_charts** | **int** |  | [optional] 
-**num_favorites** | **int** |  | [optional] 
 **favorite** | **bool** |  | [optional] 
+**num_favorites** | **int** |  | [optional] 
 **orphan** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

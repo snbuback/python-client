@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**table** | **str** | The customer to which the event belongs | [optional] 
 **end_time** | **int** | End time of the event, in epoch millis.  Set to startTime + 1 for an instantaneous event | [optional] 
 **start_time** | **int** | Start time of the event, in epoch millis.  If the JSON value is missing or set to 0, startTime will be set to the current time | 
-**table** | **str** | The customer to which the event belongs | [optional] 
 **name** | **str** | The name of the event.  If &#39;annotations.prettyName&#39; is present, &#39;name&#39; will be equivalent to that value | 
 **annotations** | **dict(str, str)** | A string-&gt;string map of additional annotations on the event | 
 **id** | **str** |  | [optional] 

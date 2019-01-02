@@ -4,7 +4,6 @@ from __future__ import absolute_import
 
 # import apis into api package
 from wavefront_api_client.api.alert_api import AlertApi
-from wavefront_api_client.api.anomaly_api import AnomalyApi
 from wavefront_api_client.api.cloud_integration_api import CloudIntegrationApi
 from wavefront_api_client.api.dashboard_api import DashboardApi
 from wavefront_api_client.api.derived_metric_api import DerivedMetricApi

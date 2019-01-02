@@ -33,19 +33,17 @@ class DerivedMetricDefinition(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'created': 'int',
         'name': 'str',
         'id': 'str',
         'query': 'str',
-        'created': 'int',
         'minutes': 'int',
         'tags': 'WFTags',
         'status': 'list[str]',
         'updated': 'int',
-        'deleted': 'bool',
         'process_rate_minutes': 'int',
         'last_processed_millis': 'int',
         'update_user_id': 'str',
-        'include_obsolete_metrics': 'bool',
         'additional_information': 'str',
         'last_query_time': 'int',
         'in_trash': 'bool',
@@ -55,29 +53,29 @@ class DerivedMetricDefinition(object):
         'points_scanned_at_last_query': 'int',
         'metrics_used': 'list[str]',
         'hosts_used': 'list[str]',
+        'include_obsolete_metrics': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
         'last_error_message': 'str',
         'query_qb_enabled': 'bool',
         'query_qb_serialization': 'str',
         'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int'
+        'updated_epoch_millis': 'int',
+        'deleted': 'bool'
     }
 
     attribute_map = {
+        'created': 'created',
         'name': 'name',
         'id': 'id',
         'query': 'query',
-        'created': 'created',
         'minutes': 'minutes',
         'tags': 'tags',
         'status': 'status',
         'updated': 'updated',
-        'deleted': 'deleted',
         'process_rate_minutes': 'processRateMinutes',
         'last_processed_millis': 'lastProcessedMillis',
         'update_user_id': 'updateUserId',
-        'include_obsolete_metrics': 'includeObsoleteMetrics',
         'additional_information': 'additionalInformation',
         'last_query_time': 'lastQueryTime',
         'in_trash': 'inTrash',
@@ -87,31 +85,31 @@ class DerivedMetricDefinition(object):
         'points_scanned_at_last_query': 'pointsScannedAtLastQuery',
         'metrics_used': 'metricsUsed',
         'hosts_used': 'hostsUsed',
+        'include_obsolete_metrics': 'includeObsoleteMetrics',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'last_error_message': 'lastErrorMessage',
         'query_qb_enabled': 'queryQBEnabled',
         'query_qb_serialization': 'queryQBSerialization',
         'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis'
+        'updated_epoch_millis': 'updatedEpochMillis',
+        'deleted': 'deleted'
     }
 
-    def __init__(self, name=None, id=None, query=None, created=None, minutes=None, tags=None, status=None, updated=None, deleted=None, process_rate_minutes=None, last_processed_millis=None, update_user_id=None, include_obsolete_metrics=None, additional_information=None, last_query_time=None, in_trash=None, query_failing=None, create_user_id=None, last_failed_time=None, points_scanned_at_last_query=None, metrics_used=None, hosts_used=None, creator_id=None, updater_id=None, last_error_message=None, query_qb_enabled=None, query_qb_serialization=None, created_epoch_millis=None, updated_epoch_millis=None):  # noqa: E501
+    def __init__(self, created=None, name=None, id=None, query=None, minutes=None, tags=None, status=None, updated=None, process_rate_minutes=None, last_processed_millis=None, update_user_id=None, additional_information=None, last_query_time=None, in_trash=None, query_failing=None, create_user_id=None, last_failed_time=None, points_scanned_at_last_query=None, metrics_used=None, hosts_used=None, include_obsolete_metrics=None, creator_id=None, updater_id=None, last_error_message=None, query_qb_enabled=None, query_qb_serialization=None, created_epoch_millis=None, updated_epoch_millis=None, deleted=None):  # noqa: E501
         """DerivedMetricDefinition - a model defined in Swagger"""  # noqa: E501
 
+        self._created = None
         self._name = None
         self._id = None
         self._query = None
-        self._created = None
         self._minutes = None
         self._tags = None
         self._status = None
         self._updated = None
-        self._deleted = None
         self._process_rate_minutes = None
         self._last_processed_millis = None
         self._update_user_id = None
-        self._include_obsolete_metrics = None
         self._additional_information = None
         self._last_query_time = None
         self._in_trash = None
@@ -121,6 +119,7 @@ class DerivedMetricDefinition(object):
         self._points_scanned_at_last_query = None
         self._metrics_used = None
         self._hosts_used = None
+        self._include_obsolete_metrics = None
         self._creator_id = None
         self._updater_id = None
         self._last_error_message = None
@@ -128,14 +127,15 @@ class DerivedMetricDefinition(object):
         self._query_qb_serialization = None
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
+        self._deleted = None
         self.discriminator = None
 
+        if created is not None:
+            self.created = created
         self.name = name
         if id is not None:
             self.id = id
         self.query = query
-        if created is not None:
-            self.created = created
         self.minutes = minutes
         if tags is not None:
             self.tags = tags
@@ -143,16 +143,12 @@ class DerivedMetricDefinition(object):
             self.status = status
         if updated is not None:
             self.updated = updated
-        if deleted is not None:
-            self.deleted = deleted
         if process_rate_minutes is not None:
             self.process_rate_minutes = process_rate_minutes
         if last_processed_millis is not None:
             self.last_processed_millis = last_processed_millis
         if update_user_id is not None:
             self.update_user_id = update_user_id
-        if include_obsolete_metrics is not None:
-            self.include_obsolete_metrics = include_obsolete_metrics
         if additional_information is not None:
             self.additional_information = additional_information
         if last_query_time is not None:
@@ -171,6 +167,8 @@ class DerivedMetricDefinition(object):
             self.metrics_used = metrics_used
         if hosts_used is not None:
             self.hosts_used = hosts_used
+        if include_obsolete_metrics is not None:
+            self.include_obsolete_metrics = include_obsolete_metrics
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
@@ -185,6 +183,31 @@ class DerivedMetricDefinition(object):
             self.created_epoch_millis = created_epoch_millis
         if updated_epoch_millis is not None:
             self.updated_epoch_millis = updated_epoch_millis
+        if deleted is not None:
+            self.deleted = deleted
+
+    @property
+    def created(self):
+        """Gets the created of this DerivedMetricDefinition.  # noqa: E501
+
+        When this derived metric was created, in epoch millis  # noqa: E501
+
+        :return: The created of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: int
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this DerivedMetricDefinition.
+
+        When this derived metric was created, in epoch millis  # noqa: E501
+
+        :param created: The created of this DerivedMetricDefinition.  # noqa: E501
+        :type: int
+        """
+
+        self._created = created
 
     @property
     def name(self):
@@ -254,29 +277,6 @@ class DerivedMetricDefinition(object):
             raise ValueError("Invalid value for `query`, must not be `None`")  # noqa: E501
 
         self._query = query
-
-    @property
-    def created(self):
-        """Gets the created of this DerivedMetricDefinition.  # noqa: E501
-
-        When this derived metric was created, in epoch millis  # noqa: E501
-
-        :return: The created of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: int
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """Sets the created of this DerivedMetricDefinition.
-
-        When this derived metric was created, in epoch millis  # noqa: E501
-
-        :param created: The created of this DerivedMetricDefinition.  # noqa: E501
-        :type: int
-        """
-
-        self._created = created
 
     @property
     def minutes(self):
@@ -371,27 +371,6 @@ class DerivedMetricDefinition(object):
         self._updated = updated
 
     @property
-    def deleted(self):
-        """Gets the deleted of this DerivedMetricDefinition.  # noqa: E501
-
-
-        :return: The deleted of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this DerivedMetricDefinition.
-
-
-        :param deleted: The deleted of this DerivedMetricDefinition.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
-
-    @property
     def process_rate_minutes(self):
         """Gets the process_rate_minutes of this DerivedMetricDefinition.  # noqa: E501
 
@@ -459,29 +438,6 @@ class DerivedMetricDefinition(object):
         """
 
         self._update_user_id = update_user_id
-
-    @property
-    def include_obsolete_metrics(self):
-        """Gets the include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
-
-        Whether to include obsolete metrics in query  # noqa: E501
-
-        :return: The include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
-        :rtype: bool
-        """
-        return self._include_obsolete_metrics
-
-    @include_obsolete_metrics.setter
-    def include_obsolete_metrics(self, include_obsolete_metrics):
-        """Sets the include_obsolete_metrics of this DerivedMetricDefinition.
-
-        Whether to include obsolete metrics in query  # noqa: E501
-
-        :param include_obsolete_metrics: The include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
-        :type: bool
-        """
-
-        self._include_obsolete_metrics = include_obsolete_metrics
 
     @property
     def additional_information(self):
@@ -687,6 +643,29 @@ class DerivedMetricDefinition(object):
         self._hosts_used = hosts_used
 
     @property
+    def include_obsolete_metrics(self):
+        """Gets the include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
+
+        Whether to include obsolete metrics in query  # noqa: E501
+
+        :return: The include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_obsolete_metrics
+
+    @include_obsolete_metrics.setter
+    def include_obsolete_metrics(self, include_obsolete_metrics):
+        """Sets the include_obsolete_metrics of this DerivedMetricDefinition.
+
+        Whether to include obsolete metrics in query  # noqa: E501
+
+        :param include_obsolete_metrics: The include_obsolete_metrics of this DerivedMetricDefinition.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_obsolete_metrics = include_obsolete_metrics
+
+    @property
     def creator_id(self):
         """Gets the creator_id of this DerivedMetricDefinition.  # noqa: E501
 
@@ -838,6 +817,27 @@ class DerivedMetricDefinition(object):
         """
 
         self._updated_epoch_millis = updated_epoch_millis
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this DerivedMetricDefinition.  # noqa: E501
+
+
+        :return: The deleted of this DerivedMetricDefinition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this DerivedMetricDefinition.
+
+
+        :param deleted: The deleted of this DerivedMetricDefinition.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     def to_dict(self):
         """Returns the model properties as a dict"""

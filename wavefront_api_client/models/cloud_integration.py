@@ -46,7 +46,6 @@ class CloudIntegration(object):
         'name': 'str',
         'id': 'str',
         'service': 'str',
-        'deleted': 'bool',
         'in_trash': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
@@ -70,7 +69,8 @@ class CloudIntegration(object):
         'last_processing_timestamp': 'int',
         'created_epoch_millis': 'int',
         'updated_epoch_millis': 'int',
-        'service_refresh_rate_in_mins': 'int'
+        'service_refresh_rate_in_mins': 'int',
+        'deleted': 'bool'
     }
 
     attribute_map = {
@@ -78,7 +78,6 @@ class CloudIntegration(object):
         'name': 'name',
         'id': 'id',
         'service': 'service',
-        'deleted': 'deleted',
         'in_trash': 'inTrash',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
@@ -102,17 +101,17 @@ class CloudIntegration(object):
         'last_processing_timestamp': 'lastProcessingTimestamp',
         'created_epoch_millis': 'createdEpochMillis',
         'updated_epoch_millis': 'updatedEpochMillis',
-        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins'
+        'service_refresh_rate_in_mins': 'serviceRefreshRateInMins',
+        'deleted': 'deleted'
     }
 
-    def __init__(self, force_save=None, name=None, id=None, service=None, deleted=None, in_trash=None, creator_id=None, updater_id=None, last_error_event=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, new_relic=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None):  # noqa: E501
+    def __init__(self, force_save=None, name=None, id=None, service=None, in_trash=None, creator_id=None, updater_id=None, last_error_event=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, new_relic=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None, deleted=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._force_save = None
         self._name = None
         self._id = None
         self._service = None
-        self._deleted = None
         self._in_trash = None
         self._creator_id = None
         self._updater_id = None
@@ -137,6 +136,7 @@ class CloudIntegration(object):
         self._created_epoch_millis = None
         self._updated_epoch_millis = None
         self._service_refresh_rate_in_mins = None
+        self._deleted = None
         self.discriminator = None
 
         if force_save is not None:
@@ -145,8 +145,6 @@ class CloudIntegration(object):
         if id is not None:
             self.id = id
         self.service = service
-        if deleted is not None:
-            self.deleted = deleted
         if in_trash is not None:
             self.in_trash = in_trash
         if creator_id is not None:
@@ -195,6 +193,8 @@ class CloudIntegration(object):
             self.updated_epoch_millis = updated_epoch_millis
         if service_refresh_rate_in_mins is not None:
             self.service_refresh_rate_in_mins = service_refresh_rate_in_mins
+        if deleted is not None:
+            self.deleted = deleted
 
     @property
     def force_save(self):
@@ -293,27 +293,6 @@ class CloudIntegration(object):
             )
 
         self._service = service
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this CloudIntegration.  # noqa: E501
-
-
-        :return: The deleted of this CloudIntegration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this CloudIntegration.
-
-
-        :param deleted: The deleted of this CloudIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
 
     @property
     def in_trash(self):
@@ -836,6 +815,27 @@ class CloudIntegration(object):
         """
 
         self._service_refresh_rate_in_mins = service_refresh_rate_in_mins
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this CloudIntegration.  # noqa: E501
+
+
+        :return: The deleted of this CloudIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this CloudIntegration.
+
+
+        :param deleted: The deleted of this CloudIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     def to_dict(self):
         """Returns the model properties as a dict"""

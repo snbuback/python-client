@@ -34,6 +34,22 @@ class ChartSettings(object):
         'min': 'float',
         'type': 'str',
         'max': 'float',
+        'sparkline_display_color': 'str',
+        'sparkline_display_vertical_position': 'str',
+        'sparkline_display_horizontal_position': 'str',
+        'sparkline_display_font_size': 'str',
+        'sparkline_display_prefix': 'str',
+        'sparkline_display_postfix': 'str',
+        'sparkline_size': 'str',
+        'sparkline_line_color': 'str',
+        'sparkline_fill_color': 'str',
+        'sparkline_value_color_map_colors': 'list[str]',
+        'sparkline_value_color_map_values_v2': 'list[float]',
+        'sparkline_value_color_map_values': 'list[int]',
+        'sparkline_value_color_map_apply_to': 'str',
+        'sparkline_decimal_precision': 'int',
+        'sparkline_value_text_map_text': 'list[str]',
+        'sparkline_value_text_map_thresholds': 'list[float]',
         'line_type': 'str',
         'stack_type': 'str',
         'windowing': 'str',
@@ -70,22 +86,6 @@ class ChartSettings(object):
         'ymin': 'float',
         'time_based_coloring': 'bool',
         'sparkline_display_value_type': 'str',
-        'sparkline_display_color': 'str',
-        'sparkline_display_vertical_position': 'str',
-        'sparkline_display_horizontal_position': 'str',
-        'sparkline_display_font_size': 'str',
-        'sparkline_display_prefix': 'str',
-        'sparkline_display_postfix': 'str',
-        'sparkline_size': 'str',
-        'sparkline_line_color': 'str',
-        'sparkline_fill_color': 'str',
-        'sparkline_value_color_map_colors': 'list[str]',
-        'sparkline_value_color_map_values_v2': 'list[float]',
-        'sparkline_value_color_map_values': 'list[int]',
-        'sparkline_value_color_map_apply_to': 'str',
-        'sparkline_decimal_precision': 'int',
-        'sparkline_value_text_map_text': 'list[str]',
-        'sparkline_value_text_map_thresholds': 'list[float]',
         'expected_data_spacing': 'int',
         'plain_markdown_content': 'str'
     }
@@ -94,6 +94,22 @@ class ChartSettings(object):
         'min': 'min',
         'type': 'type',
         'max': 'max',
+        'sparkline_display_color': 'sparklineDisplayColor',
+        'sparkline_display_vertical_position': 'sparklineDisplayVerticalPosition',
+        'sparkline_display_horizontal_position': 'sparklineDisplayHorizontalPosition',
+        'sparkline_display_font_size': 'sparklineDisplayFontSize',
+        'sparkline_display_prefix': 'sparklineDisplayPrefix',
+        'sparkline_display_postfix': 'sparklineDisplayPostfix',
+        'sparkline_size': 'sparklineSize',
+        'sparkline_line_color': 'sparklineLineColor',
+        'sparkline_fill_color': 'sparklineFillColor',
+        'sparkline_value_color_map_colors': 'sparklineValueColorMapColors',
+        'sparkline_value_color_map_values_v2': 'sparklineValueColorMapValuesV2',
+        'sparkline_value_color_map_values': 'sparklineValueColorMapValues',
+        'sparkline_value_color_map_apply_to': 'sparklineValueColorMapApplyTo',
+        'sparkline_decimal_precision': 'sparklineDecimalPrecision',
+        'sparkline_value_text_map_text': 'sparklineValueTextMapText',
+        'sparkline_value_text_map_thresholds': 'sparklineValueTextMapThresholds',
         'line_type': 'lineType',
         'stack_type': 'stackType',
         'windowing': 'windowing',
@@ -130,32 +146,32 @@ class ChartSettings(object):
         'ymin': 'ymin',
         'time_based_coloring': 'timeBasedColoring',
         'sparkline_display_value_type': 'sparklineDisplayValueType',
-        'sparkline_display_color': 'sparklineDisplayColor',
-        'sparkline_display_vertical_position': 'sparklineDisplayVerticalPosition',
-        'sparkline_display_horizontal_position': 'sparklineDisplayHorizontalPosition',
-        'sparkline_display_font_size': 'sparklineDisplayFontSize',
-        'sparkline_display_prefix': 'sparklineDisplayPrefix',
-        'sparkline_display_postfix': 'sparklineDisplayPostfix',
-        'sparkline_size': 'sparklineSize',
-        'sparkline_line_color': 'sparklineLineColor',
-        'sparkline_fill_color': 'sparklineFillColor',
-        'sparkline_value_color_map_colors': 'sparklineValueColorMapColors',
-        'sparkline_value_color_map_values_v2': 'sparklineValueColorMapValuesV2',
-        'sparkline_value_color_map_values': 'sparklineValueColorMapValues',
-        'sparkline_value_color_map_apply_to': 'sparklineValueColorMapApplyTo',
-        'sparkline_decimal_precision': 'sparklineDecimalPrecision',
-        'sparkline_value_text_map_text': 'sparklineValueTextMapText',
-        'sparkline_value_text_map_thresholds': 'sparklineValueTextMapThresholds',
         'expected_data_spacing': 'expectedDataSpacing',
         'plain_markdown_content': 'plainMarkdownContent'
     }
 
-    def __init__(self, min=None, type=None, max=None, line_type=None, stack_type=None, windowing=None, window_size=None, show_hosts=None, show_labels=None, show_raw_values=None, auto_column_tags=None, column_tags=None, tag_mode=None, num_tags=None, custom_tags=None, group_by_source=None, sort_values_descending=None, y1_max=None, y1_min=None, y1_units=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, invert_dynamic_legend_hover_control=None, fixed_legend_enabled=None, fixed_legend_use_raw_stats=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_sort=None, fixed_legend_filter_limit=None, fixed_legend_filter_field=None, fixed_legend_hide_label=None, xmax=None, xmin=None, ymax=None, ymin=None, time_based_coloring=None, sparkline_display_value_type=None, sparkline_display_color=None, sparkline_display_vertical_position=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_values=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, expected_data_spacing=None, plain_markdown_content=None):  # noqa: E501
+    def __init__(self, min=None, type=None, max=None, sparkline_display_color=None, sparkline_display_vertical_position=None, sparkline_display_horizontal_position=None, sparkline_display_font_size=None, sparkline_display_prefix=None, sparkline_display_postfix=None, sparkline_size=None, sparkline_line_color=None, sparkline_fill_color=None, sparkline_value_color_map_colors=None, sparkline_value_color_map_values_v2=None, sparkline_value_color_map_values=None, sparkline_value_color_map_apply_to=None, sparkline_decimal_precision=None, sparkline_value_text_map_text=None, sparkline_value_text_map_thresholds=None, line_type=None, stack_type=None, windowing=None, window_size=None, show_hosts=None, show_labels=None, show_raw_values=None, auto_column_tags=None, column_tags=None, tag_mode=None, num_tags=None, custom_tags=None, group_by_source=None, sort_values_descending=None, y1_max=None, y1_min=None, y1_units=None, y0_scale_si_by1024=None, y1_scale_si_by1024=None, y0_unit_autoscaling=None, y1_unit_autoscaling=None, invert_dynamic_legend_hover_control=None, fixed_legend_enabled=None, fixed_legend_use_raw_stats=None, fixed_legend_position=None, fixed_legend_display_stats=None, fixed_legend_filter_sort=None, fixed_legend_filter_limit=None, fixed_legend_filter_field=None, fixed_legend_hide_label=None, xmax=None, xmin=None, ymax=None, ymin=None, time_based_coloring=None, sparkline_display_value_type=None, expected_data_spacing=None, plain_markdown_content=None):  # noqa: E501
         """ChartSettings - a model defined in Swagger"""  # noqa: E501
 
         self._min = None
         self._type = None
         self._max = None
+        self._sparkline_display_color = None
+        self._sparkline_display_vertical_position = None
+        self._sparkline_display_horizontal_position = None
+        self._sparkline_display_font_size = None
+        self._sparkline_display_prefix = None
+        self._sparkline_display_postfix = None
+        self._sparkline_size = None
+        self._sparkline_line_color = None
+        self._sparkline_fill_color = None
+        self._sparkline_value_color_map_colors = None
+        self._sparkline_value_color_map_values_v2 = None
+        self._sparkline_value_color_map_values = None
+        self._sparkline_value_color_map_apply_to = None
+        self._sparkline_decimal_precision = None
+        self._sparkline_value_text_map_text = None
+        self._sparkline_value_text_map_thresholds = None
         self._line_type = None
         self._stack_type = None
         self._windowing = None
@@ -192,22 +208,6 @@ class ChartSettings(object):
         self._ymin = None
         self._time_based_coloring = None
         self._sparkline_display_value_type = None
-        self._sparkline_display_color = None
-        self._sparkline_display_vertical_position = None
-        self._sparkline_display_horizontal_position = None
-        self._sparkline_display_font_size = None
-        self._sparkline_display_prefix = None
-        self._sparkline_display_postfix = None
-        self._sparkline_size = None
-        self._sparkline_line_color = None
-        self._sparkline_fill_color = None
-        self._sparkline_value_color_map_colors = None
-        self._sparkline_value_color_map_values_v2 = None
-        self._sparkline_value_color_map_values = None
-        self._sparkline_value_color_map_apply_to = None
-        self._sparkline_decimal_precision = None
-        self._sparkline_value_text_map_text = None
-        self._sparkline_value_text_map_thresholds = None
         self._expected_data_spacing = None
         self._plain_markdown_content = None
         self.discriminator = None
@@ -217,6 +217,38 @@ class ChartSettings(object):
         self.type = type
         if max is not None:
             self.max = max
+        if sparkline_display_color is not None:
+            self.sparkline_display_color = sparkline_display_color
+        if sparkline_display_vertical_position is not None:
+            self.sparkline_display_vertical_position = sparkline_display_vertical_position
+        if sparkline_display_horizontal_position is not None:
+            self.sparkline_display_horizontal_position = sparkline_display_horizontal_position
+        if sparkline_display_font_size is not None:
+            self.sparkline_display_font_size = sparkline_display_font_size
+        if sparkline_display_prefix is not None:
+            self.sparkline_display_prefix = sparkline_display_prefix
+        if sparkline_display_postfix is not None:
+            self.sparkline_display_postfix = sparkline_display_postfix
+        if sparkline_size is not None:
+            self.sparkline_size = sparkline_size
+        if sparkline_line_color is not None:
+            self.sparkline_line_color = sparkline_line_color
+        if sparkline_fill_color is not None:
+            self.sparkline_fill_color = sparkline_fill_color
+        if sparkline_value_color_map_colors is not None:
+            self.sparkline_value_color_map_colors = sparkline_value_color_map_colors
+        if sparkline_value_color_map_values_v2 is not None:
+            self.sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
+        if sparkline_value_color_map_values is not None:
+            self.sparkline_value_color_map_values = sparkline_value_color_map_values
+        if sparkline_value_color_map_apply_to is not None:
+            self.sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
+        if sparkline_decimal_precision is not None:
+            self.sparkline_decimal_precision = sparkline_decimal_precision
+        if sparkline_value_text_map_text is not None:
+            self.sparkline_value_text_map_text = sparkline_value_text_map_text
+        if sparkline_value_text_map_thresholds is not None:
+            self.sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
         if line_type is not None:
             self.line_type = line_type
         if stack_type is not None:
@@ -289,38 +321,6 @@ class ChartSettings(object):
             self.time_based_coloring = time_based_coloring
         if sparkline_display_value_type is not None:
             self.sparkline_display_value_type = sparkline_display_value_type
-        if sparkline_display_color is not None:
-            self.sparkline_display_color = sparkline_display_color
-        if sparkline_display_vertical_position is not None:
-            self.sparkline_display_vertical_position = sparkline_display_vertical_position
-        if sparkline_display_horizontal_position is not None:
-            self.sparkline_display_horizontal_position = sparkline_display_horizontal_position
-        if sparkline_display_font_size is not None:
-            self.sparkline_display_font_size = sparkline_display_font_size
-        if sparkline_display_prefix is not None:
-            self.sparkline_display_prefix = sparkline_display_prefix
-        if sparkline_display_postfix is not None:
-            self.sparkline_display_postfix = sparkline_display_postfix
-        if sparkline_size is not None:
-            self.sparkline_size = sparkline_size
-        if sparkline_line_color is not None:
-            self.sparkline_line_color = sparkline_line_color
-        if sparkline_fill_color is not None:
-            self.sparkline_fill_color = sparkline_fill_color
-        if sparkline_value_color_map_colors is not None:
-            self.sparkline_value_color_map_colors = sparkline_value_color_map_colors
-        if sparkline_value_color_map_values_v2 is not None:
-            self.sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
-        if sparkline_value_color_map_values is not None:
-            self.sparkline_value_color_map_values = sparkline_value_color_map_values
-        if sparkline_value_color_map_apply_to is not None:
-            self.sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
-        if sparkline_decimal_precision is not None:
-            self.sparkline_decimal_precision = sparkline_decimal_precision
-        if sparkline_value_text_map_text is not None:
-            self.sparkline_value_text_map_text = sparkline_value_text_map_text
-        if sparkline_value_text_map_thresholds is not None:
-            self.sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
         if expected_data_spacing is not None:
             self.expected_data_spacing = expected_data_spacing
         if plain_markdown_content is not None:
@@ -402,6 +402,392 @@ class ChartSettings(object):
         """
 
         self._max = max
+
+    @property
+    def sparkline_display_color(self):
+        """Gets the sparkline_display_color of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :return: The sparkline_display_color of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_color
+
+    @sparkline_display_color.setter
+    def sparkline_display_color(self, sparkline_display_color):
+        """Sets the sparkline_display_color of this ChartSettings.
+
+        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :param sparkline_display_color: The sparkline_display_color of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_color = sparkline_display_color
+
+    @property
+    def sparkline_display_vertical_position(self):
+        """Gets the sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+
+        deprecated  # noqa: E501
+
+        :return: The sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_vertical_position
+
+    @sparkline_display_vertical_position.setter
+    def sparkline_display_vertical_position(self, sparkline_display_vertical_position):
+        """Sets the sparkline_display_vertical_position of this ChartSettings.
+
+        deprecated  # noqa: E501
+
+        :param sparkline_display_vertical_position: The sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_vertical_position = sparkline_display_vertical_position
+
+    @property
+    def sparkline_display_horizontal_position(self):
+        """Gets the sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the horizontal position of the displayed text  # noqa: E501
+
+        :return: The sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_horizontal_position
+
+    @sparkline_display_horizontal_position.setter
+    def sparkline_display_horizontal_position(self, sparkline_display_horizontal_position):
+        """Sets the sparkline_display_horizontal_position of this ChartSettings.
+
+        For the single stat view, the horizontal position of the displayed text  # noqa: E501
+
+        :param sparkline_display_horizontal_position: The sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["MIDDLE", "LEFT", "RIGHT"]  # noqa: E501
+        if sparkline_display_horizontal_position not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sparkline_display_horizontal_position` ({0}), must be one of {1}"  # noqa: E501
+                .format(sparkline_display_horizontal_position, allowed_values)
+            )
+
+        self._sparkline_display_horizontal_position = sparkline_display_horizontal_position
+
+    @property
+    def sparkline_display_font_size(self):
+        """Gets the sparkline_display_font_size of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the font size of the displayed text, in percent  # noqa: E501
+
+        :return: The sparkline_display_font_size of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_font_size
+
+    @sparkline_display_font_size.setter
+    def sparkline_display_font_size(self, sparkline_display_font_size):
+        """Sets the sparkline_display_font_size of this ChartSettings.
+
+        For the single stat view, the font size of the displayed text, in percent  # noqa: E501
+
+        :param sparkline_display_font_size: The sparkline_display_font_size of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_font_size = sparkline_display_font_size
+
+    @property
+    def sparkline_display_prefix(self):
+        """Gets the sparkline_display_prefix of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a string to add before the displayed text  # noqa: E501
+
+        :return: The sparkline_display_prefix of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_prefix
+
+    @sparkline_display_prefix.setter
+    def sparkline_display_prefix(self, sparkline_display_prefix):
+        """Sets the sparkline_display_prefix of this ChartSettings.
+
+        For the single stat view, a string to add before the displayed text  # noqa: E501
+
+        :param sparkline_display_prefix: The sparkline_display_prefix of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_prefix = sparkline_display_prefix
+
+    @property
+    def sparkline_display_postfix(self):
+        """Gets the sparkline_display_postfix of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a string to append to the displayed text  # noqa: E501
+
+        :return: The sparkline_display_postfix of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_display_postfix
+
+    @sparkline_display_postfix.setter
+    def sparkline_display_postfix(self, sparkline_display_postfix):
+        """Sets the sparkline_display_postfix of this ChartSettings.
+
+        For the single stat view, a string to append to the displayed text  # noqa: E501
+
+        :param sparkline_display_postfix: The sparkline_display_postfix of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_display_postfix = sparkline_display_postfix
+
+    @property
+    def sparkline_size(self):
+        """Gets the sparkline_size of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a misleadingly named property.  This determines whether the sparkline of the statistic is displayed in the chart BACKGROUND, BOTTOM, or NONE  # noqa: E501
+
+        :return: The sparkline_size of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_size
+
+    @sparkline_size.setter
+    def sparkline_size(self, sparkline_size):
+        """Sets the sparkline_size of this ChartSettings.
+
+        For the single stat view, a misleadingly named property.  This determines whether the sparkline of the statistic is displayed in the chart BACKGROUND, BOTTOM, or NONE  # noqa: E501
+
+        :param sparkline_size: The sparkline_size of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["BACKGROUND", "BOTTOM", "NONE"]  # noqa: E501
+        if sparkline_size not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sparkline_size` ({0}), must be one of {1}"  # noqa: E501
+                .format(sparkline_size, allowed_values)
+            )
+
+        self._sparkline_size = sparkline_size
+
+    @property
+    def sparkline_line_color(self):
+        """Gets the sparkline_line_color of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :return: The sparkline_line_color of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_line_color
+
+    @sparkline_line_color.setter
+    def sparkline_line_color(self, sparkline_line_color):
+        """Sets the sparkline_line_color of this ChartSettings.
+
+        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :param sparkline_line_color: The sparkline_line_color of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_line_color = sparkline_line_color
+
+    @property
+    def sparkline_fill_color(self):
+        """Gets the sparkline_fill_color of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :return: The sparkline_fill_color of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_fill_color
+
+    @sparkline_fill_color.setter
+    def sparkline_fill_color(self, sparkline_fill_color):
+        """Sets the sparkline_fill_color of this ChartSettings.
+
+        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :param sparkline_fill_color: The sparkline_fill_color of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sparkline_fill_color = sparkline_fill_color
+
+    @property
+    def sparkline_value_color_map_colors(self):
+        """Gets the sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :return: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._sparkline_value_color_map_colors
+
+    @sparkline_value_color_map_colors.setter
+    def sparkline_value_color_map_colors(self, sparkline_value_color_map_colors):
+        """Sets the sparkline_value_color_map_colors of this ChartSettings.
+
+        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
+
+        :param sparkline_value_color_map_colors: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._sparkline_value_color_map_colors = sparkline_value_color_map_colors
+
+    @property
+    def sparkline_value_color_map_values_v2(self):
+        """Gets the sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a list of boundaries for mapping different query values to colors.  Must contain one less element than sparklineValueColorMapColors  # noqa: E501
+
+        :return: The sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
+        :rtype: list[float]
+        """
+        return self._sparkline_value_color_map_values_v2
+
+    @sparkline_value_color_map_values_v2.setter
+    def sparkline_value_color_map_values_v2(self, sparkline_value_color_map_values_v2):
+        """Sets the sparkline_value_color_map_values_v2 of this ChartSettings.
+
+        For the single stat view, a list of boundaries for mapping different query values to colors.  Must contain one less element than sparklineValueColorMapColors  # noqa: E501
+
+        :param sparkline_value_color_map_values_v2: The sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
+        :type: list[float]
+        """
+
+        self._sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
+
+    @property
+    def sparkline_value_color_map_values(self):
+        """Gets the sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
+
+        deprecated  # noqa: E501
+
+        :return: The sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._sparkline_value_color_map_values
+
+    @sparkline_value_color_map_values.setter
+    def sparkline_value_color_map_values(self, sparkline_value_color_map_values):
+        """Sets the sparkline_value_color_map_values of this ChartSettings.
+
+        deprecated  # noqa: E501
+
+        :param sparkline_value_color_map_values: The sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._sparkline_value_color_map_values = sparkline_value_color_map_values
+
+    @property
+    def sparkline_value_color_map_apply_to(self):
+        """Gets the sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
+
+        For the single stat view, whether to apply dynamic color settings to the displayed TEXT or BACKGROUND  # noqa: E501
+
+        :return: The sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sparkline_value_color_map_apply_to
+
+    @sparkline_value_color_map_apply_to.setter
+    def sparkline_value_color_map_apply_to(self, sparkline_value_color_map_apply_to):
+        """Sets the sparkline_value_color_map_apply_to of this ChartSettings.
+
+        For the single stat view, whether to apply dynamic color settings to the displayed TEXT or BACKGROUND  # noqa: E501
+
+        :param sparkline_value_color_map_apply_to: The sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["TEXT", "BACKGROUND"]  # noqa: E501
+        if sparkline_value_color_map_apply_to not in allowed_values:
+            raise ValueError(
+                "Invalid value for `sparkline_value_color_map_apply_to` ({0}), must be one of {1}"  # noqa: E501
+                .format(sparkline_value_color_map_apply_to, allowed_values)
+            )
+
+        self._sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
+
+    @property
+    def sparkline_decimal_precision(self):
+        """Gets the sparkline_decimal_precision of this ChartSettings.  # noqa: E501
+
+        For the single stat view, the decimal precision of the displayed number  # noqa: E501
+
+        :return: The sparkline_decimal_precision of this ChartSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._sparkline_decimal_precision
+
+    @sparkline_decimal_precision.setter
+    def sparkline_decimal_precision(self, sparkline_decimal_precision):
+        """Sets the sparkline_decimal_precision of this ChartSettings.
+
+        For the single stat view, the decimal precision of the displayed number  # noqa: E501
+
+        :param sparkline_decimal_precision: The sparkline_decimal_precision of this ChartSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._sparkline_decimal_precision = sparkline_decimal_precision
+
+    @property
+    def sparkline_value_text_map_text(self):
+        """Gets the sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds  # noqa: E501
+
+        :return: The sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._sparkline_value_text_map_text
+
+    @sparkline_value_text_map_text.setter
+    def sparkline_value_text_map_text(self, sparkline_value_text_map_text):
+        """Sets the sparkline_value_text_map_text of this ChartSettings.
+
+        For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds  # noqa: E501
+
+        :param sparkline_value_text_map_text: The sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._sparkline_value_text_map_text = sparkline_value_text_map_text
+
+    @property
+    def sparkline_value_text_map_thresholds(self):
+        """Gets the sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
+
+        For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText  # noqa: E501
+
+        :return: The sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
+        :rtype: list[float]
+        """
+        return self._sparkline_value_text_map_thresholds
+
+    @sparkline_value_text_map_thresholds.setter
+    def sparkline_value_text_map_thresholds(self, sparkline_value_text_map_thresholds):
+        """Sets the sparkline_value_text_map_thresholds of this ChartSettings.
+
+        For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText  # noqa: E501
+
+        :param sparkline_value_text_map_thresholds: The sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
+        :type: list[float]
+        """
+
+        self._sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
 
     @property
     def line_type(self):
@@ -1278,392 +1664,6 @@ class ChartSettings(object):
             )
 
         self._sparkline_display_value_type = sparkline_display_value_type
-
-    @property
-    def sparkline_display_color(self):
-        """Gets the sparkline_display_color of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :return: The sparkline_display_color of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_color
-
-    @sparkline_display_color.setter
-    def sparkline_display_color(self, sparkline_display_color):
-        """Sets the sparkline_display_color of this ChartSettings.
-
-        For the single stat view, the color of the displayed text (when not dynamically determined). Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :param sparkline_display_color: The sparkline_display_color of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_color = sparkline_display_color
-
-    @property
-    def sparkline_display_vertical_position(self):
-        """Gets the sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
-
-        deprecated  # noqa: E501
-
-        :return: The sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_vertical_position
-
-    @sparkline_display_vertical_position.setter
-    def sparkline_display_vertical_position(self, sparkline_display_vertical_position):
-        """Sets the sparkline_display_vertical_position of this ChartSettings.
-
-        deprecated  # noqa: E501
-
-        :param sparkline_display_vertical_position: The sparkline_display_vertical_position of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_vertical_position = sparkline_display_vertical_position
-
-    @property
-    def sparkline_display_horizontal_position(self):
-        """Gets the sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the horizontal position of the displayed text  # noqa: E501
-
-        :return: The sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_horizontal_position
-
-    @sparkline_display_horizontal_position.setter
-    def sparkline_display_horizontal_position(self, sparkline_display_horizontal_position):
-        """Sets the sparkline_display_horizontal_position of this ChartSettings.
-
-        For the single stat view, the horizontal position of the displayed text  # noqa: E501
-
-        :param sparkline_display_horizontal_position: The sparkline_display_horizontal_position of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["MIDDLE", "LEFT", "RIGHT"]  # noqa: E501
-        if sparkline_display_horizontal_position not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sparkline_display_horizontal_position` ({0}), must be one of {1}"  # noqa: E501
-                .format(sparkline_display_horizontal_position, allowed_values)
-            )
-
-        self._sparkline_display_horizontal_position = sparkline_display_horizontal_position
-
-    @property
-    def sparkline_display_font_size(self):
-        """Gets the sparkline_display_font_size of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the font size of the displayed text, in percent  # noqa: E501
-
-        :return: The sparkline_display_font_size of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_font_size
-
-    @sparkline_display_font_size.setter
-    def sparkline_display_font_size(self, sparkline_display_font_size):
-        """Sets the sparkline_display_font_size of this ChartSettings.
-
-        For the single stat view, the font size of the displayed text, in percent  # noqa: E501
-
-        :param sparkline_display_font_size: The sparkline_display_font_size of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_font_size = sparkline_display_font_size
-
-    @property
-    def sparkline_display_prefix(self):
-        """Gets the sparkline_display_prefix of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a string to add before the displayed text  # noqa: E501
-
-        :return: The sparkline_display_prefix of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_prefix
-
-    @sparkline_display_prefix.setter
-    def sparkline_display_prefix(self, sparkline_display_prefix):
-        """Sets the sparkline_display_prefix of this ChartSettings.
-
-        For the single stat view, a string to add before the displayed text  # noqa: E501
-
-        :param sparkline_display_prefix: The sparkline_display_prefix of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_prefix = sparkline_display_prefix
-
-    @property
-    def sparkline_display_postfix(self):
-        """Gets the sparkline_display_postfix of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a string to append to the displayed text  # noqa: E501
-
-        :return: The sparkline_display_postfix of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_display_postfix
-
-    @sparkline_display_postfix.setter
-    def sparkline_display_postfix(self, sparkline_display_postfix):
-        """Sets the sparkline_display_postfix of this ChartSettings.
-
-        For the single stat view, a string to append to the displayed text  # noqa: E501
-
-        :param sparkline_display_postfix: The sparkline_display_postfix of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_display_postfix = sparkline_display_postfix
-
-    @property
-    def sparkline_size(self):
-        """Gets the sparkline_size of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a misleadingly named property.  This determines whether the sparkline of the statistic is displayed in the chart BACKGROUND, BOTTOM, or NONE  # noqa: E501
-
-        :return: The sparkline_size of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_size
-
-    @sparkline_size.setter
-    def sparkline_size(self, sparkline_size):
-        """Sets the sparkline_size of this ChartSettings.
-
-        For the single stat view, a misleadingly named property.  This determines whether the sparkline of the statistic is displayed in the chart BACKGROUND, BOTTOM, or NONE  # noqa: E501
-
-        :param sparkline_size: The sparkline_size of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["BACKGROUND", "BOTTOM", "NONE"]  # noqa: E501
-        if sparkline_size not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sparkline_size` ({0}), must be one of {1}"  # noqa: E501
-                .format(sparkline_size, allowed_values)
-            )
-
-        self._sparkline_size = sparkline_size
-
-    @property
-    def sparkline_line_color(self):
-        """Gets the sparkline_line_color of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :return: The sparkline_line_color of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_line_color
-
-    @sparkline_line_color.setter
-    def sparkline_line_color(self, sparkline_line_color):
-        """Sets the sparkline_line_color of this ChartSettings.
-
-        For the single stat view, the color of the line. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :param sparkline_line_color: The sparkline_line_color of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_line_color = sparkline_line_color
-
-    @property
-    def sparkline_fill_color(self):
-        """Gets the sparkline_fill_color of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :return: The sparkline_fill_color of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_fill_color
-
-    @sparkline_fill_color.setter
-    def sparkline_fill_color(self, sparkline_fill_color):
-        """Sets the sparkline_fill_color of this ChartSettings.
-
-        For the single stat view, the color of the background fill. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :param sparkline_fill_color: The sparkline_fill_color of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._sparkline_fill_color = sparkline_fill_color
-
-    @property
-    def sparkline_value_color_map_colors(self):
-        """Gets the sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :return: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._sparkline_value_color_map_colors
-
-    @sparkline_value_color_map_colors.setter
-    def sparkline_value_color_map_colors(self, sparkline_value_color_map_colors):
-        """Sets the sparkline_value_color_map_colors of this ChartSettings.
-
-        For the single stat view, a list of colors that differing query values map to.  Must contain one more element than sparklineValueColorMapValuesV2. Values should be in\"rgba(<rval>, <gval>, <bval>, <aval>\" format  # noqa: E501
-
-        :param sparkline_value_color_map_colors: The sparkline_value_color_map_colors of this ChartSettings.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._sparkline_value_color_map_colors = sparkline_value_color_map_colors
-
-    @property
-    def sparkline_value_color_map_values_v2(self):
-        """Gets the sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a list of boundaries for mapping different query values to colors.  Must contain one less element than sparklineValueColorMapColors  # noqa: E501
-
-        :return: The sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
-        :rtype: list[float]
-        """
-        return self._sparkline_value_color_map_values_v2
-
-    @sparkline_value_color_map_values_v2.setter
-    def sparkline_value_color_map_values_v2(self, sparkline_value_color_map_values_v2):
-        """Sets the sparkline_value_color_map_values_v2 of this ChartSettings.
-
-        For the single stat view, a list of boundaries for mapping different query values to colors.  Must contain one less element than sparklineValueColorMapColors  # noqa: E501
-
-        :param sparkline_value_color_map_values_v2: The sparkline_value_color_map_values_v2 of this ChartSettings.  # noqa: E501
-        :type: list[float]
-        """
-
-        self._sparkline_value_color_map_values_v2 = sparkline_value_color_map_values_v2
-
-    @property
-    def sparkline_value_color_map_values(self):
-        """Gets the sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
-
-        deprecated  # noqa: E501
-
-        :return: The sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._sparkline_value_color_map_values
-
-    @sparkline_value_color_map_values.setter
-    def sparkline_value_color_map_values(self, sparkline_value_color_map_values):
-        """Sets the sparkline_value_color_map_values of this ChartSettings.
-
-        deprecated  # noqa: E501
-
-        :param sparkline_value_color_map_values: The sparkline_value_color_map_values of this ChartSettings.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._sparkline_value_color_map_values = sparkline_value_color_map_values
-
-    @property
-    def sparkline_value_color_map_apply_to(self):
-        """Gets the sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
-
-        For the single stat view, whether to apply dynamic color settings to the displayed TEXT or BACKGROUND  # noqa: E501
-
-        :return: The sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._sparkline_value_color_map_apply_to
-
-    @sparkline_value_color_map_apply_to.setter
-    def sparkline_value_color_map_apply_to(self, sparkline_value_color_map_apply_to):
-        """Sets the sparkline_value_color_map_apply_to of this ChartSettings.
-
-        For the single stat view, whether to apply dynamic color settings to the displayed TEXT or BACKGROUND  # noqa: E501
-
-        :param sparkline_value_color_map_apply_to: The sparkline_value_color_map_apply_to of this ChartSettings.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["TEXT", "BACKGROUND"]  # noqa: E501
-        if sparkline_value_color_map_apply_to not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sparkline_value_color_map_apply_to` ({0}), must be one of {1}"  # noqa: E501
-                .format(sparkline_value_color_map_apply_to, allowed_values)
-            )
-
-        self._sparkline_value_color_map_apply_to = sparkline_value_color_map_apply_to
-
-    @property
-    def sparkline_decimal_precision(self):
-        """Gets the sparkline_decimal_precision of this ChartSettings.  # noqa: E501
-
-        For the single stat view, the decimal precision of the displayed number  # noqa: E501
-
-        :return: The sparkline_decimal_precision of this ChartSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._sparkline_decimal_precision
-
-    @sparkline_decimal_precision.setter
-    def sparkline_decimal_precision(self, sparkline_decimal_precision):
-        """Sets the sparkline_decimal_precision of this ChartSettings.
-
-        For the single stat view, the decimal precision of the displayed number  # noqa: E501
-
-        :param sparkline_decimal_precision: The sparkline_decimal_precision of this ChartSettings.  # noqa: E501
-        :type: int
-        """
-
-        self._sparkline_decimal_precision = sparkline_decimal_precision
-
-    @property
-    def sparkline_value_text_map_text(self):
-        """Gets the sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds  # noqa: E501
-
-        :return: The sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._sparkline_value_text_map_text
-
-    @sparkline_value_text_map_text.setter
-    def sparkline_value_text_map_text(self, sparkline_value_text_map_text):
-        """Sets the sparkline_value_text_map_text of this ChartSettings.
-
-        For the single stat view, a list of display text values that different query values map to.  Must contain one more element than sparklineValueTextMapThresholds  # noqa: E501
-
-        :param sparkline_value_text_map_text: The sparkline_value_text_map_text of this ChartSettings.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._sparkline_value_text_map_text = sparkline_value_text_map_text
-
-    @property
-    def sparkline_value_text_map_thresholds(self):
-        """Gets the sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
-
-        For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText  # noqa: E501
-
-        :return: The sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
-        :rtype: list[float]
-        """
-        return self._sparkline_value_text_map_thresholds
-
-    @sparkline_value_text_map_thresholds.setter
-    def sparkline_value_text_map_thresholds(self, sparkline_value_text_map_thresholds):
-        """Sets the sparkline_value_text_map_thresholds of this ChartSettings.
-
-        For the single stat view, a list of threshold boundaries for mapping different query values to display text. Must contain one less element than sparklineValueTextMapText  # noqa: E501
-
-        :param sparkline_value_text_map_thresholds: The sparkline_value_text_map_thresholds of this ChartSettings.  # noqa: E501
-        :type: list[float]
-        """
-
-        self._sparkline_value_text_map_thresholds = sparkline_value_text_map_thresholds
 
     @property
     def expected_data_spacing(self):

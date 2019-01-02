@@ -31,9 +31,9 @@ class Event(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'table': 'str',
         'end_time': 'int',
         'start_time': 'int',
-        'table': 'str',
         'name': 'str',
         'annotations': 'dict(str, str)',
         'id': 'str',
@@ -55,9 +55,9 @@ class Event(object):
     }
 
     attribute_map = {
+        'table': 'table',
         'end_time': 'endTime',
         'start_time': 'startTime',
-        'table': 'table',
         'name': 'name',
         'annotations': 'annotations',
         'id': 'id',
@@ -78,12 +78,12 @@ class Event(object):
         'creator_type': 'creatorType'
     }
 
-    def __init__(self, end_time=None, start_time=None, table=None, name=None, annotations=None, id=None, tags=None, created_at=None, is_user_event=None, hosts=None, summarized_events=None, is_ephemeral=None, creator_id=None, updater_id=None, updated_at=None, created_epoch_millis=None, updated_epoch_millis=None, running_state=None, can_delete=None, can_close=None, creator_type=None):  # noqa: E501
+    def __init__(self, table=None, end_time=None, start_time=None, name=None, annotations=None, id=None, tags=None, created_at=None, is_user_event=None, hosts=None, summarized_events=None, is_ephemeral=None, creator_id=None, updater_id=None, updated_at=None, created_epoch_millis=None, updated_epoch_millis=None, running_state=None, can_delete=None, can_close=None, creator_type=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
+        self._table = None
         self._end_time = None
         self._start_time = None
-        self._table = None
         self._name = None
         self._annotations = None
         self._id = None
@@ -104,11 +104,11 @@ class Event(object):
         self._creator_type = None
         self.discriminator = None
 
+        if table is not None:
+            self.table = table
         if end_time is not None:
             self.end_time = end_time
         self.start_time = start_time
-        if table is not None:
-            self.table = table
         self.name = name
         self.annotations = annotations
         if id is not None:
@@ -143,6 +143,29 @@ class Event(object):
             self.can_close = can_close
         if creator_type is not None:
             self.creator_type = creator_type
+
+    @property
+    def table(self):
+        """Gets the table of this Event.  # noqa: E501
+
+        The customer to which the event belongs  # noqa: E501
+
+        :return: The table of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._table
+
+    @table.setter
+    def table(self, table):
+        """Sets the table of this Event.
+
+        The customer to which the event belongs  # noqa: E501
+
+        :param table: The table of this Event.  # noqa: E501
+        :type: str
+        """
+
+        self._table = table
 
     @property
     def end_time(self):
@@ -191,29 +214,6 @@ class Event(object):
             raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
-
-    @property
-    def table(self):
-        """Gets the table of this Event.  # noqa: E501
-
-        The customer to which the event belongs  # noqa: E501
-
-        :return: The table of this Event.  # noqa: E501
-        :rtype: str
-        """
-        return self._table
-
-    @table.setter
-    def table(self, table):
-        """Sets the table of this Event.
-
-        The customer to which the event belongs  # noqa: E501
-
-        :param table: The table of this Event.  # noqa: E501
-        :type: str
-        """
-
-        self._table = table
 
     @property
     def name(self):

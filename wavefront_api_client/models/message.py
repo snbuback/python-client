@@ -31,10 +31,10 @@ class Message(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'attributes': 'dict(str, str)',
-        'severity': 'str',
-        'source': 'str',
         'scope': 'str',
+        'source': 'str',
+        'severity': 'str',
+        'attributes': 'dict(str, str)',
         'id': 'str',
         'target': 'str',
         'content': 'str',
@@ -46,10 +46,10 @@ class Message(object):
     }
 
     attribute_map = {
-        'attributes': 'attributes',
-        'severity': 'severity',
-        'source': 'source',
         'scope': 'scope',
+        'source': 'source',
+        'severity': 'severity',
+        'attributes': 'attributes',
         'id': 'id',
         'target': 'target',
         'content': 'content',
@@ -60,13 +60,13 @@ class Message(object):
         'read': 'read'
     }
 
-    def __init__(self, attributes=None, severity=None, source=None, scope=None, id=None, target=None, content=None, title=None, start_epoch_millis=None, end_epoch_millis=None, display=None, read=None):  # noqa: E501
+    def __init__(self, scope=None, source=None, severity=None, attributes=None, id=None, target=None, content=None, title=None, start_epoch_millis=None, end_epoch_millis=None, display=None, read=None):  # noqa: E501
         """Message - a model defined in Swagger"""  # noqa: E501
 
-        self._attributes = None
-        self._severity = None
-        self._source = None
         self._scope = None
+        self._source = None
+        self._severity = None
+        self._attributes = None
         self._id = None
         self._target = None
         self._content = None
@@ -77,11 +77,11 @@ class Message(object):
         self._read = None
         self.discriminator = None
 
+        self.scope = scope
+        self.source = source
+        self.severity = severity
         if attributes is not None:
             self.attributes = attributes
-        self.severity = severity
-        self.source = source
-        self.scope = scope
         if id is not None:
             self.id = id
         if target is not None:
@@ -95,27 +95,60 @@ class Message(object):
             self.read = read
 
     @property
-    def attributes(self):
-        """Gets the attributes of this Message.  # noqa: E501
+    def scope(self):
+        """Gets the scope of this Message.  # noqa: E501
 
-        A string->string map of additional properties associated with this message  # noqa: E501
+        The audience scope that this message should reach  # noqa: E501
 
-        :return: The attributes of this Message.  # noqa: E501
-        :rtype: dict(str, str)
+        :return: The scope of this Message.  # noqa: E501
+        :rtype: str
         """
-        return self._attributes
+        return self._scope
 
-    @attributes.setter
-    def attributes(self, attributes):
-        """Sets the attributes of this Message.
+    @scope.setter
+    def scope(self, scope):
+        """Sets the scope of this Message.
 
-        A string->string map of additional properties associated with this message  # noqa: E501
+        The audience scope that this message should reach  # noqa: E501
 
-        :param attributes: The attributes of this Message.  # noqa: E501
-        :type: dict(str, str)
+        :param scope: The scope of this Message.  # noqa: E501
+        :type: str
         """
+        if scope is None:
+            raise ValueError("Invalid value for `scope`, must not be `None`")  # noqa: E501
+        allowed_values = ["CLUSTER", "CUSTOMER", "USER"]  # noqa: E501
+        if scope not in allowed_values:
+            raise ValueError(
+                "Invalid value for `scope` ({0}), must be one of {1}"  # noqa: E501
+                .format(scope, allowed_values)
+            )
 
-        self._attributes = attributes
+        self._scope = scope
+
+    @property
+    def source(self):
+        """Gets the source of this Message.  # noqa: E501
+
+        Message source.  System messages will com from 'system@wavefront.com'  # noqa: E501
+
+        :return: The source of this Message.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this Message.
+
+        Message source.  System messages will com from 'system@wavefront.com'  # noqa: E501
+
+        :param source: The source of this Message.  # noqa: E501
+        :type: str
+        """
+        if source is None:
+            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
+
+        self._source = source
 
     @property
     def severity(self):
@@ -149,60 +182,27 @@ class Message(object):
         self._severity = severity
 
     @property
-    def source(self):
-        """Gets the source of this Message.  # noqa: E501
+    def attributes(self):
+        """Gets the attributes of this Message.  # noqa: E501
 
-        Message source.  System messages will com from 'system@wavefront.com'  # noqa: E501
+        A string->string map of additional properties associated with this message  # noqa: E501
 
-        :return: The source of this Message.  # noqa: E501
-        :rtype: str
+        :return: The attributes of this Message.  # noqa: E501
+        :rtype: dict(str, str)
         """
-        return self._source
+        return self._attributes
 
-    @source.setter
-    def source(self, source):
-        """Sets the source of this Message.
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this Message.
 
-        Message source.  System messages will com from 'system@wavefront.com'  # noqa: E501
+        A string->string map of additional properties associated with this message  # noqa: E501
 
-        :param source: The source of this Message.  # noqa: E501
-        :type: str
+        :param attributes: The attributes of this Message.  # noqa: E501
+        :type: dict(str, str)
         """
-        if source is None:
-            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
-        self._source = source
-
-    @property
-    def scope(self):
-        """Gets the scope of this Message.  # noqa: E501
-
-        The audience scope that this message should reach  # noqa: E501
-
-        :return: The scope of this Message.  # noqa: E501
-        :rtype: str
-        """
-        return self._scope
-
-    @scope.setter
-    def scope(self, scope):
-        """Sets the scope of this Message.
-
-        The audience scope that this message should reach  # noqa: E501
-
-        :param scope: The scope of this Message.  # noqa: E501
-        :type: str
-        """
-        if scope is None:
-            raise ValueError("Invalid value for `scope`, must not be `None`")  # noqa: E501
-        allowed_values = ["CLUSTER", "CUSTOMER", "USER"]  # noqa: E501
-        if scope not in allowed_values:
-            raise ValueError(
-                "Invalid value for `scope` ({0}), must be one of {1}"  # noqa: E501
-                .format(scope, allowed_values)
-            )
-
-        self._scope = scope
+        self._attributes = attributes
 
     @property
     def id(self):

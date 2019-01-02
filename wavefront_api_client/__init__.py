@@ -17,7 +17,6 @@ from __future__ import absolute_import
 
 # import apis into sdk package
 from wavefront_api_client.api.alert_api import AlertApi
-from wavefront_api_client.api.anomaly_api import AnomalyApi
 from wavefront_api_client.api.cloud_integration_api import CloudIntegrationApi
 from wavefront_api_client.api.dashboard_api import DashboardApi
 from wavefront_api_client.api.derived_metric_api import DerivedMetricApi
@@ -48,7 +47,6 @@ from wavefront_api_client.models.aws_base_credentials import AWSBaseCredentials
 from wavefront_api_client.models.access_control_element import AccessControlElement
 from wavefront_api_client.models.access_control_list_simple import AccessControlListSimple
 from wavefront_api_client.models.alert import Alert
-from wavefront_api_client.models.anomaly import Anomaly
 from wavefront_api_client.models.avro_backed_standardized_dto import AvroBackedStandardizedDTO
 from wavefront_api_client.models.azure_activity_log_configuration import AzureActivityLogConfiguration
 from wavefront_api_client.models.azure_base_credentials import AzureBaseCredentials
@@ -105,7 +103,6 @@ from wavefront_api_client.models.notificant import Notificant
 from wavefront_api_client.models.number import Number
 from wavefront_api_client.models.paged_alert import PagedAlert
 from wavefront_api_client.models.paged_alert_with_stats import PagedAlertWithStats
-from wavefront_api_client.models.paged_anomaly import PagedAnomaly
 from wavefront_api_client.models.paged_cloud_integration import PagedCloudIntegration
 from wavefront_api_client.models.paged_customer_facing_user_object import PagedCustomerFacingUserObject
 from wavefront_api_client.models.paged_dashboard import PagedDashboard
@@ -150,7 +147,6 @@ from wavefront_api_client.models.response_container_message import ResponseConta
 from wavefront_api_client.models.response_container_notificant import ResponseContainerNotificant
 from wavefront_api_client.models.response_container_paged_alert import ResponseContainerPagedAlert
 from wavefront_api_client.models.response_container_paged_alert_with_stats import ResponseContainerPagedAlertWithStats
-from wavefront_api_client.models.response_container_paged_anomaly import ResponseContainerPagedAnomaly
 from wavefront_api_client.models.response_container_paged_cloud_integration import ResponseContainerPagedCloudIntegration
 from wavefront_api_client.models.response_container_paged_customer_facing_user_object import ResponseContainerPagedCustomerFacingUserObject
 from wavefront_api_client.models.response_container_paged_dashboard import ResponseContainerPagedDashboard
@@ -180,7 +176,6 @@ from wavefront_api_client.models.source import Source
 from wavefront_api_client.models.source_label_pair import SourceLabelPair
 from wavefront_api_client.models.source_search_request_container import SourceSearchRequestContainer
 from wavefront_api_client.models.stats_model import StatsModel
-from wavefront_api_client.models.stripe import Stripe
 from wavefront_api_client.models.tags_response import TagsResponse
 from wavefront_api_client.models.target_info import TargetInfo
 from wavefront_api_client.models.tesla_configuration import TeslaConfiguration

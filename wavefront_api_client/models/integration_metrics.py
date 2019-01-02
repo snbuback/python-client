@@ -34,39 +34,39 @@ class IntegrationMetrics(object):
     """
     swagger_types = {
         'prefixes': 'list[str]',
+        'display': 'list[str]',
         'required': 'list[str]',
         'charts': 'list[str]',
         'pps_dimensions': 'list[str]',
-        'display': 'list[str]',
         'chart_objs': 'list[Chart]'
     }
 
     attribute_map = {
         'prefixes': 'prefixes',
+        'display': 'display',
         'required': 'required',
         'charts': 'charts',
         'pps_dimensions': 'ppsDimensions',
-        'display': 'display',
         'chart_objs': 'chartObjs'
     }
 
-    def __init__(self, prefixes=None, required=None, charts=None, pps_dimensions=None, display=None, chart_objs=None):  # noqa: E501
+    def __init__(self, prefixes=None, display=None, required=None, charts=None, pps_dimensions=None, chart_objs=None):  # noqa: E501
         """IntegrationMetrics - a model defined in Swagger"""  # noqa: E501
 
         self._prefixes = None
+        self._display = None
         self._required = None
         self._charts = None
         self._pps_dimensions = None
-        self._display = None
         self._chart_objs = None
         self.discriminator = None
 
         self.prefixes = prefixes
+        self.display = display
         self.required = required
         self.charts = charts
         if pps_dimensions is not None:
             self.pps_dimensions = pps_dimensions
-        self.display = display
         if chart_objs is not None:
             self.chart_objs = chart_objs
 
@@ -94,6 +94,31 @@ class IntegrationMetrics(object):
             raise ValueError("Invalid value for `prefixes`, must not be `None`")  # noqa: E501
 
         self._prefixes = prefixes
+
+    @property
+    def display(self):
+        """Gets the display of this IntegrationMetrics.  # noqa: E501
+
+        Set of metrics that are displayed in the metric panel during integration setup  # noqa: E501
+
+        :return: The display of this IntegrationMetrics.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._display
+
+    @display.setter
+    def display(self, display):
+        """Sets the display of this IntegrationMetrics.
+
+        Set of metrics that are displayed in the metric panel during integration setup  # noqa: E501
+
+        :param display: The display of this IntegrationMetrics.  # noqa: E501
+        :type: list[str]
+        """
+        if display is None:
+            raise ValueError("Invalid value for `display`, must not be `None`")  # noqa: E501
+
+        self._display = display
 
     @property
     def required(self):
@@ -167,31 +192,6 @@ class IntegrationMetrics(object):
         """
 
         self._pps_dimensions = pps_dimensions
-
-    @property
-    def display(self):
-        """Gets the display of this IntegrationMetrics.  # noqa: E501
-
-        Set of metrics that are displayed in the metric panel during integration setup  # noqa: E501
-
-        :return: The display of this IntegrationMetrics.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._display
-
-    @display.setter
-    def display(self, display):
-        """Sets the display of this IntegrationMetrics.
-
-        Set of metrics that are displayed in the metric panel during integration setup  # noqa: E501
-
-        :param display: The display of this IntegrationMetrics.  # noqa: E501
-        :type: list[str]
-        """
-        if display is None:
-            raise ValueError("Invalid value for `display`, must not be `None`")  # noqa: E501
-
-        self._display = display
 
     @property
     def chart_objs(self):

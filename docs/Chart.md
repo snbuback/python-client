@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **base** | **int** | If the chart has a log-scale Y-axis, the base for the logarithms | [optional] 
+**units** | **str** | String to label the units of the chart on the Y-axis | [optional] 
 **description** | **str** | Description of the chart | [optional] 
 **name** | **str** | Name of the source | 
-**units** | **str** | String to label the units of the chart on the Y-axis | [optional] 
 **sources** | [**list[ChartSourceQuery]**](ChartSourceQuery.md) | Query expression to plot on the chart | 
 **include_obsolete_metrics** | **bool** | Whether to show obsolete metrics.  Default: false | [optional] 
 **no_default_events** | **bool** | Whether to hide events related to the sources in the charts produced. Default false (i.e. shows events) | [optional] 

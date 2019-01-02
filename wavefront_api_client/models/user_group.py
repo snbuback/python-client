@@ -33,60 +33,151 @@ class UserGroup(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id': 'str',
+        'name': 'str',
+        'permissions': 'list[str]',
+        'customer': 'str',
         'users': 'list[str]',
         'user_count': 'int',
-        'properties': 'UserGroupPropertiesDTO',
-        'permissions': 'list[str]',
-        'name': 'str',
-        'id': 'str',
-        'customer': 'str',
-        'created_epoch_millis': 'int'
+        'properties': 'UserGroupPropertiesDTO'
     }
 
     attribute_map = {
+        'id': 'id',
+        'name': 'name',
+        'permissions': 'permissions',
+        'customer': 'customer',
         'users': 'users',
         'user_count': 'userCount',
-        'properties': 'properties',
-        'permissions': 'permissions',
-        'name': 'name',
-        'id': 'id',
-        'customer': 'customer',
-        'created_epoch_millis': 'createdEpochMillis'
+        'properties': 'properties'
     }
 
-    def __init__(self, users=None, user_count=None, properties=None, permissions=None, name=None, id=None, customer=None, created_epoch_millis=None):  # noqa: E501
+    def __init__(self, id=None, name=None, permissions=None, customer=None, users=None, user_count=None, properties=None):  # noqa: E501
         """UserGroup - a model defined in Swagger"""  # noqa: E501
 
+        self._id = None
+        self._name = None
+        self._permissions = None
+        self._customer = None
         self._users = None
         self._user_count = None
         self._properties = None
-        self._permissions = None
-        self._name = None
-        self._id = None
-        self._customer = None
-        self._created_epoch_millis = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
+        self.name = name
+        self.permissions = permissions
+        if customer is not None:
+            self.customer = customer
         if users is not None:
             self.users = users
         if user_count is not None:
             self.user_count = user_count
         if properties is not None:
             self.properties = properties
-        self.permissions = permissions
-        self.name = name
-        if id is not None:
-            self.id = id
-        if customer is not None:
-            self.customer = customer
-        if created_epoch_millis is not None:
-            self.created_epoch_millis = created_epoch_millis
+
+    @property
+    def id(self):
+        """Gets the id of this UserGroup.  # noqa: E501
+
+        Unique ID for the user group  # noqa: E501
+
+        :return: The id of this UserGroup.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this UserGroup.
+
+        Unique ID for the user group  # noqa: E501
+
+        :param id: The id of this UserGroup.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def name(self):
+        """Gets the name of this UserGroup.  # noqa: E501
+
+        Name of the user group  # noqa: E501
+
+        :return: The name of this UserGroup.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this UserGroup.
+
+        Name of the user group  # noqa: E501
+
+        :param name: The name of this UserGroup.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
+
+    @property
+    def permissions(self):
+        """Gets the permissions of this UserGroup.  # noqa: E501
+
+        Permission assigned to the user group  # noqa: E501
+
+        :return: The permissions of this UserGroup.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._permissions
+
+    @permissions.setter
+    def permissions(self, permissions):
+        """Sets the permissions of this UserGroup.
+
+        Permission assigned to the user group  # noqa: E501
+
+        :param permissions: The permissions of this UserGroup.  # noqa: E501
+        :type: list[str]
+        """
+        if permissions is None:
+            raise ValueError("Invalid value for `permissions`, must not be `None`")  # noqa: E501
+
+        self._permissions = permissions
+
+    @property
+    def customer(self):
+        """Gets the customer of this UserGroup.  # noqa: E501
+
+        ID of the customer to which the user group belongs  # noqa: E501
+
+        :return: The customer of this UserGroup.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer
+
+    @customer.setter
+    def customer(self, customer):
+        """Sets the customer of this UserGroup.
+
+        ID of the customer to which the user group belongs  # noqa: E501
+
+        :param customer: The customer of this UserGroup.  # noqa: E501
+        :type: str
+        """
+
+        self._customer = customer
 
     @property
     def users(self):
         """Gets the users of this UserGroup.  # noqa: E501
 
-        List(may be incomplete) of users that are members of the user group.  # noqa: E501
+        List of Users that are members of the user group. Maybe incomplete.  # noqa: E501
 
         :return: The users of this UserGroup.  # noqa: E501
         :rtype: list[str]
@@ -97,7 +188,7 @@ class UserGroup(object):
     def users(self, users):
         """Sets the users of this UserGroup.
 
-        List(may be incomplete) of users that are members of the user group.  # noqa: E501
+        List of Users that are members of the user group. Maybe incomplete.  # noqa: E501
 
         :param users: The users of this UserGroup.  # noqa: E501
         :type: list[str]
@@ -150,123 +241,6 @@ class UserGroup(object):
         """
 
         self._properties = properties
-
-    @property
-    def permissions(self):
-        """Gets the permissions of this UserGroup.  # noqa: E501
-
-        List of permissions the user group has been granted access to  # noqa: E501
-
-        :return: The permissions of this UserGroup.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._permissions
-
-    @permissions.setter
-    def permissions(self, permissions):
-        """Sets the permissions of this UserGroup.
-
-        List of permissions the user group has been granted access to  # noqa: E501
-
-        :param permissions: The permissions of this UserGroup.  # noqa: E501
-        :type: list[str]
-        """
-        if permissions is None:
-            raise ValueError("Invalid value for `permissions`, must not be `None`")  # noqa: E501
-
-        self._permissions = permissions
-
-    @property
-    def name(self):
-        """Gets the name of this UserGroup.  # noqa: E501
-
-        The name of the user group  # noqa: E501
-
-        :return: The name of this UserGroup.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this UserGroup.
-
-        The name of the user group  # noqa: E501
-
-        :param name: The name of this UserGroup.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def id(self):
-        """Gets the id of this UserGroup.  # noqa: E501
-
-        The unique identifier of the user group  # noqa: E501
-
-        :return: The id of this UserGroup.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this UserGroup.
-
-        The unique identifier of the user group  # noqa: E501
-
-        :param id: The id of this UserGroup.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def customer(self):
-        """Gets the customer of this UserGroup.  # noqa: E501
-
-        The id of the customer to which the user group belongs  # noqa: E501
-
-        :return: The customer of this UserGroup.  # noqa: E501
-        :rtype: str
-        """
-        return self._customer
-
-    @customer.setter
-    def customer(self, customer):
-        """Sets the customer of this UserGroup.
-
-        The id of the customer to which the user group belongs  # noqa: E501
-
-        :param customer: The customer of this UserGroup.  # noqa: E501
-        :type: str
-        """
-
-        self._customer = customer
-
-    @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this UserGroup.  # noqa: E501
-
-
-        :return: The created_epoch_millis of this UserGroup.  # noqa: E501
-        :rtype: int
-        """
-        return self._created_epoch_millis
-
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this UserGroup.
-
-
-        :param created_epoch_millis: The created_epoch_millis of this UserGroup.  # noqa: E501
-        :type: int
-        """
-
-        self._created_epoch_millis = created_epoch_millis
 
     def to_dict(self):
         """Returns the model properties as a dict"""

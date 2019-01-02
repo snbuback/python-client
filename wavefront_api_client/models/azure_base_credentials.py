@@ -32,27 +32,27 @@ class AzureBaseCredentials(object):
     """
     swagger_types = {
         'tenant': 'str',
-        'client_id': 'str',
-        'client_secret': 'str'
+        'client_secret': 'str',
+        'client_id': 'str'
     }
 
     attribute_map = {
         'tenant': 'tenant',
-        'client_id': 'clientId',
-        'client_secret': 'clientSecret'
+        'client_secret': 'clientSecret',
+        'client_id': 'clientId'
     }
 
-    def __init__(self, tenant=None, client_id=None, client_secret=None):  # noqa: E501
+    def __init__(self, tenant=None, client_secret=None, client_id=None):  # noqa: E501
         """AzureBaseCredentials - a model defined in Swagger"""  # noqa: E501
 
         self._tenant = None
-        self._client_id = None
         self._client_secret = None
+        self._client_id = None
         self.discriminator = None
 
         self.tenant = tenant
-        self.client_id = client_id
         self.client_secret = client_secret
+        self.client_id = client_id
 
     @property
     def tenant(self):
@@ -80,31 +80,6 @@ class AzureBaseCredentials(object):
         self._tenant = tenant
 
     @property
-    def client_id(self):
-        """Gets the client_id of this AzureBaseCredentials.  # noqa: E501
-
-        Client Id for an Azure service account within your project.  # noqa: E501
-
-        :return: The client_id of this AzureBaseCredentials.  # noqa: E501
-        :rtype: str
-        """
-        return self._client_id
-
-    @client_id.setter
-    def client_id(self, client_id):
-        """Sets the client_id of this AzureBaseCredentials.
-
-        Client Id for an Azure service account within your project.  # noqa: E501
-
-        :param client_id: The client_id of this AzureBaseCredentials.  # noqa: E501
-        :type: str
-        """
-        if client_id is None:
-            raise ValueError("Invalid value for `client_id`, must not be `None`")  # noqa: E501
-
-        self._client_id = client_id
-
-    @property
     def client_secret(self):
         """Gets the client_secret of this AzureBaseCredentials.  # noqa: E501
 
@@ -128,6 +103,31 @@ class AzureBaseCredentials(object):
             raise ValueError("Invalid value for `client_secret`, must not be `None`")  # noqa: E501
 
         self._client_secret = client_secret
+
+    @property
+    def client_id(self):
+        """Gets the client_id of this AzureBaseCredentials.  # noqa: E501
+
+        Client Id for an Azure service account within your project.  # noqa: E501
+
+        :return: The client_id of this AzureBaseCredentials.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_id
+
+    @client_id.setter
+    def client_id(self, client_id):
+        """Sets the client_id of this AzureBaseCredentials.
+
+        Client Id for an Azure service account within your project.  # noqa: E501
+
+        :param client_id: The client_id of this AzureBaseCredentials.  # noqa: E501
+        :type: str
+        """
+        if client_id is None:
+            raise ValueError("Invalid value for `client_id`, must not be `None`")  # noqa: E501
+
+        self._client_id = client_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

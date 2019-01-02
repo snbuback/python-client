@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reason** | **str** | The purpose of this maintenance window | 
 **id** | **str** |  | [optional] 
-**sort_attr** | **int** | Numeric value used in default sorting | [optional] 
 **customer_id** | **str** |  | [optional] 
 **relevant_customer_tags** | **list[str]** | List of alert tags whose matching alerts will be put into maintenance because of this maintenance window | 
 **title** | **str** | Title of this maintenance window | 
@@ -21,6 +20,7 @@ Name | Type | Description | Notes
 **host_tag_group_host_names_group_anded** | **bool** | If true, a source/host must be in &#39;relevantHostNames&#39; and have tags matching the specification formed by &#39;relevantHostTags&#39; and &#39;relevantHostTagsAnded&#39; in order for this maintenance window to apply. If false, a source/host must either be in &#39;relevantHostNames&#39; or match &#39;relevantHostTags&#39; and &#39;relevantHostTagsAnded&#39;. Default: false | [optional] 
 **event_name** | **str** | The name of an event associated with the creation/update of this maintenance window | [optional] 
 **running_state** | **str** |  | [optional] 
+**sort_attr** | **int** | Numeric value used in default sorting | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

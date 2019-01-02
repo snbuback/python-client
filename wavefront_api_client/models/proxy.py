@@ -38,7 +38,6 @@ class Proxy(object):
         'id': 'str',
         'status': 'str',
         'customer_id': 'str',
-        'deleted': 'bool',
         'in_trash': 'bool',
         'hostname': 'str',
         'last_check_in_time': 'int',
@@ -51,6 +50,7 @@ class Proxy(object):
         'local_queue_size': 'int',
         'ssh_agent': 'bool',
         'ephemeral': 'bool',
+        'deleted': 'bool',
         'status_cause': 'str'
     }
 
@@ -60,7 +60,6 @@ class Proxy(object):
         'id': 'id',
         'status': 'status',
         'customer_id': 'customerId',
-        'deleted': 'deleted',
         'in_trash': 'inTrash',
         'hostname': 'hostname',
         'last_check_in_time': 'lastCheckInTime',
@@ -73,10 +72,11 @@ class Proxy(object):
         'local_queue_size': 'localQueueSize',
         'ssh_agent': 'sshAgent',
         'ephemeral': 'ephemeral',
+        'deleted': 'deleted',
         'status_cause': 'statusCause'
     }
 
-    def __init__(self, version=None, name=None, id=None, status=None, customer_id=None, deleted=None, in_trash=None, hostname=None, last_check_in_time=None, last_known_error=None, last_error_time=None, last_error_event=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, ssh_agent=None, ephemeral=None, status_cause=None):  # noqa: E501
+    def __init__(self, version=None, name=None, id=None, status=None, customer_id=None, in_trash=None, hostname=None, last_check_in_time=None, last_known_error=None, last_error_time=None, last_error_event=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, ssh_agent=None, ephemeral=None, deleted=None, status_cause=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
 
         self._version = None
@@ -84,7 +84,6 @@ class Proxy(object):
         self._id = None
         self._status = None
         self._customer_id = None
-        self._deleted = None
         self._in_trash = None
         self._hostname = None
         self._last_check_in_time = None
@@ -97,6 +96,7 @@ class Proxy(object):
         self._local_queue_size = None
         self._ssh_agent = None
         self._ephemeral = None
+        self._deleted = None
         self._status_cause = None
         self.discriminator = None
 
@@ -109,8 +109,6 @@ class Proxy(object):
             self.status = status
         if customer_id is not None:
             self.customer_id = customer_id
-        if deleted is not None:
-            self.deleted = deleted
         if in_trash is not None:
             self.in_trash = in_trash
         if hostname is not None:
@@ -135,6 +133,8 @@ class Proxy(object):
             self.ssh_agent = ssh_agent
         if ephemeral is not None:
             self.ephemeral = ephemeral
+        if deleted is not None:
+            self.deleted = deleted
         if status_cause is not None:
             self.status_cause = status_cause
 
@@ -254,27 +254,6 @@ class Proxy(object):
         """
 
         self._customer_id = customer_id
-
-    @property
-    def deleted(self):
-        """Gets the deleted of this Proxy.  # noqa: E501
-
-
-        :return: The deleted of this Proxy.  # noqa: E501
-        :rtype: bool
-        """
-        return self._deleted
-
-    @deleted.setter
-    def deleted(self, deleted):
-        """Sets the deleted of this Proxy.
-
-
-        :param deleted: The deleted of this Proxy.  # noqa: E501
-        :type: bool
-        """
-
-        self._deleted = deleted
 
     @property
     def in_trash(self):
@@ -547,6 +526,27 @@ class Proxy(object):
         """
 
         self._ephemeral = ephemeral
+
+    @property
+    def deleted(self):
+        """Gets the deleted of this Proxy.  # noqa: E501
+
+
+        :return: The deleted of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """Sets the deleted of this Proxy.
+
+
+        :param deleted: The deleted of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     @property
     def status_cause(self):

@@ -31,82 +31,34 @@ class GCPConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'metric_filter_regex': 'str',
-        'project_id': 'str',
         'gcp_json_key': 'str',
-        'categories_to_fetch': 'list[str]'
+        'project_id': 'str',
+        'categories_to_fetch': 'list[str]',
+        'metric_filter_regex': 'str'
     }
 
     attribute_map = {
-        'metric_filter_regex': 'metricFilterRegex',
-        'project_id': 'projectId',
         'gcp_json_key': 'gcpJsonKey',
-        'categories_to_fetch': 'categoriesToFetch'
+        'project_id': 'projectId',
+        'categories_to_fetch': 'categoriesToFetch',
+        'metric_filter_regex': 'metricFilterRegex'
     }
 
-    def __init__(self, metric_filter_regex=None, project_id=None, gcp_json_key=None, categories_to_fetch=None):  # noqa: E501
+    def __init__(self, gcp_json_key=None, project_id=None, categories_to_fetch=None, metric_filter_regex=None):  # noqa: E501
         """GCPConfiguration - a model defined in Swagger"""  # noqa: E501
 
-        self._metric_filter_regex = None
-        self._project_id = None
         self._gcp_json_key = None
+        self._project_id = None
         self._categories_to_fetch = None
+        self._metric_filter_regex = None
         self.discriminator = None
 
-        if metric_filter_regex is not None:
-            self.metric_filter_regex = metric_filter_regex
-        self.project_id = project_id
         self.gcp_json_key = gcp_json_key
+        self.project_id = project_id
         if categories_to_fetch is not None:
             self.categories_to_fetch = categories_to_fetch
-
-    @property
-    def metric_filter_regex(self):
-        """Gets the metric_filter_regex of this GCPConfiguration.  # noqa: E501
-
-        A regular expression that a metric name must match (case-insensitively) in order to be ingested  # noqa: E501
-
-        :return: The metric_filter_regex of this GCPConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._metric_filter_regex
-
-    @metric_filter_regex.setter
-    def metric_filter_regex(self, metric_filter_regex):
-        """Sets the metric_filter_regex of this GCPConfiguration.
-
-        A regular expression that a metric name must match (case-insensitively) in order to be ingested  # noqa: E501
-
-        :param metric_filter_regex: The metric_filter_regex of this GCPConfiguration.  # noqa: E501
-        :type: str
-        """
-
-        self._metric_filter_regex = metric_filter_regex
-
-    @property
-    def project_id(self):
-        """Gets the project_id of this GCPConfiguration.  # noqa: E501
-
-        The Google Cloud Platform (GCP) project id.  # noqa: E501
-
-        :return: The project_id of this GCPConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._project_id
-
-    @project_id.setter
-    def project_id(self, project_id):
-        """Sets the project_id of this GCPConfiguration.
-
-        The Google Cloud Platform (GCP) project id.  # noqa: E501
-
-        :param project_id: The project_id of this GCPConfiguration.  # noqa: E501
-        :type: str
-        """
-        if project_id is None:
-            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
-
-        self._project_id = project_id
+        if metric_filter_regex is not None:
+            self.metric_filter_regex = metric_filter_regex
 
     @property
     def gcp_json_key(self):
@@ -132,6 +84,31 @@ class GCPConfiguration(object):
             raise ValueError("Invalid value for `gcp_json_key`, must not be `None`")  # noqa: E501
 
         self._gcp_json_key = gcp_json_key
+
+    @property
+    def project_id(self):
+        """Gets the project_id of this GCPConfiguration.  # noqa: E501
+
+        The Google Cloud Platform (GCP) project id.  # noqa: E501
+
+        :return: The project_id of this GCPConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_id
+
+    @project_id.setter
+    def project_id(self, project_id):
+        """Sets the project_id of this GCPConfiguration.
+
+        The Google Cloud Platform (GCP) project id.  # noqa: E501
+
+        :param project_id: The project_id of this GCPConfiguration.  # noqa: E501
+        :type: str
+        """
+        if project_id is None:
+            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
+
+        self._project_id = project_id
 
     @property
     def categories_to_fetch(self):
@@ -162,6 +139,29 @@ class GCPConfiguration(object):
             )
 
         self._categories_to_fetch = categories_to_fetch
+
+    @property
+    def metric_filter_regex(self):
+        """Gets the metric_filter_regex of this GCPConfiguration.  # noqa: E501
+
+        A regular expression that a metric name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :return: The metric_filter_regex of this GCPConfiguration.  # noqa: E501
+        :rtype: str
+        """
+        return self._metric_filter_regex
+
+    @metric_filter_regex.setter
+    def metric_filter_regex(self, metric_filter_regex):
+        """Sets the metric_filter_regex of this GCPConfiguration.
+
+        A regular expression that a metric name must match (case-insensitively) in order to be ingested  # noqa: E501
+
+        :param metric_filter_regex: The metric_filter_regex of this GCPConfiguration.  # noqa: E501
+        :type: str
+        """
+
+        self._metric_filter_regex = metric_filter_regex
 
     def to_dict(self):
         """Returns the model properties as a dict"""
