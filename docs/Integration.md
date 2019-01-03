@@ -3,17 +3,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **str** | Integration version string | 
 **metrics** | [**IntegrationMetrics**](IntegrationMetrics.md) |  | [optional] 
 **icon** | **str** | URI path to the integration icon | 
-**description** | **str** | Integration description | 
+**version** | **str** | Integration version string | 
 **name** | **str** | Integration name | 
 **id** | **str** |  | [optional] 
+**description** | **str** | Integration description | 
 **base_url** | **str** | Base URL for this integration&#39;s assets | [optional] 
 **status** | [**IntegrationStatus**](IntegrationStatus.md) |  | [optional] 
-**alerts** | [**list[IntegrationAlert]**](IntegrationAlert.md) | A list of alerts belonging to this integration | [optional] 
 **creator_id** | **str** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
+**alerts** | [**list[IntegrationAlert]**](IntegrationAlert.md) | A list of alerts belonging to this integration | [optional] 
 **created_epoch_millis** | **int** |  | [optional] 
 **updated_epoch_millis** | **int** |  | [optional] 
 **dashboards** | [**list[IntegrationDashboard]**](IntegrationDashboard.md) | A list of dashboards belonging to this integration | [optional] 

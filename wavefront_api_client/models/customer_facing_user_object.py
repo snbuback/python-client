@@ -32,8 +32,8 @@ class CustomerFacingUserObject(object):
     """
     swagger_types = {
         'user_groups': 'list[str]',
-        'identifier': 'str',
         'id': 'str',
+        'identifier': 'str',
         'groups': 'list[str]',
         'customer': 'str',
         'last_successful_login': 'int',
@@ -44,8 +44,8 @@ class CustomerFacingUserObject(object):
 
     attribute_map = {
         'user_groups': 'userGroups',
-        'identifier': 'identifier',
         'id': 'id',
+        'identifier': 'identifier',
         'groups': 'groups',
         'customer': 'customer',
         'last_successful_login': 'lastSuccessfulLogin',
@@ -54,12 +54,12 @@ class CustomerFacingUserObject(object):
         '_self': 'self'
     }
 
-    def __init__(self, user_groups=None, identifier=None, id=None, groups=None, customer=None, last_successful_login=None, escaped_identifier=None, gravatar_url=None, _self=None):  # noqa: E501
+    def __init__(self, user_groups=None, id=None, identifier=None, groups=None, customer=None, last_successful_login=None, escaped_identifier=None, gravatar_url=None, _self=None):  # noqa: E501
         """CustomerFacingUserObject - a model defined in Swagger"""  # noqa: E501
 
         self._user_groups = None
-        self._identifier = None
         self._id = None
+        self._identifier = None
         self._groups = None
         self._customer = None
         self._last_successful_login = None
@@ -70,8 +70,8 @@ class CustomerFacingUserObject(object):
 
         if user_groups is not None:
             self.user_groups = user_groups
-        self.identifier = identifier
         self.id = id
+        self.identifier = identifier
         if groups is not None:
             self.groups = groups
         self.customer = customer
@@ -107,31 +107,6 @@ class CustomerFacingUserObject(object):
         self._user_groups = user_groups
 
     @property
-    def identifier(self):
-        """Gets the identifier of this CustomerFacingUserObject.  # noqa: E501
-
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
-
-        :return: The identifier of this CustomerFacingUserObject.  # noqa: E501
-        :rtype: str
-        """
-        return self._identifier
-
-    @identifier.setter
-    def identifier(self, identifier):
-        """Sets the identifier of this CustomerFacingUserObject.
-
-        The unique identifier of this user, which should be their valid email address  # noqa: E501
-
-        :param identifier: The identifier of this CustomerFacingUserObject.  # noqa: E501
-        :type: str
-        """
-        if identifier is None:
-            raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
-
-        self._identifier = identifier
-
-    @property
     def id(self):
         """Gets the id of this CustomerFacingUserObject.  # noqa: E501
 
@@ -155,6 +130,31 @@ class CustomerFacingUserObject(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def identifier(self):
+        """Gets the identifier of this CustomerFacingUserObject.  # noqa: E501
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :return: The identifier of this CustomerFacingUserObject.  # noqa: E501
+        :rtype: str
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """Sets the identifier of this CustomerFacingUserObject.
+
+        The unique identifier of this user, which should be their valid email address  # noqa: E501
+
+        :param identifier: The identifier of this CustomerFacingUserObject.  # noqa: E501
+        :type: str
+        """
+        if identifier is None:
+            raise ValueError("Invalid value for `identifier`, must not be `None`")  # noqa: E501
+
+        self._identifier = identifier
 
     @property
     def groups(self):

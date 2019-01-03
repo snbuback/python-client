@@ -33,47 +33,26 @@ class AzureActivityLogConfiguration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'base_credentials': 'AzureBaseCredentials',
-        'category_filter': 'list[str]'
+        'category_filter': 'list[str]',
+        'base_credentials': 'AzureBaseCredentials'
     }
 
     attribute_map = {
-        'base_credentials': 'baseCredentials',
-        'category_filter': 'categoryFilter'
+        'category_filter': 'categoryFilter',
+        'base_credentials': 'baseCredentials'
     }
 
-    def __init__(self, base_credentials=None, category_filter=None):  # noqa: E501
+    def __init__(self, category_filter=None, base_credentials=None):  # noqa: E501
         """AzureActivityLogConfiguration - a model defined in Swagger"""  # noqa: E501
 
-        self._base_credentials = None
         self._category_filter = None
+        self._base_credentials = None
         self.discriminator = None
 
-        if base_credentials is not None:
-            self.base_credentials = base_credentials
         if category_filter is not None:
             self.category_filter = category_filter
-
-    @property
-    def base_credentials(self):
-        """Gets the base_credentials of this AzureActivityLogConfiguration.  # noqa: E501
-
-
-        :return: The base_credentials of this AzureActivityLogConfiguration.  # noqa: E501
-        :rtype: AzureBaseCredentials
-        """
-        return self._base_credentials
-
-    @base_credentials.setter
-    def base_credentials(self, base_credentials):
-        """Sets the base_credentials of this AzureActivityLogConfiguration.
-
-
-        :param base_credentials: The base_credentials of this AzureActivityLogConfiguration.  # noqa: E501
-        :type: AzureBaseCredentials
-        """
-
-        self._base_credentials = base_credentials
+        if base_credentials is not None:
+            self.base_credentials = base_credentials
 
     @property
     def category_filter(self):
@@ -104,6 +83,27 @@ class AzureActivityLogConfiguration(object):
             )
 
         self._category_filter = category_filter
+
+    @property
+    def base_credentials(self):
+        """Gets the base_credentials of this AzureActivityLogConfiguration.  # noqa: E501
+
+
+        :return: The base_credentials of this AzureActivityLogConfiguration.  # noqa: E501
+        :rtype: AzureBaseCredentials
+        """
+        return self._base_credentials
+
+    @base_credentials.setter
+    def base_credentials(self, base_credentials):
+        """Sets the base_credentials of this AzureActivityLogConfiguration.
+
+
+        :param base_credentials: The base_credentials of this AzureActivityLogConfiguration.  # noqa: E501
+        :type: AzureBaseCredentials
+        """
+
+        self._base_credentials = base_credentials
 
     def to_dict(self):
         """Returns the model properties as a dict"""

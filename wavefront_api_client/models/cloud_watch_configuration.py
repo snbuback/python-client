@@ -34,8 +34,8 @@ class CloudWatchConfiguration(object):
     """
     swagger_types = {
         'metric_filter_regex': 'str',
-        'namespaces': 'list[str]',
         'base_credentials': 'AWSBaseCredentials',
+        'namespaces': 'list[str]',
         'instance_selection_tags': 'dict(str, str)',
         'volume_selection_tags': 'dict(str, str)',
         'point_tag_filter_regex': 'str'
@@ -43,19 +43,19 @@ class CloudWatchConfiguration(object):
 
     attribute_map = {
         'metric_filter_regex': 'metricFilterRegex',
-        'namespaces': 'namespaces',
         'base_credentials': 'baseCredentials',
+        'namespaces': 'namespaces',
         'instance_selection_tags': 'instanceSelectionTags',
         'volume_selection_tags': 'volumeSelectionTags',
         'point_tag_filter_regex': 'pointTagFilterRegex'
     }
 
-    def __init__(self, metric_filter_regex=None, namespaces=None, base_credentials=None, instance_selection_tags=None, volume_selection_tags=None, point_tag_filter_regex=None):  # noqa: E501
+    def __init__(self, metric_filter_regex=None, base_credentials=None, namespaces=None, instance_selection_tags=None, volume_selection_tags=None, point_tag_filter_regex=None):  # noqa: E501
         """CloudWatchConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._metric_filter_regex = None
-        self._namespaces = None
         self._base_credentials = None
+        self._namespaces = None
         self._instance_selection_tags = None
         self._volume_selection_tags = None
         self._point_tag_filter_regex = None
@@ -63,10 +63,10 @@ class CloudWatchConfiguration(object):
 
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
-        if namespaces is not None:
-            self.namespaces = namespaces
         if base_credentials is not None:
             self.base_credentials = base_credentials
+        if namespaces is not None:
+            self.namespaces = namespaces
         if instance_selection_tags is not None:
             self.instance_selection_tags = instance_selection_tags
         if volume_selection_tags is not None:
@@ -98,6 +98,27 @@ class CloudWatchConfiguration(object):
         self._metric_filter_regex = metric_filter_regex
 
     @property
+    def base_credentials(self):
+        """Gets the base_credentials of this CloudWatchConfiguration.  # noqa: E501
+
+
+        :return: The base_credentials of this CloudWatchConfiguration.  # noqa: E501
+        :rtype: AWSBaseCredentials
+        """
+        return self._base_credentials
+
+    @base_credentials.setter
+    def base_credentials(self, base_credentials):
+        """Sets the base_credentials of this CloudWatchConfiguration.
+
+
+        :param base_credentials: The base_credentials of this CloudWatchConfiguration.  # noqa: E501
+        :type: AWSBaseCredentials
+        """
+
+        self._base_credentials = base_credentials
+
+    @property
     def namespaces(self):
         """Gets the namespaces of this CloudWatchConfiguration.  # noqa: E501
 
@@ -119,27 +140,6 @@ class CloudWatchConfiguration(object):
         """
 
         self._namespaces = namespaces
-
-    @property
-    def base_credentials(self):
-        """Gets the base_credentials of this CloudWatchConfiguration.  # noqa: E501
-
-
-        :return: The base_credentials of this CloudWatchConfiguration.  # noqa: E501
-        :rtype: AWSBaseCredentials
-        """
-        return self._base_credentials
-
-    @base_credentials.setter
-    def base_credentials(self, base_credentials):
-        """Sets the base_credentials of this CloudWatchConfiguration.
-
-
-        :param base_credentials: The base_credentials of this CloudWatchConfiguration.  # noqa: E501
-        :type: AWSBaseCredentials
-        """
-
-        self._base_credentials = base_credentials
 
     @property
     def instance_selection_tags(self):

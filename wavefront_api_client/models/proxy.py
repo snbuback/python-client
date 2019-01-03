@@ -38,8 +38,9 @@ class Proxy(object):
         'id': 'str',
         'status': 'str',
         'customer_id': 'str',
-        'in_trash': 'bool',
+        'status_cause': 'str',
         'hostname': 'str',
+        'in_trash': 'bool',
         'last_check_in_time': 'int',
         'last_known_error': 'str',
         'last_error_time': 'int',
@@ -50,8 +51,7 @@ class Proxy(object):
         'local_queue_size': 'int',
         'ssh_agent': 'bool',
         'ephemeral': 'bool',
-        'deleted': 'bool',
-        'status_cause': 'str'
+        'deleted': 'bool'
     }
 
     attribute_map = {
@@ -60,8 +60,9 @@ class Proxy(object):
         'id': 'id',
         'status': 'status',
         'customer_id': 'customerId',
-        'in_trash': 'inTrash',
+        'status_cause': 'statusCause',
         'hostname': 'hostname',
+        'in_trash': 'inTrash',
         'last_check_in_time': 'lastCheckInTime',
         'last_known_error': 'lastKnownError',
         'last_error_time': 'lastErrorTime',
@@ -72,11 +73,10 @@ class Proxy(object):
         'local_queue_size': 'localQueueSize',
         'ssh_agent': 'sshAgent',
         'ephemeral': 'ephemeral',
-        'deleted': 'deleted',
-        'status_cause': 'statusCause'
+        'deleted': 'deleted'
     }
 
-    def __init__(self, version=None, name=None, id=None, status=None, customer_id=None, in_trash=None, hostname=None, last_check_in_time=None, last_known_error=None, last_error_time=None, last_error_event=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, ssh_agent=None, ephemeral=None, deleted=None, status_cause=None):  # noqa: E501
+    def __init__(self, version=None, name=None, id=None, status=None, customer_id=None, status_cause=None, hostname=None, in_trash=None, last_check_in_time=None, last_known_error=None, last_error_time=None, last_error_event=None, time_drift=None, bytes_left_for_buffer=None, bytes_per_minute_for_buffer=None, local_queue_size=None, ssh_agent=None, ephemeral=None, deleted=None):  # noqa: E501
         """Proxy - a model defined in Swagger"""  # noqa: E501
 
         self._version = None
@@ -84,8 +84,9 @@ class Proxy(object):
         self._id = None
         self._status = None
         self._customer_id = None
-        self._in_trash = None
+        self._status_cause = None
         self._hostname = None
+        self._in_trash = None
         self._last_check_in_time = None
         self._last_known_error = None
         self._last_error_time = None
@@ -97,7 +98,6 @@ class Proxy(object):
         self._ssh_agent = None
         self._ephemeral = None
         self._deleted = None
-        self._status_cause = None
         self.discriminator = None
 
         if version is not None:
@@ -109,10 +109,12 @@ class Proxy(object):
             self.status = status
         if customer_id is not None:
             self.customer_id = customer_id
-        if in_trash is not None:
-            self.in_trash = in_trash
+        if status_cause is not None:
+            self.status_cause = status_cause
         if hostname is not None:
             self.hostname = hostname
+        if in_trash is not None:
+            self.in_trash = in_trash
         if last_check_in_time is not None:
             self.last_check_in_time = last_check_in_time
         if last_known_error is not None:
@@ -135,8 +137,6 @@ class Proxy(object):
             self.ephemeral = ephemeral
         if deleted is not None:
             self.deleted = deleted
-        if status_cause is not None:
-            self.status_cause = status_cause
 
     @property
     def version(self):
@@ -256,25 +256,27 @@ class Proxy(object):
         self._customer_id = customer_id
 
     @property
-    def in_trash(self):
-        """Gets the in_trash of this Proxy.  # noqa: E501
+    def status_cause(self):
+        """Gets the status_cause of this Proxy.  # noqa: E501
 
+        The reason why the proxy is in current status  # noqa: E501
 
-        :return: The in_trash of this Proxy.  # noqa: E501
-        :rtype: bool
+        :return: The status_cause of this Proxy.  # noqa: E501
+        :rtype: str
         """
-        return self._in_trash
+        return self._status_cause
 
-    @in_trash.setter
-    def in_trash(self, in_trash):
-        """Sets the in_trash of this Proxy.
+    @status_cause.setter
+    def status_cause(self, status_cause):
+        """Sets the status_cause of this Proxy.
 
+        The reason why the proxy is in current status  # noqa: E501
 
-        :param in_trash: The in_trash of this Proxy.  # noqa: E501
-        :type: bool
+        :param status_cause: The status_cause of this Proxy.  # noqa: E501
+        :type: str
         """
 
-        self._in_trash = in_trash
+        self._status_cause = status_cause
 
     @property
     def hostname(self):
@@ -298,6 +300,27 @@ class Proxy(object):
         """
 
         self._hostname = hostname
+
+    @property
+    def in_trash(self):
+        """Gets the in_trash of this Proxy.  # noqa: E501
+
+
+        :return: The in_trash of this Proxy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._in_trash
+
+    @in_trash.setter
+    def in_trash(self, in_trash):
+        """Sets the in_trash of this Proxy.
+
+
+        :param in_trash: The in_trash of this Proxy.  # noqa: E501
+        :type: bool
+        """
+
+        self._in_trash = in_trash
 
     @property
     def last_check_in_time(self):
@@ -547,29 +570,6 @@ class Proxy(object):
         """
 
         self._deleted = deleted
-
-    @property
-    def status_cause(self):
-        """Gets the status_cause of this Proxy.  # noqa: E501
-
-        The reason why the proxy is in current status  # noqa: E501
-
-        :return: The status_cause of this Proxy.  # noqa: E501
-        :rtype: str
-        """
-        return self._status_cause
-
-    @status_cause.setter
-    def status_cause(self, status_cause):
-        """Sets the status_cause of this Proxy.
-
-        The reason why the proxy is in current status  # noqa: E501
-
-        :param status_cause: The status_cause of this Proxy.  # noqa: E501
-        :type: str
-        """
-
-        self._status_cause = status_cause
 
     def to_dict(self):
         """Returns the model properties as a dict"""

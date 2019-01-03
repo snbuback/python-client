@@ -33,81 +33,33 @@ class IntegrationManifestGroup(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'integrations': 'list[str]',
-        'integration_objs': 'list[Integration]',
         'title': 'str',
-        'subtitle': 'str'
+        'subtitle': 'str',
+        'integration_objs': 'list[Integration]',
+        'integrations': 'list[str]'
     }
 
     attribute_map = {
-        'integrations': 'integrations',
-        'integration_objs': 'integrationObjs',
         'title': 'title',
-        'subtitle': 'subtitle'
+        'subtitle': 'subtitle',
+        'integration_objs': 'integrationObjs',
+        'integrations': 'integrations'
     }
 
-    def __init__(self, integrations=None, integration_objs=None, title=None, subtitle=None):  # noqa: E501
+    def __init__(self, title=None, subtitle=None, integration_objs=None, integrations=None):  # noqa: E501
         """IntegrationManifestGroup - a model defined in Swagger"""  # noqa: E501
 
-        self._integrations = None
-        self._integration_objs = None
         self._title = None
         self._subtitle = None
+        self._integration_objs = None
+        self._integrations = None
         self.discriminator = None
 
-        self.integrations = integrations
-        if integration_objs is not None:
-            self.integration_objs = integration_objs
         self.title = title
         self.subtitle = subtitle
-
-    @property
-    def integrations(self):
-        """Gets the integrations of this IntegrationManifestGroup.  # noqa: E501
-
-        A list of paths to JSON definitions for integrations in this group  # noqa: E501
-
-        :return: The integrations of this IntegrationManifestGroup.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._integrations
-
-    @integrations.setter
-    def integrations(self, integrations):
-        """Sets the integrations of this IntegrationManifestGroup.
-
-        A list of paths to JSON definitions for integrations in this group  # noqa: E501
-
-        :param integrations: The integrations of this IntegrationManifestGroup.  # noqa: E501
-        :type: list[str]
-        """
-        if integrations is None:
-            raise ValueError("Invalid value for `integrations`, must not be `None`")  # noqa: E501
-
-        self._integrations = integrations
-
-    @property
-    def integration_objs(self):
-        """Gets the integration_objs of this IntegrationManifestGroup.  # noqa: E501
-
-        Materialized JSONs for integrations belonging to this group, as referenced by `integrations`  # noqa: E501
-
-        :return: The integration_objs of this IntegrationManifestGroup.  # noqa: E501
-        :rtype: list[Integration]
-        """
-        return self._integration_objs
-
-    @integration_objs.setter
-    def integration_objs(self, integration_objs):
-        """Sets the integration_objs of this IntegrationManifestGroup.
-
-        Materialized JSONs for integrations belonging to this group, as referenced by `integrations`  # noqa: E501
-
-        :param integration_objs: The integration_objs of this IntegrationManifestGroup.  # noqa: E501
-        :type: list[Integration]
-        """
-
-        self._integration_objs = integration_objs
+        if integration_objs is not None:
+            self.integration_objs = integration_objs
+        self.integrations = integrations
 
     @property
     def title(self):
@@ -158,6 +110,54 @@ class IntegrationManifestGroup(object):
             raise ValueError("Invalid value for `subtitle`, must not be `None`")  # noqa: E501
 
         self._subtitle = subtitle
+
+    @property
+    def integration_objs(self):
+        """Gets the integration_objs of this IntegrationManifestGroup.  # noqa: E501
+
+        Materialized JSONs for integrations belonging to this group, as referenced by `integrations`  # noqa: E501
+
+        :return: The integration_objs of this IntegrationManifestGroup.  # noqa: E501
+        :rtype: list[Integration]
+        """
+        return self._integration_objs
+
+    @integration_objs.setter
+    def integration_objs(self, integration_objs):
+        """Sets the integration_objs of this IntegrationManifestGroup.
+
+        Materialized JSONs for integrations belonging to this group, as referenced by `integrations`  # noqa: E501
+
+        :param integration_objs: The integration_objs of this IntegrationManifestGroup.  # noqa: E501
+        :type: list[Integration]
+        """
+
+        self._integration_objs = integration_objs
+
+    @property
+    def integrations(self):
+        """Gets the integrations of this IntegrationManifestGroup.  # noqa: E501
+
+        A list of paths to JSON definitions for integrations in this group  # noqa: E501
+
+        :return: The integrations of this IntegrationManifestGroup.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._integrations
+
+    @integrations.setter
+    def integrations(self, integrations):
+        """Sets the integrations of this IntegrationManifestGroup.
+
+        A list of paths to JSON definitions for integrations in this group  # noqa: E501
+
+        :param integrations: The integrations of this IntegrationManifestGroup.  # noqa: E501
+        :type: list[str]
+        """
+        if integrations is None:
+            raise ValueError("Invalid value for `integrations`, must not be `None`")  # noqa: E501
+
+        self._integrations = integrations
 
     def to_dict(self):
         """Returns the model properties as a dict"""

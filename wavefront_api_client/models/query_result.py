@@ -38,8 +38,8 @@ class QueryResult(object):
         'name': 'str',
         'query': 'str',
         'warnings': 'str',
-        'stats': 'StatsModel',
         'events': 'list[QueryEvent]',
+        'stats': 'StatsModel',
         'granularity': 'int',
         'timeseries': 'list[Timeseries]'
     }
@@ -48,20 +48,20 @@ class QueryResult(object):
         'name': 'name',
         'query': 'query',
         'warnings': 'warnings',
-        'stats': 'stats',
         'events': 'events',
+        'stats': 'stats',
         'granularity': 'granularity',
         'timeseries': 'timeseries'
     }
 
-    def __init__(self, name=None, query=None, warnings=None, stats=None, events=None, granularity=None, timeseries=None):  # noqa: E501
+    def __init__(self, name=None, query=None, warnings=None, events=None, stats=None, granularity=None, timeseries=None):  # noqa: E501
         """QueryResult - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._query = None
         self._warnings = None
-        self._stats = None
         self._events = None
+        self._stats = None
         self._granularity = None
         self._timeseries = None
         self.discriminator = None
@@ -72,10 +72,10 @@ class QueryResult(object):
             self.query = query
         if warnings is not None:
             self.warnings = warnings
-        if stats is not None:
-            self.stats = stats
         if events is not None:
             self.events = events
+        if stats is not None:
+            self.stats = stats
         if granularity is not None:
             self.granularity = granularity
         if timeseries is not None:
@@ -151,27 +151,6 @@ class QueryResult(object):
         self._warnings = warnings
 
     @property
-    def stats(self):
-        """Gets the stats of this QueryResult.  # noqa: E501
-
-
-        :return: The stats of this QueryResult.  # noqa: E501
-        :rtype: StatsModel
-        """
-        return self._stats
-
-    @stats.setter
-    def stats(self, stats):
-        """Sets the stats of this QueryResult.
-
-
-        :param stats: The stats of this QueryResult.  # noqa: E501
-        :type: StatsModel
-        """
-
-        self._stats = stats
-
-    @property
     def events(self):
         """Gets the events of this QueryResult.  # noqa: E501
 
@@ -191,6 +170,27 @@ class QueryResult(object):
         """
 
         self._events = events
+
+    @property
+    def stats(self):
+        """Gets the stats of this QueryResult.  # noqa: E501
+
+
+        :return: The stats of this QueryResult.  # noqa: E501
+        :rtype: StatsModel
+        """
+        return self._stats
+
+    @stats.setter
+    def stats(self, stats):
+        """Sets the stats of this QueryResult.
+
+
+        :param stats: The stats of this QueryResult.  # noqa: E501
+        :type: StatsModel
+        """
+
+        self._stats = stats
 
     @property
     def granularity(self):

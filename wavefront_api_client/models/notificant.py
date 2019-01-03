@@ -31,10 +31,10 @@ class Notificant(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'method': 'str',
-        'description': 'str',
-        'id': 'str',
         'content_type': 'str',
+        'method': 'str',
+        'id': 'str',
+        'description': 'str',
         'customer_id': 'str',
         'title': 'str',
         'creator_id': 'str',
@@ -50,10 +50,10 @@ class Notificant(object):
     }
 
     attribute_map = {
-        'method': 'method',
-        'description': 'description',
-        'id': 'id',
         'content_type': 'contentType',
+        'method': 'method',
+        'id': 'id',
+        'description': 'description',
         'customer_id': 'customerId',
         'title': 'title',
         'creator_id': 'creatorId',
@@ -68,13 +68,13 @@ class Notificant(object):
         'is_html_content': 'isHtmlContent'
     }
 
-    def __init__(self, method=None, description=None, id=None, content_type=None, customer_id=None, title=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, triggers=None, recipient=None, custom_http_headers=None, email_subject=None, is_html_content=None):  # noqa: E501
+    def __init__(self, content_type=None, method=None, id=None, description=None, customer_id=None, title=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, template=None, triggers=None, recipient=None, custom_http_headers=None, email_subject=None, is_html_content=None):  # noqa: E501
         """Notificant - a model defined in Swagger"""  # noqa: E501
 
-        self._method = None
-        self._description = None
-        self._id = None
         self._content_type = None
+        self._method = None
+        self._id = None
+        self._description = None
         self._customer_id = None
         self._title = None
         self._creator_id = None
@@ -89,12 +89,12 @@ class Notificant(object):
         self._is_html_content = None
         self.discriminator = None
 
-        self.method = method
-        self.description = description
-        if id is not None:
-            self.id = id
         if content_type is not None:
             self.content_type = content_type
+        self.method = method
+        if id is not None:
+            self.id = id
+        self.description = description
         if customer_id is not None:
             self.customer_id = customer_id
         self.title = title
@@ -115,6 +115,35 @@ class Notificant(object):
             self.email_subject = email_subject
         if is_html_content is not None:
             self.is_html_content = is_html_content
+
+    @property
+    def content_type(self):
+        """Gets the content_type of this Notificant.  # noqa: E501
+
+        The value of the Content-Type header of the webhook POST request.  # noqa: E501
+
+        :return: The content_type of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_type
+
+    @content_type.setter
+    def content_type(self, content_type):
+        """Sets the content_type of this Notificant.
+
+        The value of the Content-Type header of the webhook POST request.  # noqa: E501
+
+        :param content_type: The content_type of this Notificant.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["application/json", "text/html", "text/plain", "application/x-www-form-urlencoded", ""]  # noqa: E501
+        if content_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `content_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(content_type, allowed_values)
+            )
+
+        self._content_type = content_type
 
     @property
     def method(self):
@@ -148,6 +177,27 @@ class Notificant(object):
         self._method = method
 
     @property
+    def id(self):
+        """Gets the id of this Notificant.  # noqa: E501
+
+
+        :return: The id of this Notificant.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Notificant.
+
+
+        :param id: The id of this Notificant.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
     def description(self):
         """Gets the description of this Notificant.  # noqa: E501
 
@@ -171,56 +221,6 @@ class Notificant(object):
             raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
-
-    @property
-    def id(self):
-        """Gets the id of this Notificant.  # noqa: E501
-
-
-        :return: The id of this Notificant.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Notificant.
-
-
-        :param id: The id of this Notificant.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def content_type(self):
-        """Gets the content_type of this Notificant.  # noqa: E501
-
-        The value of the Content-Type header of the webhook POST request.  # noqa: E501
-
-        :return: The content_type of this Notificant.  # noqa: E501
-        :rtype: str
-        """
-        return self._content_type
-
-    @content_type.setter
-    def content_type(self, content_type):
-        """Sets the content_type of this Notificant.
-
-        The value of the Content-Type header of the webhook POST request.  # noqa: E501
-
-        :param content_type: The content_type of this Notificant.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["application/json", "text/html", "text/plain", "application/x-www-form-urlencoded", ""]  # noqa: E501
-        if content_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `content_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(content_type, allowed_values)
-            )
-
-        self._content_type = content_type
 
     @property
     def customer_id(self):

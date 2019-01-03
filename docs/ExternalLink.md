@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** | Human-readable description for this external link | 
 **name** | **str** | Name of the external link.  Will be displayed in context (right-click) menus on charts | 
 **id** | **str** |  | [optional] 
+**description** | **str** | Human-readable description for this external link | 
 **creator_id** | **str** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
 **created_epoch_millis** | **int** |  | [optional] 

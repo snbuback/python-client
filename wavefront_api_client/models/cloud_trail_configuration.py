@@ -35,37 +35,37 @@ class CloudTrailConfiguration(object):
     swagger_types = {
         'prefix': 'str',
         'region': 'str',
-        'bucket_name': 'str',
+        'filter_rule': 'str',
         'base_credentials': 'AWSBaseCredentials',
-        'filter_rule': 'str'
+        'bucket_name': 'str'
     }
 
     attribute_map = {
         'prefix': 'prefix',
         'region': 'region',
-        'bucket_name': 'bucketName',
+        'filter_rule': 'filterRule',
         'base_credentials': 'baseCredentials',
-        'filter_rule': 'filterRule'
+        'bucket_name': 'bucketName'
     }
 
-    def __init__(self, prefix=None, region=None, bucket_name=None, base_credentials=None, filter_rule=None):  # noqa: E501
+    def __init__(self, prefix=None, region=None, filter_rule=None, base_credentials=None, bucket_name=None):  # noqa: E501
         """CloudTrailConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._prefix = None
         self._region = None
-        self._bucket_name = None
-        self._base_credentials = None
         self._filter_rule = None
+        self._base_credentials = None
+        self._bucket_name = None
         self.discriminator = None
 
         if prefix is not None:
             self.prefix = prefix
         self.region = region
-        self.bucket_name = bucket_name
-        if base_credentials is not None:
-            self.base_credentials = base_credentials
         if filter_rule is not None:
             self.filter_rule = filter_rule
+        if base_credentials is not None:
+            self.base_credentials = base_credentials
+        self.bucket_name = bucket_name
 
     @property
     def prefix(self):
@@ -116,29 +116,27 @@ class CloudTrailConfiguration(object):
         self._region = region
 
     @property
-    def bucket_name(self):
-        """Gets the bucket_name of this CloudTrailConfiguration.  # noqa: E501
+    def filter_rule(self):
+        """Gets the filter_rule of this CloudTrailConfiguration.  # noqa: E501
 
-        Name of the S3 bucket where CloudTrail logs are stored  # noqa: E501
+        Rule to filter cloud trail log event.  # noqa: E501
 
-        :return: The bucket_name of this CloudTrailConfiguration.  # noqa: E501
+        :return: The filter_rule of this CloudTrailConfiguration.  # noqa: E501
         :rtype: str
         """
-        return self._bucket_name
+        return self._filter_rule
 
-    @bucket_name.setter
-    def bucket_name(self, bucket_name):
-        """Sets the bucket_name of this CloudTrailConfiguration.
+    @filter_rule.setter
+    def filter_rule(self, filter_rule):
+        """Sets the filter_rule of this CloudTrailConfiguration.
 
-        Name of the S3 bucket where CloudTrail logs are stored  # noqa: E501
+        Rule to filter cloud trail log event.  # noqa: E501
 
-        :param bucket_name: The bucket_name of this CloudTrailConfiguration.  # noqa: E501
+        :param filter_rule: The filter_rule of this CloudTrailConfiguration.  # noqa: E501
         :type: str
         """
-        if bucket_name is None:
-            raise ValueError("Invalid value for `bucket_name`, must not be `None`")  # noqa: E501
 
-        self._bucket_name = bucket_name
+        self._filter_rule = filter_rule
 
     @property
     def base_credentials(self):
@@ -162,27 +160,29 @@ class CloudTrailConfiguration(object):
         self._base_credentials = base_credentials
 
     @property
-    def filter_rule(self):
-        """Gets the filter_rule of this CloudTrailConfiguration.  # noqa: E501
+    def bucket_name(self):
+        """Gets the bucket_name of this CloudTrailConfiguration.  # noqa: E501
 
-        Rule to filter cloud trail log event.  # noqa: E501
+        Name of the S3 bucket where CloudTrail logs are stored  # noqa: E501
 
-        :return: The filter_rule of this CloudTrailConfiguration.  # noqa: E501
+        :return: The bucket_name of this CloudTrailConfiguration.  # noqa: E501
         :rtype: str
         """
-        return self._filter_rule
+        return self._bucket_name
 
-    @filter_rule.setter
-    def filter_rule(self, filter_rule):
-        """Sets the filter_rule of this CloudTrailConfiguration.
+    @bucket_name.setter
+    def bucket_name(self, bucket_name):
+        """Sets the bucket_name of this CloudTrailConfiguration.
 
-        Rule to filter cloud trail log event.  # noqa: E501
+        Name of the S3 bucket where CloudTrail logs are stored  # noqa: E501
 
-        :param filter_rule: The filter_rule of this CloudTrailConfiguration.  # noqa: E501
+        :param bucket_name: The bucket_name of this CloudTrailConfiguration.  # noqa: E501
         :type: str
         """
+        if bucket_name is None:
+            raise ValueError("Invalid value for `bucket_name`, must not be `None`")  # noqa: E501
 
-        self._filter_rule = filter_rule
+        self._bucket_name = bucket_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

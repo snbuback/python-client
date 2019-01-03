@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **name** | **str** | The human-readable name of this integration | 
 **id** | **str** |  | [optional] 
 **service** | **str** | A value denoting which cloud service this integration integrates with | 
-**in_trash** | **bool** |  | [optional] 
 **creator_id** | **str** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
+**in_trash** | **bool** |  | [optional] 
 **last_error_event** | [**Event**](Event.md) |  | [optional] 
 **additional_tags** | **dict(str, str)** | A list of point tag key-values to add to every point ingested using this integration | [optional] 
 **last_received_data_point_ms** | **int** | Time that this integration last received a data point, in epoch millis | [optional] 

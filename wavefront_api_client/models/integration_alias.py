@@ -32,38 +32,38 @@ class IntegrationAlias(object):
     """
     swagger_types = {
         'icon': 'str',
-        'description': 'str',
         'name': 'str',
         'id': 'str',
+        'description': 'str',
         'base_url': 'str'
     }
 
     attribute_map = {
         'icon': 'icon',
-        'description': 'description',
         'name': 'name',
         'id': 'id',
+        'description': 'description',
         'base_url': 'baseUrl'
     }
 
-    def __init__(self, icon=None, description=None, name=None, id=None, base_url=None):  # noqa: E501
+    def __init__(self, icon=None, name=None, id=None, description=None, base_url=None):  # noqa: E501
         """IntegrationAlias - a model defined in Swagger"""  # noqa: E501
 
         self._icon = None
-        self._description = None
         self._name = None
         self._id = None
+        self._description = None
         self._base_url = None
         self.discriminator = None
 
         if icon is not None:
             self.icon = icon
-        if description is not None:
-            self.description = description
         if name is not None:
             self.name = name
         if id is not None:
             self.id = id
+        if description is not None:
+            self.description = description
         if base_url is not None:
             self.base_url = base_url
 
@@ -89,29 +89,6 @@ class IntegrationAlias(object):
         """
 
         self._icon = icon
-
-    @property
-    def description(self):
-        """Gets the description of this IntegrationAlias.  # noqa: E501
-
-        Description of the alias Integration  # noqa: E501
-
-        :return: The description of this IntegrationAlias.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this IntegrationAlias.
-
-        Description of the alias Integration  # noqa: E501
-
-        :param description: The description of this IntegrationAlias.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
 
     @property
     def name(self):
@@ -158,6 +135,29 @@ class IntegrationAlias(object):
         """
 
         self._id = id
+
+    @property
+    def description(self):
+        """Gets the description of this IntegrationAlias.  # noqa: E501
+
+        Description of the alias Integration  # noqa: E501
+
+        :return: The description of this IntegrationAlias.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this IntegrationAlias.
+
+        Description of the alias Integration  # noqa: E501
+
+        :param description: The description of this IntegrationAlias.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def base_url(self):

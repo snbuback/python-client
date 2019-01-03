@@ -33,58 +33,33 @@ class IntegrationAlert(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
         'name': 'str',
+        'description': 'str',
         'url': 'str',
         'alert_obj': 'Alert'
     }
 
     attribute_map = {
-        'description': 'description',
         'name': 'name',
+        'description': 'description',
         'url': 'url',
         'alert_obj': 'alertObj'
     }
 
-    def __init__(self, description=None, name=None, url=None, alert_obj=None):  # noqa: E501
+    def __init__(self, name=None, description=None, url=None, alert_obj=None):  # noqa: E501
         """IntegrationAlert - a model defined in Swagger"""  # noqa: E501
 
-        self._description = None
         self._name = None
+        self._description = None
         self._url = None
         self._alert_obj = None
         self.discriminator = None
 
-        self.description = description
         self.name = name
+        self.description = description
         self.url = url
         if alert_obj is not None:
             self.alert_obj = alert_obj
-
-    @property
-    def description(self):
-        """Gets the description of this IntegrationAlert.  # noqa: E501
-
-        Alert description  # noqa: E501
-
-        :return: The description of this IntegrationAlert.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this IntegrationAlert.
-
-        Alert description  # noqa: E501
-
-        :param description: The description of this IntegrationAlert.  # noqa: E501
-        :type: str
-        """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
-
-        self._description = description
 
     @property
     def name(self):
@@ -110,6 +85,31 @@ class IntegrationAlert(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def description(self):
+        """Gets the description of this IntegrationAlert.  # noqa: E501
+
+        Alert description  # noqa: E501
+
+        :return: The description of this IntegrationAlert.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this IntegrationAlert.
+
+        Alert description  # noqa: E501
+
+        :param description: The description of this IntegrationAlert.  # noqa: E501
+        :type: str
+        """
+        if description is None:
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+
+        self._description = description
 
     @property
     def url(self):

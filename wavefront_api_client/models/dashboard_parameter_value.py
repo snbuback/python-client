@@ -32,8 +32,8 @@ class DashboardParameterValue(object):
     """
     swagger_types = {
         'label': 'str',
-        'description': 'str',
         'default_value': 'str',
+        'description': 'str',
         'parameter_type': 'str',
         'values_to_readable_strings': 'dict(str, str)',
         'dynamic_field_type': 'str',
@@ -47,8 +47,8 @@ class DashboardParameterValue(object):
 
     attribute_map = {
         'label': 'label',
-        'description': 'description',
         'default_value': 'defaultValue',
+        'description': 'description',
         'parameter_type': 'parameterType',
         'values_to_readable_strings': 'valuesToReadableStrings',
         'dynamic_field_type': 'dynamicFieldType',
@@ -60,12 +60,12 @@ class DashboardParameterValue(object):
         'reverse_dyn_sort': 'reverseDynSort'
     }
 
-    def __init__(self, label=None, description=None, default_value=None, parameter_type=None, values_to_readable_strings=None, dynamic_field_type=None, query_value=None, hide_from_view=None, tag_key=None, multivalue=None, allow_all=None, reverse_dyn_sort=None):  # noqa: E501
+    def __init__(self, label=None, default_value=None, description=None, parameter_type=None, values_to_readable_strings=None, dynamic_field_type=None, query_value=None, hide_from_view=None, tag_key=None, multivalue=None, allow_all=None, reverse_dyn_sort=None):  # noqa: E501
         """DashboardParameterValue - a model defined in Swagger"""  # noqa: E501
 
         self._label = None
-        self._description = None
         self._default_value = None
+        self._description = None
         self._parameter_type = None
         self._values_to_readable_strings = None
         self._dynamic_field_type = None
@@ -79,10 +79,10 @@ class DashboardParameterValue(object):
 
         if label is not None:
             self.label = label
-        if description is not None:
-            self.description = description
         if default_value is not None:
             self.default_value = default_value
+        if description is not None:
+            self.description = description
         if parameter_type is not None:
             self.parameter_type = parameter_type
         if values_to_readable_strings is not None:
@@ -124,27 +124,6 @@ class DashboardParameterValue(object):
         self._label = label
 
     @property
-    def description(self):
-        """Gets the description of this DashboardParameterValue.  # noqa: E501
-
-
-        :return: The description of this DashboardParameterValue.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this DashboardParameterValue.
-
-
-        :param description: The description of this DashboardParameterValue.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
-
-    @property
     def default_value(self):
         """Gets the default_value of this DashboardParameterValue.  # noqa: E501
 
@@ -164,6 +143,27 @@ class DashboardParameterValue(object):
         """
 
         self._default_value = default_value
+
+    @property
+    def description(self):
+        """Gets the description of this DashboardParameterValue.  # noqa: E501
+
+
+        :return: The description of this DashboardParameterValue.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this DashboardParameterValue.
+
+
+        :param description: The description of this DashboardParameterValue.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def parameter_type(self):

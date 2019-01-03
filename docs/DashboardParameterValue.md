@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **label** | **str** |  | [optional] 
-**description** | **str** |  | [optional] 
 **default_value** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
 **parameter_type** | **str** |  | [optional] 
 **values_to_readable_strings** | **dict(str, str)** |  | [optional] 
 **dynamic_field_type** | **str** |  | [optional] 

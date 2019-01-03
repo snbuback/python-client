@@ -31,64 +31,39 @@ class UserGroupWrite(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'permissions': 'list[str]',
         'name': 'str',
+        'permissions': 'list[str]',
         'id': 'str',
         'customer': 'str',
         'created_epoch_millis': 'int'
     }
 
     attribute_map = {
-        'permissions': 'permissions',
         'name': 'name',
+        'permissions': 'permissions',
         'id': 'id',
         'customer': 'customer',
         'created_epoch_millis': 'createdEpochMillis'
     }
 
-    def __init__(self, permissions=None, name=None, id=None, customer=None, created_epoch_millis=None):  # noqa: E501
+    def __init__(self, name=None, permissions=None, id=None, customer=None, created_epoch_millis=None):  # noqa: E501
         """UserGroupWrite - a model defined in Swagger"""  # noqa: E501
 
-        self._permissions = None
         self._name = None
+        self._permissions = None
         self._id = None
         self._customer = None
         self._created_epoch_millis = None
         self.discriminator = None
 
-        self.permissions = permissions
         self.name = name
+        self.permissions = permissions
         if id is not None:
             self.id = id
         if customer is not None:
             self.customer = customer
         if created_epoch_millis is not None:
             self.created_epoch_millis = created_epoch_millis
-
-    @property
-    def permissions(self):
-        """Gets the permissions of this UserGroupWrite.  # noqa: E501
-
-        List of permissions the user group has been granted access to  # noqa: E501
-
-        :return: The permissions of this UserGroupWrite.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._permissions
-
-    @permissions.setter
-    def permissions(self, permissions):
-        """Sets the permissions of this UserGroupWrite.
-
-        List of permissions the user group has been granted access to  # noqa: E501
-
-        :param permissions: The permissions of this UserGroupWrite.  # noqa: E501
-        :type: list[str]
-        """
-        if permissions is None:
-            raise ValueError("Invalid value for `permissions`, must not be `None`")  # noqa: E501
-
-        self._permissions = permissions
 
     @property
     def name(self):
@@ -114,6 +89,31 @@ class UserGroupWrite(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def permissions(self):
+        """Gets the permissions of this UserGroupWrite.  # noqa: E501
+
+        List of permissions the user group has been granted access to  # noqa: E501
+
+        :return: The permissions of this UserGroupWrite.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._permissions
+
+    @permissions.setter
+    def permissions(self, permissions):
+        """Sets the permissions of this UserGroupWrite.
+
+        List of permissions the user group has been granted access to  # noqa: E501
+
+        :param permissions: The permissions of this UserGroupWrite.  # noqa: E501
+        :type: list[str]
+        """
+        if permissions is None:
+            raise ValueError("Invalid value for `permissions`, must not be `None`")  # noqa: E501
+
+        self._permissions = permissions
 
     @property
     def id(self):

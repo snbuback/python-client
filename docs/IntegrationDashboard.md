@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** | Dashboard description | 
 **name** | **str** | Dashboard name | 
+**description** | **str** | Dashboard description | 
 **url** | **str** | URL path to the JSON definition of this dashboard | 
 **dashboard_obj** | [**Dashboard**](Dashboard.md) |  | [optional] 
 

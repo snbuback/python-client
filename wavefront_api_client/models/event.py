@@ -31,83 +31,83 @@ class Event(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'table': 'str',
         'end_time': 'int',
+        'table': 'str',
         'start_time': 'int',
         'name': 'str',
         'annotations': 'dict(str, str)',
         'id': 'str',
         'tags': 'list[str]',
+        'running_state': 'str',
         'created_at': 'int',
-        'is_user_event': 'bool',
         'hosts': 'list[str]',
-        'summarized_events': 'int',
         'is_ephemeral': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
         'updated_at': 'int',
-        'created_epoch_millis': 'int',
-        'updated_epoch_millis': 'int',
-        'running_state': 'str',
+        'is_user_event': 'bool',
+        'summarized_events': 'int',
         'can_delete': 'bool',
         'can_close': 'bool',
-        'creator_type': 'list[str]'
+        'creator_type': 'list[str]',
+        'created_epoch_millis': 'int',
+        'updated_epoch_millis': 'int'
     }
 
     attribute_map = {
-        'table': 'table',
         'end_time': 'endTime',
+        'table': 'table',
         'start_time': 'startTime',
         'name': 'name',
         'annotations': 'annotations',
         'id': 'id',
         'tags': 'tags',
+        'running_state': 'runningState',
         'created_at': 'createdAt',
-        'is_user_event': 'isUserEvent',
         'hosts': 'hosts',
-        'summarized_events': 'summarizedEvents',
         'is_ephemeral': 'isEphemeral',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'updated_at': 'updatedAt',
-        'created_epoch_millis': 'createdEpochMillis',
-        'updated_epoch_millis': 'updatedEpochMillis',
-        'running_state': 'runningState',
+        'is_user_event': 'isUserEvent',
+        'summarized_events': 'summarizedEvents',
         'can_delete': 'canDelete',
         'can_close': 'canClose',
-        'creator_type': 'creatorType'
+        'creator_type': 'creatorType',
+        'created_epoch_millis': 'createdEpochMillis',
+        'updated_epoch_millis': 'updatedEpochMillis'
     }
 
-    def __init__(self, table=None, end_time=None, start_time=None, name=None, annotations=None, id=None, tags=None, created_at=None, is_user_event=None, hosts=None, summarized_events=None, is_ephemeral=None, creator_id=None, updater_id=None, updated_at=None, created_epoch_millis=None, updated_epoch_millis=None, running_state=None, can_delete=None, can_close=None, creator_type=None):  # noqa: E501
+    def __init__(self, end_time=None, table=None, start_time=None, name=None, annotations=None, id=None, tags=None, running_state=None, created_at=None, hosts=None, is_ephemeral=None, creator_id=None, updater_id=None, updated_at=None, is_user_event=None, summarized_events=None, can_delete=None, can_close=None, creator_type=None, created_epoch_millis=None, updated_epoch_millis=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
-        self._table = None
         self._end_time = None
+        self._table = None
         self._start_time = None
         self._name = None
         self._annotations = None
         self._id = None
         self._tags = None
+        self._running_state = None
         self._created_at = None
-        self._is_user_event = None
         self._hosts = None
-        self._summarized_events = None
         self._is_ephemeral = None
         self._creator_id = None
         self._updater_id = None
         self._updated_at = None
-        self._created_epoch_millis = None
-        self._updated_epoch_millis = None
-        self._running_state = None
+        self._is_user_event = None
+        self._summarized_events = None
         self._can_delete = None
         self._can_close = None
         self._creator_type = None
+        self._created_epoch_millis = None
+        self._updated_epoch_millis = None
         self.discriminator = None
 
-        if table is not None:
-            self.table = table
         if end_time is not None:
             self.end_time = end_time
+        if table is not None:
+            self.table = table
         self.start_time = start_time
         self.name = name
         self.annotations = annotations
@@ -115,14 +115,12 @@ class Event(object):
             self.id = id
         if tags is not None:
             self.tags = tags
+        if running_state is not None:
+            self.running_state = running_state
         if created_at is not None:
             self.created_at = created_at
-        if is_user_event is not None:
-            self.is_user_event = is_user_event
         if hosts is not None:
             self.hosts = hosts
-        if summarized_events is not None:
-            self.summarized_events = summarized_events
         if is_ephemeral is not None:
             self.is_ephemeral = is_ephemeral
         if creator_id is not None:
@@ -131,41 +129,20 @@ class Event(object):
             self.updater_id = updater_id
         if updated_at is not None:
             self.updated_at = updated_at
-        if created_epoch_millis is not None:
-            self.created_epoch_millis = created_epoch_millis
-        if updated_epoch_millis is not None:
-            self.updated_epoch_millis = updated_epoch_millis
-        if running_state is not None:
-            self.running_state = running_state
+        if is_user_event is not None:
+            self.is_user_event = is_user_event
+        if summarized_events is not None:
+            self.summarized_events = summarized_events
         if can_delete is not None:
             self.can_delete = can_delete
         if can_close is not None:
             self.can_close = can_close
         if creator_type is not None:
             self.creator_type = creator_type
-
-    @property
-    def table(self):
-        """Gets the table of this Event.  # noqa: E501
-
-        The customer to which the event belongs  # noqa: E501
-
-        :return: The table of this Event.  # noqa: E501
-        :rtype: str
-        """
-        return self._table
-
-    @table.setter
-    def table(self, table):
-        """Sets the table of this Event.
-
-        The customer to which the event belongs  # noqa: E501
-
-        :param table: The table of this Event.  # noqa: E501
-        :type: str
-        """
-
-        self._table = table
+        if created_epoch_millis is not None:
+            self.created_epoch_millis = created_epoch_millis
+        if updated_epoch_millis is not None:
+            self.updated_epoch_millis = updated_epoch_millis
 
     @property
     def end_time(self):
@@ -189,6 +166,29 @@ class Event(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def table(self):
+        """Gets the table of this Event.  # noqa: E501
+
+        The customer to which the event belongs  # noqa: E501
+
+        :return: The table of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._table
+
+    @table.setter
+    def table(self, table):
+        """Sets the table of this Event.
+
+        The customer to which the event belongs  # noqa: E501
+
+        :param table: The table of this Event.  # noqa: E501
+        :type: str
+        """
+
+        self._table = table
 
     @property
     def start_time(self):
@@ -310,6 +310,33 @@ class Event(object):
         self._tags = tags
 
     @property
+    def running_state(self):
+        """Gets the running_state of this Event.  # noqa: E501
+
+
+        :return: The running_state of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._running_state
+
+    @running_state.setter
+    def running_state(self, running_state):
+        """Sets the running_state of this Event.
+
+
+        :param running_state: The running_state of this Event.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["ONGOING", "PENDING", "ENDED"]  # noqa: E501
+        if running_state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `running_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(running_state, allowed_values)
+            )
+
+        self._running_state = running_state
+
+    @property
     def created_at(self):
         """Gets the created_at of this Event.  # noqa: E501
 
@@ -329,29 +356,6 @@ class Event(object):
         """
 
         self._created_at = created_at
-
-    @property
-    def is_user_event(self):
-        """Gets the is_user_event of this Event.  # noqa: E501
-
-        Whether this event was created by a user, versus the system.  Default: system  # noqa: E501
-
-        :return: The is_user_event of this Event.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_user_event
-
-    @is_user_event.setter
-    def is_user_event(self, is_user_event):
-        """Sets the is_user_event of this Event.
-
-        Whether this event was created by a user, versus the system.  Default: system  # noqa: E501
-
-        :param is_user_event: The is_user_event of this Event.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_user_event = is_user_event
 
     @property
     def hosts(self):
@@ -375,29 +379,6 @@ class Event(object):
         """
 
         self._hosts = hosts
-
-    @property
-    def summarized_events(self):
-        """Gets the summarized_events of this Event.  # noqa: E501
-
-        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one  # noqa: E501
-
-        :return: The summarized_events of this Event.  # noqa: E501
-        :rtype: int
-        """
-        return self._summarized_events
-
-    @summarized_events.setter
-    def summarized_events(self, summarized_events):
-        """Sets the summarized_events of this Event.
-
-        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one  # noqa: E501
-
-        :param summarized_events: The summarized_events of this Event.  # noqa: E501
-        :type: int
-        """
-
-        self._summarized_events = summarized_events
 
     @property
     def is_ephemeral(self):
@@ -486,73 +467,50 @@ class Event(object):
         self._updated_at = updated_at
 
     @property
-    def created_epoch_millis(self):
-        """Gets the created_epoch_millis of this Event.  # noqa: E501
+    def is_user_event(self):
+        """Gets the is_user_event of this Event.  # noqa: E501
 
+        Whether this event was created by a user, versus the system.  Default: system  # noqa: E501
 
-        :return: The created_epoch_millis of this Event.  # noqa: E501
+        :return: The is_user_event of this Event.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_user_event
+
+    @is_user_event.setter
+    def is_user_event(self, is_user_event):
+        """Sets the is_user_event of this Event.
+
+        Whether this event was created by a user, versus the system.  Default: system  # noqa: E501
+
+        :param is_user_event: The is_user_event of this Event.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_user_event = is_user_event
+
+    @property
+    def summarized_events(self):
+        """Gets the summarized_events of this Event.  # noqa: E501
+
+        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one  # noqa: E501
+
+        :return: The summarized_events of this Event.  # noqa: E501
         :rtype: int
         """
-        return self._created_epoch_millis
+        return self._summarized_events
 
-    @created_epoch_millis.setter
-    def created_epoch_millis(self, created_epoch_millis):
-        """Sets the created_epoch_millis of this Event.
+    @summarized_events.setter
+    def summarized_events(self, summarized_events):
+        """Sets the summarized_events of this Event.
 
+        In some event queries, multiple events that occur nearly simultaneously are summarized under a single event.  This value specifies the number of events summarized under this one  # noqa: E501
 
-        :param created_epoch_millis: The created_epoch_millis of this Event.  # noqa: E501
+        :param summarized_events: The summarized_events of this Event.  # noqa: E501
         :type: int
         """
 
-        self._created_epoch_millis = created_epoch_millis
-
-    @property
-    def updated_epoch_millis(self):
-        """Gets the updated_epoch_millis of this Event.  # noqa: E501
-
-
-        :return: The updated_epoch_millis of this Event.  # noqa: E501
-        :rtype: int
-        """
-        return self._updated_epoch_millis
-
-    @updated_epoch_millis.setter
-    def updated_epoch_millis(self, updated_epoch_millis):
-        """Sets the updated_epoch_millis of this Event.
-
-
-        :param updated_epoch_millis: The updated_epoch_millis of this Event.  # noqa: E501
-        :type: int
-        """
-
-        self._updated_epoch_millis = updated_epoch_millis
-
-    @property
-    def running_state(self):
-        """Gets the running_state of this Event.  # noqa: E501
-
-
-        :return: The running_state of this Event.  # noqa: E501
-        :rtype: str
-        """
-        return self._running_state
-
-    @running_state.setter
-    def running_state(self, running_state):
-        """Sets the running_state of this Event.
-
-
-        :param running_state: The running_state of this Event.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["ONGOING", "PENDING", "ENDED"]  # noqa: E501
-        if running_state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `running_state` ({0}), must be one of {1}"  # noqa: E501
-                .format(running_state, allowed_values)
-            )
-
-        self._running_state = running_state
+        self._summarized_events = summarized_events
 
     @property
     def can_delete(self):
@@ -623,6 +581,48 @@ class Event(object):
             )
 
         self._creator_type = creator_type
+
+    @property
+    def created_epoch_millis(self):
+        """Gets the created_epoch_millis of this Event.  # noqa: E501
+
+
+        :return: The created_epoch_millis of this Event.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_epoch_millis
+
+    @created_epoch_millis.setter
+    def created_epoch_millis(self, created_epoch_millis):
+        """Sets the created_epoch_millis of this Event.
+
+
+        :param created_epoch_millis: The created_epoch_millis of this Event.  # noqa: E501
+        :type: int
+        """
+
+        self._created_epoch_millis = created_epoch_millis
+
+    @property
+    def updated_epoch_millis(self):
+        """Gets the updated_epoch_millis of this Event.  # noqa: E501
+
+
+        :return: The updated_epoch_millis of this Event.  # noqa: E501
+        :rtype: int
+        """
+        return self._updated_epoch_millis
+
+    @updated_epoch_millis.setter
+    def updated_epoch_millis(self, updated_epoch_millis):
+        """Sets the updated_epoch_millis of this Event.
+
+
+        :param updated_epoch_millis: The updated_epoch_millis of this Event.  # noqa: E501
+        :type: int
+        """
+
+        self._updated_epoch_millis = updated_epoch_millis
 
     def to_dict(self):
         """Returns the model properties as a dict"""

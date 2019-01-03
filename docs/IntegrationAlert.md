@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** | Alert description | 
 **name** | **str** | Alert name | 
+**description** | **str** | Alert description | 
 **url** | **str** | URL path to the JSON definition of this alert | 
 **alert_obj** | [**Alert**](Alert.md) |  | [optional] 
 

@@ -37,8 +37,8 @@ class Chart(object):
     swagger_types = {
         'base': 'int',
         'units': 'str',
-        'description': 'str',
         'name': 'str',
+        'description': 'str',
         'sources': 'list[ChartSourceQuery]',
         'include_obsolete_metrics': 'bool',
         'no_default_events': 'bool',
@@ -51,8 +51,8 @@ class Chart(object):
     attribute_map = {
         'base': 'base',
         'units': 'units',
-        'description': 'description',
         'name': 'name',
+        'description': 'description',
         'sources': 'sources',
         'include_obsolete_metrics': 'includeObsoleteMetrics',
         'no_default_events': 'noDefaultEvents',
@@ -62,13 +62,13 @@ class Chart(object):
         'interpolate_points': 'interpolatePoints'
     }
 
-    def __init__(self, base=None, units=None, description=None, name=None, sources=None, include_obsolete_metrics=None, no_default_events=None, chart_attributes=None, summarization=None, chart_settings=None, interpolate_points=None):  # noqa: E501
+    def __init__(self, base=None, units=None, name=None, description=None, sources=None, include_obsolete_metrics=None, no_default_events=None, chart_attributes=None, summarization=None, chart_settings=None, interpolate_points=None):  # noqa: E501
         """Chart - a model defined in Swagger"""  # noqa: E501
 
         self._base = None
         self._units = None
-        self._description = None
         self._name = None
+        self._description = None
         self._sources = None
         self._include_obsolete_metrics = None
         self._no_default_events = None
@@ -82,9 +82,9 @@ class Chart(object):
             self.base = base
         if units is not None:
             self.units = units
+        self.name = name
         if description is not None:
             self.description = description
-        self.name = name
         self.sources = sources
         if include_obsolete_metrics is not None:
             self.include_obsolete_metrics = include_obsolete_metrics
@@ -146,29 +146,6 @@ class Chart(object):
         self._units = units
 
     @property
-    def description(self):
-        """Gets the description of this Chart.  # noqa: E501
-
-        Description of the chart  # noqa: E501
-
-        :return: The description of this Chart.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Chart.
-
-        Description of the chart  # noqa: E501
-
-        :param description: The description of this Chart.  # noqa: E501
-        :type: str
-        """
-
-        self._description = description
-
-    @property
     def name(self):
         """Gets the name of this Chart.  # noqa: E501
 
@@ -192,6 +169,29 @@ class Chart(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def description(self):
+        """Gets the description of this Chart.  # noqa: E501
+
+        Description of the chart  # noqa: E501
+
+        :return: The description of this Chart.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Chart.
+
+        Description of the chart  # noqa: E501
+
+        :param description: The description of this Chart.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def sources(self):

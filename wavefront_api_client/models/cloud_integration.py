@@ -46,9 +46,9 @@ class CloudIntegration(object):
         'name': 'str',
         'id': 'str',
         'service': 'str',
-        'in_trash': 'bool',
         'creator_id': 'str',
         'updater_id': 'str',
+        'in_trash': 'bool',
         'last_error_event': 'Event',
         'additional_tags': 'dict(str, str)',
         'last_received_data_point_ms': 'int',
@@ -78,9 +78,9 @@ class CloudIntegration(object):
         'name': 'name',
         'id': 'id',
         'service': 'service',
-        'in_trash': 'inTrash',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
+        'in_trash': 'inTrash',
         'last_error_event': 'lastErrorEvent',
         'additional_tags': 'additionalTags',
         'last_received_data_point_ms': 'lastReceivedDataPointMs',
@@ -105,16 +105,16 @@ class CloudIntegration(object):
         'deleted': 'deleted'
     }
 
-    def __init__(self, force_save=None, name=None, id=None, service=None, in_trash=None, creator_id=None, updater_id=None, last_error_event=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, new_relic=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None, deleted=None):  # noqa: E501
+    def __init__(self, force_save=None, name=None, id=None, service=None, creator_id=None, updater_id=None, in_trash=None, last_error_event=None, additional_tags=None, last_received_data_point_ms=None, last_metric_count=None, cloud_watch=None, cloud_trail=None, ec2=None, gcp=None, gcp_billing=None, new_relic=None, tesla=None, azure=None, azure_activity_log=None, last_error=None, last_error_ms=None, disabled=None, last_processor_id=None, last_processing_timestamp=None, created_epoch_millis=None, updated_epoch_millis=None, service_refresh_rate_in_mins=None, deleted=None):  # noqa: E501
         """CloudIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._force_save = None
         self._name = None
         self._id = None
         self._service = None
-        self._in_trash = None
         self._creator_id = None
         self._updater_id = None
+        self._in_trash = None
         self._last_error_event = None
         self._additional_tags = None
         self._last_received_data_point_ms = None
@@ -145,12 +145,12 @@ class CloudIntegration(object):
         if id is not None:
             self.id = id
         self.service = service
-        if in_trash is not None:
-            self.in_trash = in_trash
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
             self.updater_id = updater_id
+        if in_trash is not None:
+            self.in_trash = in_trash
         if last_error_event is not None:
             self.last_error_event = last_error_event
         if additional_tags is not None:
@@ -295,27 +295,6 @@ class CloudIntegration(object):
         self._service = service
 
     @property
-    def in_trash(self):
-        """Gets the in_trash of this CloudIntegration.  # noqa: E501
-
-
-        :return: The in_trash of this CloudIntegration.  # noqa: E501
-        :rtype: bool
-        """
-        return self._in_trash
-
-    @in_trash.setter
-    def in_trash(self, in_trash):
-        """Sets the in_trash of this CloudIntegration.
-
-
-        :param in_trash: The in_trash of this CloudIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._in_trash = in_trash
-
-    @property
     def creator_id(self):
         """Gets the creator_id of this CloudIntegration.  # noqa: E501
 
@@ -356,6 +335,27 @@ class CloudIntegration(object):
         """
 
         self._updater_id = updater_id
+
+    @property
+    def in_trash(self):
+        """Gets the in_trash of this CloudIntegration.  # noqa: E501
+
+
+        :return: The in_trash of this CloudIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._in_trash
+
+    @in_trash.setter
+    def in_trash(self, in_trash):
+        """Sets the in_trash of this CloudIntegration.
+
+
+        :param in_trash: The in_trash of this CloudIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._in_trash = in_trash
 
     @property
     def last_error_event(self):

@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**permissions** | **list[str]** | List of permissions the user group has been granted access to | 
 **name** | **str** | The name of the user group | 
+**permissions** | **list[str]** | List of permissions the user group has been granted access to | 
 **id** | **str** | The unique identifier of the user group | [optional] 
 **customer** | **str** | The id of the customer to which the user group belongs | [optional] 
 **created_epoch_millis** | **int** |  | [optional] 

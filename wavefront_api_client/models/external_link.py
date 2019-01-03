@@ -31,9 +31,9 @@ class ExternalLink(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
         'name': 'str',
         'id': 'str',
+        'description': 'str',
         'creator_id': 'str',
         'updater_id': 'str',
         'created_epoch_millis': 'int',
@@ -45,9 +45,9 @@ class ExternalLink(object):
     }
 
     attribute_map = {
-        'description': 'description',
         'name': 'name',
         'id': 'id',
+        'description': 'description',
         'creator_id': 'creatorId',
         'updater_id': 'updaterId',
         'created_epoch_millis': 'createdEpochMillis',
@@ -58,12 +58,12 @@ class ExternalLink(object):
         'metric_filter_regex': 'metricFilterRegex'
     }
 
-    def __init__(self, description=None, name=None, id=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, source_filter_regex=None, point_tag_filter_regexes=None, template=None, metric_filter_regex=None):  # noqa: E501
+    def __init__(self, name=None, id=None, description=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, source_filter_regex=None, point_tag_filter_regexes=None, template=None, metric_filter_regex=None):  # noqa: E501
         """ExternalLink - a model defined in Swagger"""  # noqa: E501
 
-        self._description = None
         self._name = None
         self._id = None
+        self._description = None
         self._creator_id = None
         self._updater_id = None
         self._created_epoch_millis = None
@@ -74,10 +74,10 @@ class ExternalLink(object):
         self._metric_filter_regex = None
         self.discriminator = None
 
-        self.description = description
         self.name = name
         if id is not None:
             self.id = id
+        self.description = description
         if creator_id is not None:
             self.creator_id = creator_id
         if updater_id is not None:
@@ -93,31 +93,6 @@ class ExternalLink(object):
         self.template = template
         if metric_filter_regex is not None:
             self.metric_filter_regex = metric_filter_regex
-
-    @property
-    def description(self):
-        """Gets the description of this ExternalLink.  # noqa: E501
-
-        Human-readable description for this external link  # noqa: E501
-
-        :return: The description of this ExternalLink.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this ExternalLink.
-
-        Human-readable description for this external link  # noqa: E501
-
-        :param description: The description of this ExternalLink.  # noqa: E501
-        :type: str
-        """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
-
-        self._description = description
 
     @property
     def name(self):
@@ -164,6 +139,31 @@ class ExternalLink(object):
         """
 
         self._id = id
+
+    @property
+    def description(self):
+        """Gets the description of this ExternalLink.  # noqa: E501
+
+        Human-readable description for this external link  # noqa: E501
+
+        :return: The description of this ExternalLink.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ExternalLink.
+
+        Human-readable description for this external link  # noqa: E501
+
+        :param description: The description of this ExternalLink.  # noqa: E501
+        :type: str
+        """
+        if description is None:
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+
+        self._description = description
 
     @property
     def creator_id(self):

@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**method** | **str** | The notification method used for notification target. | 
-**description** | **str** | Description | 
-**id** | **str** |  | [optional] 
 **content_type** | **str** | The value of the Content-Type header of the webhook POST request. | [optional] 
+**method** | **str** | The notification method used for notification target. | 
+**id** | **str** |  | [optional] 
+**description** | **str** | Description | 
 **customer_id** | **str** |  | [optional] 
 **title** | **str** | Title | 
 **creator_id** | **str** |  | [optional] 

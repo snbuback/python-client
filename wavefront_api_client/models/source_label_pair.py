@@ -35,8 +35,8 @@ class SourceLabelPair(object):
         'severity': 'str',
         'host': 'str',
         'tags': 'dict(str, str)',
-        'firing': 'int',
-        'observed': 'int'
+        'observed': 'int',
+        'firing': 'int'
     }
 
     attribute_map = {
@@ -44,19 +44,19 @@ class SourceLabelPair(object):
         'severity': 'severity',
         'host': 'host',
         'tags': 'tags',
-        'firing': 'firing',
-        'observed': 'observed'
+        'observed': 'observed',
+        'firing': 'firing'
     }
 
-    def __init__(self, label=None, severity=None, host=None, tags=None, firing=None, observed=None):  # noqa: E501
+    def __init__(self, label=None, severity=None, host=None, tags=None, observed=None, firing=None):  # noqa: E501
         """SourceLabelPair - a model defined in Swagger"""  # noqa: E501
 
         self._label = None
         self._severity = None
         self._host = None
         self._tags = None
-        self._firing = None
         self._observed = None
+        self._firing = None
         self.discriminator = None
 
         if label is not None:
@@ -67,10 +67,10 @@ class SourceLabelPair(object):
             self.host = host
         if tags is not None:
             self.tags = tags
-        if firing is not None:
-            self.firing = firing
         if observed is not None:
             self.observed = observed
+        if firing is not None:
+            self.firing = firing
 
     @property
     def label(self):
@@ -165,27 +165,6 @@ class SourceLabelPair(object):
         self._tags = tags
 
     @property
-    def firing(self):
-        """Gets the firing of this SourceLabelPair.  # noqa: E501
-
-
-        :return: The firing of this SourceLabelPair.  # noqa: E501
-        :rtype: int
-        """
-        return self._firing
-
-    @firing.setter
-    def firing(self, firing):
-        """Sets the firing of this SourceLabelPair.
-
-
-        :param firing: The firing of this SourceLabelPair.  # noqa: E501
-        :type: int
-        """
-
-        self._firing = firing
-
-    @property
     def observed(self):
         """Gets the observed of this SourceLabelPair.  # noqa: E501
 
@@ -205,6 +184,27 @@ class SourceLabelPair(object):
         """
 
         self._observed = observed
+
+    @property
+    def firing(self):
+        """Gets the firing of this SourceLabelPair.  # noqa: E501
+
+
+        :return: The firing of this SourceLabelPair.  # noqa: E501
+        :rtype: int
+        """
+        return self._firing
+
+    @firing.setter
+    def firing(self, firing):
+        """Sets the firing of this SourceLabelPair.
+
+
+        :param firing: The firing of this SourceLabelPair.  # noqa: E501
+        :type: int
+        """
+
+        self._firing = firing
 
     def to_dict(self):
         """Returns the model properties as a dict"""

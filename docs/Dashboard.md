@@ -4,17 +4,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **can_user_modify** | **bool** |  | [optional] 
-**hidden** | **bool** |  | [optional] 
-**description** | **str** | Human-readable description of the dashboard | [optional] 
 **name** | **str** | Name of the dashboard | 
 **id** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **parameters** | **dict(str, str)** | Deprecated.  An obsolete representation of dashboard parameters | [optional] 
+**description** | **str** | Human-readable description of the dashboard | [optional] 
+**hidden** | **bool** |  | [optional] 
+**num_charts** | **int** |  | [optional] 
+**system_owned** | **bool** | Whether this dashboard is system-owned and not writeable | [optional] 
+**favorite** | **bool** |  | [optional] 
+**num_favorites** | **int** |  | [optional] 
+**orphan** | **bool** |  | [optional] 
 **tags** | [**WFTags**](WFTags.md) |  | [optional] 
 **customer** | **str** | id of the customer to which this dashboard belongs | [optional] 
-**system_owned** | **bool** | Whether this dashboard is system-owned and not writeable | [optional] 
-**url** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **creator_id** | **str** |  | [optional] 
 **updater_id** | **str** |  | [optional] 
+**url** | **str** | Unique identifier, also URL slug, of the dashboard | 
 **event_filter_type** | **str** | How charts belonging to this dashboard should display events.  BYCHART is default if unspecified | [optional] 
 **sections** | [**list[DashboardSection]**](DashboardSection.md) | Dashboard chart sections | 
 **parameter_details** | [**dict(str, DashboardParameterValue)**](DashboardParameterValue.md) | The current (as of Wavefront 4.0) JSON representation of dashboard parameters.  This is a map from a parameter name to its representation | [optional] 
@@ -35,10 +39,6 @@ Name | Type | Description | Notes
 **created_epoch_millis** | **int** |  | [optional] 
 **updated_epoch_millis** | **int** |  | [optional] 
 **deleted** | **bool** |  | [optional] 
-**num_charts** | **int** |  | [optional] 
-**favorite** | **bool** |  | [optional] 
-**num_favorites** | **int** |  | [optional] 
-**orphan** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

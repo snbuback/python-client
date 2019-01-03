@@ -34,56 +34,56 @@ class ChartSourceQuery(object):
         'name': 'str',
         'query': 'str',
         'disabled': 'bool',
-        'scatter_plot_source': 'str',
-        'querybuilder_serialization': 'str',
-        'querybuilder_enabled': 'bool',
         'secondary_axis': 'bool',
         'source_description': 'str',
-        'source_color': 'str'
+        'source_color': 'str',
+        'scatter_plot_source': 'str',
+        'querybuilder_serialization': 'str',
+        'querybuilder_enabled': 'bool'
     }
 
     attribute_map = {
         'name': 'name',
         'query': 'query',
         'disabled': 'disabled',
-        'scatter_plot_source': 'scatterPlotSource',
-        'querybuilder_serialization': 'querybuilderSerialization',
-        'querybuilder_enabled': 'querybuilderEnabled',
         'secondary_axis': 'secondaryAxis',
         'source_description': 'sourceDescription',
-        'source_color': 'sourceColor'
+        'source_color': 'sourceColor',
+        'scatter_plot_source': 'scatterPlotSource',
+        'querybuilder_serialization': 'querybuilderSerialization',
+        'querybuilder_enabled': 'querybuilderEnabled'
     }
 
-    def __init__(self, name=None, query=None, disabled=None, scatter_plot_source=None, querybuilder_serialization=None, querybuilder_enabled=None, secondary_axis=None, source_description=None, source_color=None):  # noqa: E501
+    def __init__(self, name=None, query=None, disabled=None, secondary_axis=None, source_description=None, source_color=None, scatter_plot_source=None, querybuilder_serialization=None, querybuilder_enabled=None):  # noqa: E501
         """ChartSourceQuery - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._query = None
         self._disabled = None
-        self._scatter_plot_source = None
-        self._querybuilder_serialization = None
-        self._querybuilder_enabled = None
         self._secondary_axis = None
         self._source_description = None
         self._source_color = None
+        self._scatter_plot_source = None
+        self._querybuilder_serialization = None
+        self._querybuilder_enabled = None
         self.discriminator = None
 
         self.name = name
         self.query = query
         if disabled is not None:
             self.disabled = disabled
-        if scatter_plot_source is not None:
-            self.scatter_plot_source = scatter_plot_source
-        if querybuilder_serialization is not None:
-            self.querybuilder_serialization = querybuilder_serialization
-        if querybuilder_enabled is not None:
-            self.querybuilder_enabled = querybuilder_enabled
         if secondary_axis is not None:
             self.secondary_axis = secondary_axis
         if source_description is not None:
             self.source_description = source_description
         if source_color is not None:
             self.source_color = source_color
+        if scatter_plot_source is not None:
+            self.scatter_plot_source = scatter_plot_source
+        if querybuilder_serialization is not None:
+            self.querybuilder_serialization = querybuilder_serialization
+        if querybuilder_enabled is not None:
+            self.querybuilder_enabled = querybuilder_enabled
 
     @property
     def name(self):
@@ -159,6 +159,75 @@ class ChartSourceQuery(object):
         self._disabled = disabled
 
     @property
+    def secondary_axis(self):
+        """Gets the secondary_axis of this ChartSourceQuery.  # noqa: E501
+
+        Determines if this source relates to the right hand Y-axis or not  # noqa: E501
+
+        :return: The secondary_axis of this ChartSourceQuery.  # noqa: E501
+        :rtype: bool
+        """
+        return self._secondary_axis
+
+    @secondary_axis.setter
+    def secondary_axis(self, secondary_axis):
+        """Sets the secondary_axis of this ChartSourceQuery.
+
+        Determines if this source relates to the right hand Y-axis or not  # noqa: E501
+
+        :param secondary_axis: The secondary_axis of this ChartSourceQuery.  # noqa: E501
+        :type: bool
+        """
+
+        self._secondary_axis = secondary_axis
+
+    @property
+    def source_description(self):
+        """Gets the source_description of this ChartSourceQuery.  # noqa: E501
+
+        A description for the purpose of this source  # noqa: E501
+
+        :return: The source_description of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_description
+
+    @source_description.setter
+    def source_description(self, source_description):
+        """Sets the source_description of this ChartSourceQuery.
+
+        A description for the purpose of this source  # noqa: E501
+
+        :param source_description: The source_description of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._source_description = source_description
+
+    @property
+    def source_color(self):
+        """Gets the source_color of this ChartSourceQuery.  # noqa: E501
+
+        The color used to draw all results from this source (auto if unset)  # noqa: E501
+
+        :return: The source_color of this ChartSourceQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._source_color
+
+    @source_color.setter
+    def source_color(self, source_color):
+        """Sets the source_color of this ChartSourceQuery.
+
+        The color used to draw all results from this source (auto if unset)  # noqa: E501
+
+        :param source_color: The source_color of this ChartSourceQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._source_color = source_color
+
+    @property
     def scatter_plot_source(self):
         """Gets the scatter_plot_source of this ChartSourceQuery.  # noqa: E501
 
@@ -232,75 +301,6 @@ class ChartSourceQuery(object):
         """
 
         self._querybuilder_enabled = querybuilder_enabled
-
-    @property
-    def secondary_axis(self):
-        """Gets the secondary_axis of this ChartSourceQuery.  # noqa: E501
-
-        Determines if this source relates to the right hand Y-axis or not  # noqa: E501
-
-        :return: The secondary_axis of this ChartSourceQuery.  # noqa: E501
-        :rtype: bool
-        """
-        return self._secondary_axis
-
-    @secondary_axis.setter
-    def secondary_axis(self, secondary_axis):
-        """Sets the secondary_axis of this ChartSourceQuery.
-
-        Determines if this source relates to the right hand Y-axis or not  # noqa: E501
-
-        :param secondary_axis: The secondary_axis of this ChartSourceQuery.  # noqa: E501
-        :type: bool
-        """
-
-        self._secondary_axis = secondary_axis
-
-    @property
-    def source_description(self):
-        """Gets the source_description of this ChartSourceQuery.  # noqa: E501
-
-        A description for the purpose of this source  # noqa: E501
-
-        :return: The source_description of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_description
-
-    @source_description.setter
-    def source_description(self, source_description):
-        """Sets the source_description of this ChartSourceQuery.
-
-        A description for the purpose of this source  # noqa: E501
-
-        :param source_description: The source_description of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-
-        self._source_description = source_description
-
-    @property
-    def source_color(self):
-        """Gets the source_color of this ChartSourceQuery.  # noqa: E501
-
-        The color used to draw all results from this source (auto if unset)  # noqa: E501
-
-        :return: The source_color of this ChartSourceQuery.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_color
-
-    @source_color.setter
-    def source_color(self, source_color):
-        """Sets the source_color of this ChartSourceQuery.
-
-        The color used to draw all results from this source (auto if unset)  # noqa: E501
-
-        :param source_color: The source_color of this ChartSourceQuery.  # noqa: E501
-        :type: str
-        """
-
-        self._source_color = source_color
 
     def to_dict(self):
         """Returns the model properties as a dict"""

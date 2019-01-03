@@ -33,6 +33,8 @@ class MaintenanceWindow(object):
     swagger_types = {
         'reason': 'str',
         'id': 'str',
+        'sort_attr': 'int',
+        'running_state': 'str',
         'customer_id': 'str',
         'relevant_customer_tags': 'list[str]',
         'title': 'str',
@@ -46,14 +48,14 @@ class MaintenanceWindow(object):
         'updated_epoch_millis': 'int',
         'relevant_host_tags_anded': 'bool',
         'host_tag_group_host_names_group_anded': 'bool',
-        'event_name': 'str',
-        'running_state': 'str',
-        'sort_attr': 'int'
+        'event_name': 'str'
     }
 
     attribute_map = {
         'reason': 'reason',
         'id': 'id',
+        'sort_attr': 'sortAttr',
+        'running_state': 'runningState',
         'customer_id': 'customerId',
         'relevant_customer_tags': 'relevantCustomerTags',
         'title': 'title',
@@ -67,16 +69,16 @@ class MaintenanceWindow(object):
         'updated_epoch_millis': 'updatedEpochMillis',
         'relevant_host_tags_anded': 'relevantHostTagsAnded',
         'host_tag_group_host_names_group_anded': 'hostTagGroupHostNamesGroupAnded',
-        'event_name': 'eventName',
-        'running_state': 'runningState',
-        'sort_attr': 'sortAttr'
+        'event_name': 'eventName'
     }
 
-    def __init__(self, reason=None, id=None, customer_id=None, relevant_customer_tags=None, title=None, start_time_in_seconds=None, end_time_in_seconds=None, relevant_host_tags=None, relevant_host_names=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, relevant_host_tags_anded=None, host_tag_group_host_names_group_anded=None, event_name=None, running_state=None, sort_attr=None):  # noqa: E501
+    def __init__(self, reason=None, id=None, sort_attr=None, running_state=None, customer_id=None, relevant_customer_tags=None, title=None, start_time_in_seconds=None, end_time_in_seconds=None, relevant_host_tags=None, relevant_host_names=None, creator_id=None, updater_id=None, created_epoch_millis=None, updated_epoch_millis=None, relevant_host_tags_anded=None, host_tag_group_host_names_group_anded=None, event_name=None):  # noqa: E501
         """MaintenanceWindow - a model defined in Swagger"""  # noqa: E501
 
         self._reason = None
         self._id = None
+        self._sort_attr = None
+        self._running_state = None
         self._customer_id = None
         self._relevant_customer_tags = None
         self._title = None
@@ -91,13 +93,15 @@ class MaintenanceWindow(object):
         self._relevant_host_tags_anded = None
         self._host_tag_group_host_names_group_anded = None
         self._event_name = None
-        self._running_state = None
-        self._sort_attr = None
         self.discriminator = None
 
         self.reason = reason
         if id is not None:
             self.id = id
+        if sort_attr is not None:
+            self.sort_attr = sort_attr
+        if running_state is not None:
+            self.running_state = running_state
         if customer_id is not None:
             self.customer_id = customer_id
         self.relevant_customer_tags = relevant_customer_tags
@@ -122,10 +126,6 @@ class MaintenanceWindow(object):
             self.host_tag_group_host_names_group_anded = host_tag_group_host_names_group_anded
         if event_name is not None:
             self.event_name = event_name
-        if running_state is not None:
-            self.running_state = running_state
-        if sort_attr is not None:
-            self.sort_attr = sort_attr
 
     @property
     def reason(self):
@@ -172,6 +172,56 @@ class MaintenanceWindow(object):
         """
 
         self._id = id
+
+    @property
+    def sort_attr(self):
+        """Gets the sort_attr of this MaintenanceWindow.  # noqa: E501
+
+        Numeric value used in default sorting  # noqa: E501
+
+        :return: The sort_attr of this MaintenanceWindow.  # noqa: E501
+        :rtype: int
+        """
+        return self._sort_attr
+
+    @sort_attr.setter
+    def sort_attr(self, sort_attr):
+        """Sets the sort_attr of this MaintenanceWindow.
+
+        Numeric value used in default sorting  # noqa: E501
+
+        :param sort_attr: The sort_attr of this MaintenanceWindow.  # noqa: E501
+        :type: int
+        """
+
+        self._sort_attr = sort_attr
+
+    @property
+    def running_state(self):
+        """Gets the running_state of this MaintenanceWindow.  # noqa: E501
+
+
+        :return: The running_state of this MaintenanceWindow.  # noqa: E501
+        :rtype: str
+        """
+        return self._running_state
+
+    @running_state.setter
+    def running_state(self, running_state):
+        """Sets the running_state of this MaintenanceWindow.
+
+
+        :param running_state: The running_state of this MaintenanceWindow.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["ONGOING", "PENDING", "ENDED"]  # noqa: E501
+        if running_state not in allowed_values:
+            raise ValueError(
+                "Invalid value for `running_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(running_state, allowed_values)
+            )
+
+        self._running_state = running_state
 
     @property
     def customer_id(self):
@@ -492,56 +542,6 @@ class MaintenanceWindow(object):
         """
 
         self._event_name = event_name
-
-    @property
-    def running_state(self):
-        """Gets the running_state of this MaintenanceWindow.  # noqa: E501
-
-
-        :return: The running_state of this MaintenanceWindow.  # noqa: E501
-        :rtype: str
-        """
-        return self._running_state
-
-    @running_state.setter
-    def running_state(self, running_state):
-        """Sets the running_state of this MaintenanceWindow.
-
-
-        :param running_state: The running_state of this MaintenanceWindow.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["ONGOING", "PENDING", "ENDED"]  # noqa: E501
-        if running_state not in allowed_values:
-            raise ValueError(
-                "Invalid value for `running_state` ({0}), must be one of {1}"  # noqa: E501
-                .format(running_state, allowed_values)
-            )
-
-        self._running_state = running_state
-
-    @property
-    def sort_attr(self):
-        """Gets the sort_attr of this MaintenanceWindow.  # noqa: E501
-
-        Numeric value used in default sorting  # noqa: E501
-
-        :return: The sort_attr of this MaintenanceWindow.  # noqa: E501
-        :rtype: int
-        """
-        return self._sort_attr
-
-    @sort_attr.setter
-    def sort_attr(self, sort_attr):
-        """Sets the sort_attr of this MaintenanceWindow.
-
-        Numeric value used in default sorting  # noqa: E501
-
-        :param sort_attr: The sort_attr of this MaintenanceWindow.  # noqa: E501
-        :type: int
-        """
-
-        self._sort_attr = sort_attr
 
     def to_dict(self):
         """Returns the model properties as a dict"""

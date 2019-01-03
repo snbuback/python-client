@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scope** | **str** | The audience scope that this message should reach | 
-**source** | **str** | Message source.  System messages will com from &#39;system@wavefront.com&#39; | 
 **severity** | **str** | Message severity | 
-**attributes** | **dict(str, str)** | A string-&gt;string map of additional properties associated with this message | [optional] 
 **id** | **str** |  | [optional] 
 **target** | **str** | For scope&#x3D;CUSTOMER or scope&#x3D;USER, the individual customer or user id | [optional] 
 **content** | **str** | Message content | 
+**attributes** | **dict(str, str)** | A string-&gt;string map of additional properties associated with this message | [optional] 
+**scope** | **str** | The audience scope that this message should reach | 
+**source** | **str** | Message source.  System messages will com from &#39;system@wavefront.com&#39; | 
 **title** | **str** | Title of this message | 
 **start_epoch_millis** | **int** | When this message will begin to be displayed, in epoch millis | 
 **end_epoch_millis** | **int** | When this message will stop being displayed, in epoch millis | 
